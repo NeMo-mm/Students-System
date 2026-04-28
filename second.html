@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MG International School — Student Management</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+  --bg:#05080f;
+  --bg2:#080d18;
+  --surf:#0d1424;
+  --surf2:#111a2e;
+  --card:#0f1828;
+  --card2:#162035;
+  --bdr:rgba(255,255,255,0.06);
+  --bdr2:rgba(255,255,255,0.11);
+  --gold:#e8b84b;
+  --gold2:#f5d080;
+  --navy:#1a2f5e;
+  --blue:#3b82f6;
+  --cyan:#06b6d4;
+  --emerald:#10b981;
+  --rose:#f43f5e;
+  --amber:#f59e0b;
+  --violet:#8b5cf6;
+  --text:#eef2ff;
+  --t2:#7c8db5;
+  --t3:#3d4f72;
+  --r:14px;
+  --rs:9px;
+}
+/* ── LIGHT MODE ── */
+body.light-mode{
+  --bg:#f0f4fa;--bg2:#e8edf7;--surf:#ffffff;--surf2:#f4f7fd;
+  --card:#ffffff;--card2:#eef2fb;
+  --bdr:rgba(0,0,0,0.08);--bdr2:rgba(0,0,0,0.14);
+  --text:#0f1828;--t2:#4a5568;--t3:#94a3b8;
+}
+body.light-mode .glow-orb{opacity:0.04}
+body.light-mode .sidebar{background:linear-gradient(180deg,#ffffff 0%,#f4f7fd 100%) !important}
+body.light-mode .sb-section-label{color:#94a3b8}
+body.light-mode .grade-div-line{background:rgba(0,0,0,0.07)}
+body.light-mode .grade-div-lbl{color:#94a3b8}
+body.light-mode .sinput{background:#f4f7fd;border-color:rgba(0,0,0,0.1);color:#0f1828}
+body.light-mode .fsel{background:#f4f7fd;border-color:rgba(0,0,0,0.1);color:#4a5568}
+body.light-mode .btn-ghost{background:#f4f7fd;color:#4a5568;border-color:rgba(0,0,0,0.1)}
+body.light-mode .btn-ghost:hover{background:#eef2fb;color:#0f1828}
+body.light-mode .modal{background:#ffffff;border-color:rgba(0,0,0,0.1)}
+body.light-mode .fg input,body.light-mode .fg select{background:#f4f7fd;border-color:rgba(0,0,0,0.1);color:#0f1828}
+body.light-mode .fg label{color:#4a5568}
+body.light-mode .m-sub{color:#4a5568}
+body.light-mode .xbtn{background:#f4f7fd;border-color:rgba(0,0,0,0.1);color:#4a5568}
+body.light-mode .toast{background:#ffffff;border-color:rgba(0,0,0,0.1);color:#0f1828}
+body.light-mode .pg-title{color:#0f1828}
+body.light-mode .pg-sub{color:#4a5568}
+body.light-mode thead th{background:#f4f7fd;color:#94a3b8}
+body.light-mode .s-id{color:#94a3b8}
+body.light-mode .irow{border-color:rgba(0,0,0,0.05)}
+body.light-mode .ilbl{color:#94a3b8}
+body.light-mode .psec-hdr{border-color:rgba(0,0,0,0.06)}
+body.light-mode .psec-title{color:#0f1828}
+body.light-mode .btr{background:rgba(0,0,0,0.06)}
+body.light-mode .att-legend{background:#f4f7fd;border-color:rgba(0,0,0,0.06)}
+body.light-mode .goc-sub{color:#94a3b8}
+body.light-mode .login-box{background:#ffffff;border-color:rgba(0,0,0,0.1)}
+body.light-mode .login-title{color:#0f1828}
+body.light-mode .login-sub{color:#4a5568}
+body.light-mode .lfield input{background:#f4f7fd;border-color:rgba(0,0,0,0.1);color:#0f1828}
+body.light-mode .lfield input::placeholder{color:#94a3b8}
+body.light-mode .lfield label{color:#4a5568}
+body.light-mode .lrtab{color:#4a5568}
+body.light-mode .lrtab.active{background:#eef2fb;color:#0f1828}
+body.light-mode #login-overlay{background:linear-gradient(135deg,#e8edf7 0%,#f0f4fa 60%,#e8edf7 100%)}
+body.light-mode .pup{background:#f4f7fd;border-color:rgba(0,0,0,0.12)}
+body.light-mode .school-name{color:#0f1828}
+body.light-mode .school-type{color:#94a3b8}
+body.light-mode .back-home-btn{color:#4a5568;background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.1)}
+body.light-mode #mob-header{background:linear-gradient(180deg,#ffffff,#f4f7fd) !important;border-color:rgba(0,0,0,0.08) !important}
+body.light-mode #mob-nav{background:linear-gradient(180deg,#ffffff,#f4f7fd) !important;border-color:rgba(0,0,0,0.08) !important}
+body.light-mode .mob-title{color:#0f1828}
+body.light-mode .ur-meta{color:#94a3b8}
+body.light-mode .tw-top{border-color:rgba(0,0,0,0.06)}
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  width:100%;padding:8px 10px;border-radius:9px;
+  background:rgba(255,255,255,0.03);border:1px solid var(--bdr);
+  color:var(--t2);font-size:0.78rem;font-weight:500;
+  cursor:pointer;margin-bottom:8px;
+  transition:all 0.2s;font-family:'Outfit',sans-serif;
+}
+.theme-toggle:hover{background:rgba(232,184,75,0.08);border-color:rgba(232,184,75,0.25);color:var(--gold)}
+.toggle-track{
+  width:34px;height:18px;border-radius:20px;flex-shrink:0;
+  background:var(--surf2);border:1px solid var(--bdr2);
+  position:relative;transition:background 0.25s;
+}
+.toggle-thumb{
+  width:12px;height:12px;border-radius:50%;background:var(--t3);
+  position:absolute;top:2px;left:2px;
+  transition:all 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+body.light-mode .toggle-track{background:#e8b84b;border-color:#c8922a}
+body.light-mode .toggle-thumb{background:#fff;left:18px}
+/* ── TEACHER GRADE BADGE in sidebar ── */
+.teacher-grade-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:6px;
+  background:rgba(59,130,246,0.12);color:var(--blue);
+  border:1px solid rgba(59,130,246,0.2);margin-top:3px;
+}
+/* ── GRADE LOCKED NOTICE ── */
+.grade-lock-notice{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);
+  border-radius:10px;padding:10px 14px;margin-bottom:16px;
+  font-size:0.78rem;color:var(--blue);
+}
+.grade-locked-row{opacity:0.4;pointer-events:none;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;height:100%;display:flex;overflow-x:hidden}
+
+/* ── ambient glow ── */
+.glow-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:0.12}
+.orb1{width:500px;height:500px;top:-150px;left:-150px;background:radial-gradient(#3b82f6,transparent)}
+.orb2{width:400px;height:400px;bottom:-100px;right:-100px;background:radial-gradient(#e8b84b,transparent)}
+.orb3{width:300px;height:300px;top:50%;left:40%;background:radial-gradient(#8b5cf6,transparent)}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:252px;min-height:100vh;height:100%;
+  background:linear-gradient(180deg,#0a1020 0%,#080d18 100%);
+  border-right:1px solid var(--bdr);
+  display:flex;flex-direction:column;
+  position:fixed;top:0;left:0;bottom:0;z-index:50;
+  overflow-y:auto;overflow-x:hidden;
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:3px}
+
+.sb-header{padding:16px 18px 14px;border-bottom:1px solid var(--bdr)}
+.back-home-btn{
+  display:flex;align-items:center;gap:8px;
+  width:100%;padding:8px 10px;border-radius:9px;
+  background:rgba(255,255,255,0.03);border:1px solid var(--bdr);
+  color:var(--t2);font-size:0.78rem;font-weight:500;
+  cursor:pointer;text-decoration:none;margin-bottom:12px;
+  transition:all 0.2s;font-family:'Outfit',sans-serif;
+}
+.back-home-btn:hover{
+  background:rgba(232,184,75,0.08);border-color:rgba(232,184,75,0.25);
+  color:var(--gold);transform:translateX(-2px);
+}
+.school-badge{
+  display:flex;align-items:center;gap:11px;
+}
+.school-crest{
+  width:42px;height:42px;border-radius:11px;flex-shrink:0;
+  background:linear-gradient(135deg,#e8b84b,#b8842a);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(232,184,75,0.35);
+  font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;
+}
+.school-name{font-family:'DM Serif Display',serif;font-size:0.95rem;font-weight:400;line-height:1.25;color:var(--text)}
+.school-name em{color:var(--gold);font-style:normal}
+.school-type{font-size:0.67rem;color:var(--t3);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+.sb-body{padding:14px 12px;flex:1}
+.sb-section-label{
+  font-size:0.61rem;font-weight:700;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--t3);
+  padding:0 8px;margin:14px 0 5px;
+}
+
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;border-radius:var(--rs);
+  cursor:pointer;font-size:0.86rem;font-weight:500;
+  color:var(--t2);transition:all 0.18s;
+  margin-bottom:2px;position:relative;
+  border:1px solid transparent;
+}
+.nav-item:hover{background:var(--surf2);color:var(--text)}
+.nav-item.active{
+  background:linear-gradient(135deg,rgba(232,184,75,0.12),rgba(59,130,246,0.08));
+  color:var(--text);border-color:rgba(232,184,75,0.18);
+}
+.nav-item.active::before{
+  content:'';position:absolute;left:-1px;top:50%;transform:translateY(-50%);
+  width:2.5px;height:55%;border-radius:0 2px 2px 0;
+  background:linear-gradient(to bottom,var(--gold),var(--blue));
+}
+.n-icon{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surf2);flex-shrink:0;transition:all 0.18s;
+  color:var(--t2);
+}
+.nav-item.active .n-icon{background:linear-gradient(135deg,var(--gold),#b8842a);color:#fff;box-shadow:0 3px 10px rgba(232,184,75,0.3)}
+.nav-item.active .n-icon svg{color:#fff!important}
+.n-badge{margin-left:auto;font-size:0.66rem;font-weight:700;padding:2px 6px;border-radius:10px;background:rgba(232,184,75,0.15);color:var(--gold)}
+.nav-item:not(.active) .n-badge{background:var(--surf2);color:var(--t3)}
+
+/* grade dividers */
+.grade-div{display:flex;align-items:center;gap:7px;margin:10px 0 4px}
+.grade-div-line{flex:1;height:1px;background:var(--bdr)}
+.grade-div-lbl{font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t3);white-space:nowrap}
+
+.gnav{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 10px;border-radius:8px;cursor:pointer;
+  font-size:0.83rem;font-weight:500;color:var(--t2);
+  transition:all 0.16s;margin-bottom:2px;
+  border:1px solid transparent;
+}
+.gnav:hover{background:var(--surf2);color:var(--text)}
+.gnav.active{color:var(--text);border-color:rgba(255,255,255,0.08);background:var(--surf2)}
+.gnav.active::before{
+  content:'';position:absolute;left:-1px;top:50%;transform:translateY(-50%);
+  width:2.5px;height:55%;border-radius:0 2px 2px 0;
+}
+.gnav{position:relative}
+.g-num{
+  width:28px;height:28px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.76rem;font-weight:800;flex-shrink:0;
+  font-family:'Outfit',sans-serif;transition:all 0.16s;
+}
+.gnav.active .g-num{box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+
+.sb-footer{padding:14px 12px;border-top:1px solid var(--bdr)}
+.admin-card{
+  display:flex;align-items:center;gap:9px;
+  padding:10px 12px;border-radius:var(--rs);
+  background:var(--surf2);cursor:pointer;
+  border:1px solid var(--bdr);transition:all 0.18s;
+}
+.admin-card:hover{background:var(--card2);border-color:var(--bdr2)}
+.admin-av{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),#b8842a);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.82rem;color:#fff;
+}
+
+/* ── MAIN ── */
+.main{margin-left:252px;flex:1;padding:30px 34px;min-height:100vh;height:100%;position:relative;z-index:1}
+.page{display:none;animation:fadeUp 0.3s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TOPBAR ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:12px;
+}
+.pg-eyebrow{font-size:0.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.pg-title{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;color:var(--text)}
+.pg-sub{font-size:0.82rem;color:var(--t2);margin-top:3px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--rs);border:none;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#c8922a);color:#1a1200;box-shadow:0 4px 16px rgba(232,184,75,0.3)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,184,75,0.45)}
+.btn-ghost{background:var(--surf2);color:var(--t2);border:1px solid var(--bdr)}
+.btn-ghost:hover{background:var(--card2);color:var(--text)}
+.btn-danger{background:rgba(244,63,94,0.1);color:var(--rose);border:1px solid rgba(244,63,94,0.2)}
+.btn-danger:hover{background:var(--rose);color:#fff}
+.btn-edit{background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.btn-edit:hover{background:var(--blue);color:#fff}
+.btn-sm{padding:6px 12px;font-size:0.77rem;border-radius:7px;gap:4px}
+
+/* ── BADGES ── */
+.badge{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:20px;font-size:0.7rem;font-weight:700}
+.b-green{background:rgba(16,185,129,0.12);color:var(--emerald);border:1px solid rgba(16,185,129,0.2)}
+.b-red{background:rgba(244,63,94,0.12);color:var(--rose);border:1px solid rgba(244,63,94,0.2)}
+.b-amber{background:rgba(245,158,11,0.12);color:var(--amber);border:1px solid rgba(245,158,11,0.2)}
+.b-blue{background:rgba(59,130,246,0.12);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.b-gold{background:rgba(232,184,75,0.12);color:var(--gold);border:1px solid rgba(232,184,75,0.2)}
+.b-violet{background:rgba(139,92,246,0.12);color:var(--violet);border:1px solid rgba(139,92,246,0.2)}
+
+/* ── STAT CARDS ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.scard{
+  background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
+  padding:18px 20px;position:relative;overflow:hidden;
+  transition:transform 0.2s,border-color 0.2s;
+}
+.scard:hover{transform:translateY(-2px);border-color:var(--bdr2)}
+.scard::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;border-radius:50%;opacity:0.06;transform:translate(30%,-30%)}
+.sc1::after{background:var(--gold)}.sc2::after{background:var(--emerald)}.sc3::after{background:var(--amber)}.sc4::after{background:var(--rose)}
+.sc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sc-ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.i1{background:rgba(232,184,75,0.14);color:var(--gold)}
+.i2{background:rgba(16,185,129,0.14);color:var(--emerald)}
+.i3{background:rgba(245,158,11,0.14);color:var(--amber)}
+.i4{background:rgba(244,63,94,0.14);color:var(--rose)}
+.sc-pill{font-size:0.67rem;font-weight:700;padding:2px 7px;border-radius:10px}
+.pill-up{background:rgba(16,185,129,0.12);color:var(--emerald)}
+.pill-n{background:rgba(124,141,181,0.1);color:var(--t2)}
+.sc-val{font-family:'DM Serif Display',serif;font-size:2rem;margin-bottom:2px;line-height:1}
+.sc-lbl{font-size:0.78rem;color:var(--t2)}
+
+/* ── GRADE OVERVIEW GRID ── */
+.goc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:24px}
+.goc{
+  background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
+  padding:16px;cursor:pointer;transition:all 0.2s;
+  position:relative;overflow:hidden;
+}
+.goc:hover{transform:translateY(-2px);border-color:var(--bdr2)}
+.goc-accent{position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:var(--r) var(--r) 0 0}
+.goc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.goc-num{font-family:'DM Serif Display',serif;font-size:1.7rem;line-height:1}
+.goc-cnt{font-size:0.7rem;color:var(--t2);background:var(--surf2);padding:2px 7px;border-radius:7px}
+.goc-title{font-size:0.88rem;font-weight:700;margin-bottom:1px}
+.goc-sub{font-size:0.7rem;color:var(--t3)}
+.goc-stats{display:flex;justify-content:space-between;margin-top:10px;font-size:0.71rem}
+.goc-bar-track{height:2.5px;background:var(--surf2);border-radius:3px;margin-top:8px}
+.goc-bar-fill{height:2.5px;border-radius:3px}
+
+/* ── TABLE ── */
+.tw{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.tw-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;border-bottom:1px solid var(--bdr);gap:12px;flex-wrap:wrap;
+}
+.tw-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--text)}
+.tw-controls{display:flex;align-items:center;gap:8px;flex:1;max-width:460px;min-width:160px}
+.sw{position:relative;flex:1}
+.sw svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--t3);pointer-events:none}
+.sinput{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);color:var(--text);padding:8px 12px 8px 33px;font-family:'Outfit',sans-serif;font-size:0.83rem;outline:none;transition:border 0.2s,box-shadow 0.2s}
+.sinput::placeholder{color:var(--t3)}
+.sinput:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,184,75,0.08)}
+.fsel{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);color:var(--t2);padding:8px 10px;font-family:'Outfit',sans-serif;font-size:0.81rem;outline:none;cursor:pointer}
+.fsel:focus{border-color:var(--gold)}
+table{width:100%;border-collapse:collapse}
+thead th{text-align:left;padding:11px 16px;font-size:0.67rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:0.9px;background:var(--surf);border-bottom:1px solid var(--bdr)}
+tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:background 0.13s}
+tbody tr:hover{background:rgba(232,184,75,0.03)}
+tbody tr:last-child{border-bottom:none}
+tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
+.s-cell{display:flex;align-items:center;gap:10px}
+.av{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.78rem;flex-shrink:0;overflow:hidden;
+}
+.av img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.s-name{font-weight:600;font-size:0.86rem}
+.s-id{font-size:0.7rem;color:var(--t3)}
+.spill{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:22px;border-radius:5px;font-size:0.74rem;font-weight:700;padding:0 6px}
+.act-cell{display:flex;align-items:center;gap:5px}
+
+/* ── GRADE PAGE STATS ── */
+.gp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:20px}
+
+/* ── PROFILE ── */
+.pb{display:inline-flex;align-items:center;gap:7px;color:var(--t2);font-size:0.83rem;font-weight:500;cursor:pointer;padding:8px 0;margin-bottom:20px;transition:color 0.18s}
+.pb:hover{color:var(--text)}
+
+.prof-hero{
+  border:1px solid var(--bdr);border-radius:18px;overflow:hidden;margin-bottom:18px;
+}
+.prof-banner{
+  height:130px;position:relative;overflow:hidden;
+}
+.prof-banner::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(60deg,transparent,transparent 30px,rgba(255,255,255,0.015) 30px,rgba(255,255,255,0.015) 31px);
+}
+.prof-banner::after{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(rgba(255,255,255,0.07),transparent 70%);
+}
+.prof-body{
+  background:var(--card);padding:0 28px 24px;
+  display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;
+}
+.prof-photo-wrap{margin-top:-48px;position:relative;flex-shrink:0}
+.prof-photo{
+  width:96px;height:96px;border-radius:20px;
+  border:4px solid var(--card);
+  background:var(--surf2);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:2.2rem;
+  box-shadow:0 8px 28px rgba(0,0,0,0.4);
+}
+.prof-photo img{width:100%;height:100%;object-fit:cover}
+.prof-status-dot{
+  position:absolute;bottom:-4px;right:-4px;
+  width:24px;height:24px;border-radius:50%;
+  border:3px solid var(--card);
+  display:flex;align-items:center;justify-content:center;font-size:0.6rem;
+}
+.prof-info{flex:1;min-width:180px;padding-top:10px}
+.prof-name{font-family:'DM Serif Display',serif;font-size:1.7rem;margin-bottom:4px}
+.prof-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.pm-tag{font-size:0.76rem;color:var(--t2);display:flex;align-items:center;gap:4px}
+.prof-tags{display:flex;gap:6px;flex-wrap:wrap}
+.prof-actions{display:flex;gap:7px;padding-top:10px;flex-wrap:wrap}
+
+/* Profile detail grid */
+.prof-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.psec{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:20px;transition:border-color 0.2s}
+.psec:hover{border-color:var(--bdr2)}
+.psec-hdr{display:flex;align-items:center;gap:9px;margin-bottom:15px;padding-bottom:12px;border-bottom:1px solid var(--bdr)}
+.psec-ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.psec-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--text)}
+.irow{display:flex;align-items:flex-start;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.035);gap:10px}
+.irow:last-child{border-bottom:none;padding-bottom:0}
+.ilbl{font-size:0.74rem;color:var(--t3);font-weight:500;display:flex;align-items:center;gap:5px;flex-shrink:0;min-width:90px}
+.ival{font-size:0.83rem;font-weight:600;text-align:right}
+
+/* Subject bars */
+.sub-row{margin-bottom:9px}.sub-row:last-child{margin-bottom:0}
+.sub-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.sub-name{font-size:0.78rem;color:var(--t2);font-weight:500;display:flex;align-items:center;gap:5px}
+.sub-score{font-size:0.8rem;font-weight:700}
+.btr{height:4px;background:var(--surf2);border-radius:10px;overflow:hidden}
+.bfill{height:4px;border-radius:10px;transition:width 1s cubic-bezier(0.4,0,0.2,1)}
+
+/* Attendance mini */
+.att-mini{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.ami{display:flex;flex-direction:column;align-items:center;gap:3px}
+.amd{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.68rem;font-weight:800;cursor:pointer;
+  transition:transform 0.13s;border:1.5px solid transparent;user-select:none;
+}
+.amd:hover{transform:scale(1.12)}
+.att-P{background:rgba(16,185,129,0.14);color:var(--emerald);border-color:rgba(16,185,129,0.26)}
+.att-A{background:rgba(244,63,94,0.14);color:var(--rose);border-color:rgba(244,63,94,0.26)}
+.att-L{background:rgba(245,158,11,0.14);color:var(--amber);border-color:rgba(245,158,11,0.26)}
+.amday{font-size:0.6rem;color:var(--t3);font-weight:500}
+
+/* ── MODAL ── */
+.movr{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center}
+.movr.open{display:flex;animation:mf 0.18s ease}
+@keyframes mf{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--card);border:1px solid var(--bdr2);border-radius:20px;
+  padding:28px;width:530px;max-width:95vw;position:relative;
+  box-shadow:0 30px 90px rgba(0,0,0,0.6);animation:ms 0.22s ease;
+  max-height:92vh;overflow-y:auto;
+}
+.modal::-webkit-scrollbar{width:3px}.modal::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:3px}
+@keyframes ms{from{opacity:0;transform:scale(0.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.m-hdr{display:flex;align-items:center;gap:13px;margin-bottom:24px}
+.m-ico{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--gold),#b8842a);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(232,184,75,0.3);flex-shrink:0}
+.m-ttl{font-family:'DM Serif Display',serif;font-size:1.35rem}
+.m-sub{font-size:0.78rem;color:var(--t2);margin-top:2px}
+.xbtn{position:absolute;top:16px;right:16px;background:var(--surf2);border:1px solid var(--bdr);color:var(--t2);width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s}
+.xbtn:hover{background:var(--card2);color:var(--text)}
+
+.fsec{margin-bottom:16px}
+.ftitle{font-size:0.65rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.ftitle::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{margin-bottom:11px}
+.fg label{display:flex;align-items:center;gap:5px;font-size:0.76rem;font-weight:600;color:var(--t2);margin-bottom:5px}
+.fg input,.fg select{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);color:var(--text);padding:8px 12px;font-family:'Outfit',sans-serif;font-size:0.84rem;outline:none;transition:border 0.2s,box-shadow 0.2s}
+.fg input::placeholder{color:var(--t3)}
+.fg input:focus,.fg select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,184,75,0.08)}
+.m-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:4px;padding-top:16px;border-top:1px solid var(--bdr)}
+
+/* Photo upload */
+.pup{
+  border:2px dashed var(--bdr2);border-radius:11px;padding:18px;
+  text-align:center;cursor:pointer;transition:all 0.2s;background:var(--surf2);
+}
+.pup:hover{border-color:var(--gold);background:rgba(232,184,75,0.04)}
+.pprev{
+  width:64px;height:64px;border-radius:13px;
+  margin:0 auto 9px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card2);font-size:1.5rem;
+}
+.pprev img{width:100%;height:100%;object-fit:cover}
+
+/* ── ATTENDANCE PAGE ── */
+.att-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.att-legend{display:flex;gap:14px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--bdr);background:var(--surf);flex-wrap:wrap}
+.ldot{display:flex;align-items:center;gap:5px;font-size:0.75rem;font-weight:500}
+.ld{width:8px;height:8px;border-radius:50%}
+.atb{
+  width:29px;height:29px;border-radius:7px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:0.67rem;font-weight:800;cursor:pointer;
+  transition:all 0.13s;border:1.5px solid transparent;user-select:none;
+}
+.atb:hover{transform:scale(1.15)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--surf2);border:1px solid var(--bdr2);color:var(--text);
+  padding:12px 16px;border-radius:12px;font-size:0.83rem;font-weight:500;
+  display:flex;align-items:center;gap:9px;
+  opacity:0;transform:translateY(10px) scale(0.97);
+  transition:all 0.28s cubic-bezier(0.4,0,0.2,1);z-index:999;pointer-events:none;
+  box-shadow:0 8px 26px rgba(0,0,0,0.45);
+}
+.toast.show{opacity:1;transform:translateY(0) scale(1)}
+.t-ico{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--gold),#b8842a);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ── LOGIN OVERLAY ── */
+#login-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(135deg,#05080f 0%,#080d18 60%,#0a1020 100%);
+  display:flex;align-items:center;justify-content:center;
+  animation:mf 0.3s ease;
+}
+#login-overlay.hidden{display:none}
+.login-box{
+  width:420px;max-width:95vw;
+  background:var(--card);border:1px solid var(--bdr2);border-radius:24px;
+  padding:36px 36px 30px;
+  box-shadow:0 40px 100px rgba(0,0,0,0.7);
+  position:relative;overflow:hidden;
+}
+.login-box::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(rgba(232,184,75,0.12),transparent 70%);
+  pointer-events:none;
+}
+.login-logo{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--gold),#b8842a);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;
+  box-shadow:0 6px 24px rgba(232,184,75,0.4);
+  margin:0 auto 18px;
+}
+.login-title{font-family:'DM Serif Display',serif;font-size:1.7rem;text-align:center;margin-bottom:3px}
+.login-sub{font-size:0.8rem;color:var(--t2);text-align:center;margin-bottom:24px}
+.lfield{margin-bottom:14px}
+.lfield label{display:flex;align-items:center;gap:5px;font-size:0.76rem;font-weight:600;color:var(--t2);margin-bottom:6px}
+.lfield input{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);color:var(--text);padding:10px 13px;font-family:'Outfit',sans-serif;font-size:0.88rem;outline:none;transition:border 0.2s,box-shadow 0.2s}
+.lfield input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,184,75,0.1)}
+.lfield input::placeholder{color:var(--t3)}
+.lerr{font-size:0.76rem;color:var(--rose);margin-top:8px;min-height:18px;text-align:center}
+.lbtn{width:100%;padding:11px;background:linear-gradient(135deg,var(--gold),#c8922a);color:#1a1200;border:none;border-radius:var(--rs);font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:4px}
+.lbtn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,184,75,0.45)}
+.login-role-tabs{display:flex;gap:6px;margin-bottom:20px;background:var(--surf2);padding:4px;border-radius:10px}
+.lrtab{flex:1;text-align:center;padding:7px;border-radius:7px;font-size:0.8rem;font-weight:600;cursor:pointer;color:var(--t2);transition:all 0.18s}
+.lrtab.active{background:var(--card2);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+
+/* ── USER MANAGEMENT PAGE ── */
+.um-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.user-row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:background 0.13s;
+}
+.user-row:last-child{border-bottom:none}
+.user-row:hover{background:rgba(232,184,75,0.02)}
+.ur-av{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.85rem;
+}
+.ur-info{flex:1;min-width:0}
+.ur-name{font-weight:600;font-size:0.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ur-meta{font-size:0.72rem;color:var(--t3);margin-top:1px}
+.ur-actions{display:flex;gap:5px;flex-shrink:0}
+
+/* current user pill in sidebar footer */
+.cu-role{font-size:0.64rem;padding:2px 7px;border-radius:8px;margin-top:1px;display:inline-block}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1200px)
+══════════════════════════════════════════ */
+@media(max-width:1200px){
+  .goc-grid{grid-template-columns:repeat(3,1fr)}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — SMALL TABLET (≤980px)
+══════════════════════════════════════════ */
+@media(max-width:980px){
+  .goc-grid{grid-template-columns:repeat(2,1fr)}
+  .prof-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+   Sidebar collapses to slide-over drawer
+   Bottom navigation bar added
+══════════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* ── Body layout ── */
+  body{flex-direction:column}
+
+  /* ── Sidebar becomes slide-over drawer ── */
+  .sidebar{
+    width:280px;
+    transform:translateX(-100%);
+    transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
+    z-index:300;
+    box-shadow:6px 0 40px rgba(0,0,0,0.6);
+  }
+  .sidebar.mob-open{transform:translateX(0)}
+
+  /* ── Sidebar overlay backdrop ── */
+  #sb-backdrop{
+    display:none;
+    position:fixed;inset:0;z-index:299;
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(3px);
+  }
+  #sb-backdrop.show{display:block}
+
+  /* ── Top mobile header bar ── */
+  #mob-header{
+    display:flex;
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    height:54px;
+    background:linear-gradient(180deg,#0a1020,#080d18);
+    border-bottom:1px solid var(--bdr);
+    align-items:center;
+    padding:0 14px;
+    gap:10px;
+  }
+  #mob-header .mob-logo{
+    display:flex;align-items:center;gap:9px;flex:1;
+  }
+  #mob-header .mob-crest{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--gold),#b8842a);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'DM Serif Display',serif;font-size:0.85rem;color:#fff;
+    flex-shrink:0;
+  }
+  #mob-header .mob-title{
+    font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--text);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  #mob-hamburger{
+    width:36px;height:36px;border-radius:9px;
+    background:var(--surf2);border:1px solid var(--bdr);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;flex-shrink:0;color:var(--t2);
+    transition:all 0.18s;
+  }
+  #mob-hamburger:active{background:var(--card2)}
+
+  /* ── Main content shifts down for header ── */
+  .main{
+    margin-left:0 !important;
+    padding:70px 14px 80px;
+    width:100%;
+  }
+
+  /* ── Bottom navigation bar ── */
+  #mob-nav{
+    display:flex;
+    position:fixed;bottom:0;left:0;right:0;z-index:200;
+    background:linear-gradient(180deg,#0a1020,#080d18);
+    border-top:1px solid var(--bdr);
+    padding:6px 0 max(6px,env(safe-area-inset-bottom));
+  }
+  .mob-nav-item{
+    flex:1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:3px;padding:4px 2px;
+    cursor:pointer;color:var(--t3);
+    font-size:0.58rem;font-weight:600;
+    transition:color 0.18s;
+    letter-spacing:0.3px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mob-nav-item svg{width:20px;height:20px;stroke-width:1.8}
+  .mob-nav-item.active{color:var(--gold)}
+  .mob-nav-item.active svg{filter:drop-shadow(0 0 4px rgba(232,184,75,0.5))}
+
+  /* ── Page title ── */
+  .pg-title{font-size:1.5rem}
+  .topbar{margin-bottom:16px;gap:8px}
+  .topbar > div:first-child{flex:1}
+
+  /* ── Stat cards ── */
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+  .scard{padding:14px 14px}
+  .sc-val{font-size:1.6rem}
+
+  /* ── Grade overview ── */
+  .goc-grid{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+  .goc{padding:12px}
+
+  /* ── Table wrapper ── */
+  .tw{overflow:hidden}
+  .tw-top{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 14px}
+  .tw-controls{flex-direction:column;width:100%;max-width:100%;gap:7px}
+  .sw{width:100%}
+  .sinput{font-size:0.85rem}
+  .fsel{width:100%;font-size:0.84rem;padding:9px 10px}
+
+  /* Table — horizontal scroll with sticky name col */
+  .tw > table, .tw > div > table{min-width:500px}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* Hide less-important table columns on mobile */
+  table thead th:nth-child(3),
+  table tbody td:nth-child(3){display:none} /* Age */
+
+  /* ── Buttons ── */
+  .btn{padding:8px 14px;font-size:0.82rem}
+  .btn-sm{padding:5px 9px;font-size:0.73rem}
+
+  /* ── Profile page ── */
+  .prof-grid{grid-template-columns:1fr;gap:12px}
+  .prof-hero{margin-bottom:12px}
+  .prof-body{padding:0 16px 18px;gap:14px}
+  .prof-photo{width:80px;height:80px}
+  .prof-name{font-size:1.35rem}
+  .prof-actions{gap:6px}
+  .prof-banner{height:100px}
+
+  /* ── Modal ── */
+  .modal{
+    width:100% !important;
+    max-width:100% !important;
+    border-radius:20px 20px 0 0;
+    position:fixed;bottom:0;left:0;right:0;
+    max-height:92vh;
+    margin:0;
+  }
+  .movr{align-items:flex-end}
+  .frow{grid-template-columns:1fr}
+
+  /* ── Attendance filter bar ── */
+  #att-filter-bar{flex-wrap:wrap;gap:8px;padding:12px}
+  #att-filter-bar > div{flex:1;min-width:calc(50% - 8px)}
+  #att-month-label{width:100%;text-align:center;margin-left:0 !important}
+
+  /* ── Grade page stats ── */
+  .gp-stats{grid-template-columns:repeat(2,1fr)}
+
+  /* ── User management rows ── */
+  .user-row{padding:12px 14px;gap:10px}
+  .ur-info .ur-name{font-size:0.84rem}
+
+  /* ── Toast ── */
+  .toast{bottom:76px;left:14px;right:14px;width:auto}
+
+  /* ── Login box ── */
+  .login-box{padding:28px 22px 24px}
+
+  /* ── Sidebar footer — hide in drawer mode ── */
+  .cu-role{font-size:0.62rem}
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — VERY SMALL (≤400px)
+══════════════════════════════════════════ */
+@media(max-width:400px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .goc-grid{grid-template-columns:1fr 1fr}
+  .pg-title{font-size:1.3rem}
+  .sc-val{font-size:1.4rem}
+  .main{padding:66px 10px 76px}
+}
+</style>
+</head>
+<body>
+
+<!-- ambient -->
+<div class="glow-orb orb1"></div>
+<div class="glow-orb orb2"></div>
+<div class="glow-orb orb3"></div>
+
+<!-- ── LOGIN OVERLAY ── -->
+<div id="login-overlay">
+  <a href="Home.html" id="back-to-home-btn" style="
+    position:fixed;top:20px;left:20px;
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    color:#7c8db5;
+    padding:9px 16px;
+    border-radius:10px;
+    font-family:'Outfit',sans-serif;
+    font-size:0.82rem;
+    font-weight:500;
+    text-decoration:none;
+    transition:all 0.22s;
+    backdrop-filter:blur(8px);
+    z-index:10000;
+  " onmouseover="this.style.background='rgba(232,184,75,0.1)';this.style.borderColor='rgba(232,184,75,0.35)';this.style.color='#e8b84b';this.style.transform='translateX(-2px)'"
+     onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#7c8db5';this.style.transform='translateX(0)'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    ត្រឡប់ទំព័រដើម
+  </a>
+  <div class="login-box">
+    <div class="login-logo">MG</div>
+    <div class="login-title">Welcome Back</div>
+    <div class="login-sub">MG International School — Student Management</div>
+    <div class="login-role-tabs">
+      <div class="lrtab active" onclick="setLoginRole('admin',this)">🛡️ Admin</div>
+      <div class="lrtab" onclick="setLoginRole('teacher',this)">📚 Teacher</div>
+    </div>
+    <div class="lfield">
+      <label><i data-lucide="user" style="width:10px;height:10px"></i> Username</label>
+      <input id="l-user" placeholder="Enter username" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()"/>
+    </div>
+    <div class="lfield">
+      <label><i data-lucide="lock" style="width:10px;height:10px"></i> Password</label>
+      <input id="l-pass" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"/>
+    </div>
+    <div class="lerr" id="l-err"></div>
+    <button class="lbtn" onclick="doLogin()">Sign In</button>
+    <div style="text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)">
+      <a href="Home.html" style="
+        display:inline-flex;align-items:center;gap:6px;
+        color:#3d4f72;font-size:0.76rem;font-weight:500;
+        text-decoration:none;font-family:'Outfit',sans-serif;
+        transition:color 0.2s;
+      " onmouseover="this.style.color='#e8b84b'" onmouseout="this.style.color='#3d4f72'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        ត្រឡប់ទំព័រដើម
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── SIDEBAR BACKDROP (mobile) ── -->
+<div id="sb-backdrop" onclick="closeSidebar()"></div>
+
+<!-- ── MOBILE TOP HEADER ── -->
+<div id="mob-header" style="display:none">
+  <button id="mob-hamburger" onclick="toggleSidebar()">
+    <i data-lucide="menu" style="width:18px;height:18px"></i>
+  </button>
+  <div class="mob-logo">
+    <div class="mob-crest">MG</div>
+    <div class="mob-title">MG International School</div>
+  </div>
+</div>
+
+<!-- ── MOBILE BOTTOM NAV ── -->
+<div id="mob-nav" style="display:none">
+  <div class="mob-nav-item active" id="mn-dashboard" onclick="mobNav('dashboard','mn-dashboard')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Dashboard
+  </div>
+  <div class="mob-nav-item" id="mn-all" onclick="mobNav('all','mn-all')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Students
+  </div>
+  <div class="mob-nav-item" id="mn-attendance" onclick="mobNav('attendance','mn-attendance')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+    Attendance
+  </div>
+  <div class="mob-nav-item" id="mn-users" onclick="mobNav('users','mn-users')" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Users
+  </div>
+  <div class="mob-nav-item" id="mn-menu" onclick="toggleSidebar()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    More
+  </div>
+</div>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sb-header">
+    <a href="Home.html" class="back-home-btn" title="Back to Home">
+      <i data-lucide="arrow-left" style="width:13px;height:13px;flex-shrink:0"></i>
+      <span>ត្រឡប់ទំព័រដើម</span>
+    </a>
+    <div class="school-badge">
+      <div class="school-crest">MG</div>
+      <div>
+        <div class="school-name"><em>MG</em> International School</div>
+        <div class="school-type">Student Management</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sb-body">
+    <div class="sb-section-label">Main</div>
+    <div class="nav-item active" onclick="showPage('dashboard',this)" id="nav-dashboard">
+      <div class="n-icon"><i data-lucide="layout-dashboard" style="width:15px;height:15px"></i></div>
+      <span>Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showPage('all',this)" id="nav-all">
+      <div class="n-icon"><i data-lucide="users" style="width:15px;height:15px"></i></div>
+      <span>All Students</span>
+      <span class="n-badge" id="nav-total">0</span>
+    </div>
+    <div class="nav-item" onclick="showPage('attendance',this)" id="nav-att">
+      <div class="n-icon"><i data-lucide="calendar-check" style="width:15px;height:15px"></i></div>
+      <span>Attendance</span>
+    </div>
+    <div class="nav-item" id="nav-users" onclick="showPage('users',this)" style="display:none">
+      <div class="n-icon"><i data-lucide="shield-check" style="width:15px;height:15px"></i></div>
+      <span>User Management</span>
+    </div>
+
+    <!-- Elementary -->
+    <div class="grade-div"><div class="grade-div-line"></div><div class="grade-div-lbl">Elementary</div><div class="grade-div-line"></div></div>
+    <div id="gnav-elem"></div>
+
+    <!-- Middle -->
+    <div class="grade-div"><div class="grade-div-line"></div><div class="grade-div-lbl">Middle School</div><div class="grade-div-line"></div></div>
+    <div id="gnav-mid"></div>
+
+    <!-- High -->
+    <div class="grade-div"><div class="grade-div-line"></div><div class="grade-div-lbl">High School</div><div class="grade-div-line"></div></div>
+    <div id="gnav-high"></div>
+  </div>
+
+  <div class="sb-footer">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle-btn">
+      <span style="display:flex;align-items:center;gap:7px">
+        <i data-lucide="sun" style="width:13px;height:13px" id="theme-icon"></i>
+        <span id="theme-label">Light Mode</span>
+      </span>
+      <div class="toggle-track"><div class="toggle-thumb"></div></div>
+    </button>
+    <div class="admin-card" style="cursor:default">
+      <div class="admin-av" id="sb-av">A</div>
+      <div style="flex:1;min-width:0">
+        <div class="user-name" style="font-size:0.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="sb-name">—</div>
+        <div id="sb-role-pill" class="cu-role" style="background:rgba(232,184,75,0.12);color:var(--gold)">—</div>
+      </div>
+      <button onclick="doLogout()" title="Sign Out" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);color:var(--rose);width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.18s" onmouseover="this.style.background='var(--rose)';this.style.color='#fff'" onmouseout="this.style.background='rgba(244,63,94,0.1)';this.style.color='var(--rose)'">
+        <i data-lucide="log-out" style="width:12px;height:12px"></i>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<main class="main">
+
+<!-- DASHBOARD -->
+<div class="page active" id="page-dashboard">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow">MG International School</div>
+      <div class="pg-title">Dashboard</div>
+      <div class="pg-sub">School-wide overview across all 12 grades</div>
+    </div>
+    <button class="btn btn-gold" onclick="openModal()"><i data-lucide="user-plus" style="width:14px;height:14px"></i> Add Student</button>
+  </div>
+  <div class="stats-row">
+    <div class="scard sc1"><div class="sc-top"><div class="sc-ic i1"><i data-lucide="users" style="width:16px;height:16px"></i></div><span class="sc-pill pill-n">Total</span></div><div class="sc-val" id="d-total">0</div><div class="sc-lbl">All Students</div></div>
+    <div class="scard sc2"><div class="sc-top"><div class="sc-ic i2"><i data-lucide="user-check" style="width:16px;height:16px"></i></div><span class="sc-pill pill-up">Active</span></div><div class="sc-val" id="d-active">0</div><div class="sc-lbl">Active Students</div></div>
+    <div class="scard sc3"><div class="sc-top"><div class="sc-ic i3"><i data-lucide="trending-up" style="width:16px;height:16px"></i></div><span class="sc-pill pill-up">Avg</span></div><div class="sc-val" id="d-avg">—</div><div class="sc-lbl">School Average</div></div>
+    <div class="scard sc4"><div class="sc-top"><div class="sc-ic i4"><i data-lucide="calendar-check-2" style="width:16px;height:16px"></i></div><span class="sc-pill pill-up">Rate</span></div><div class="sc-val" id="d-att">—</div><div class="sc-lbl">Attendance Rate</div></div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+    <div style="font-family:'DM Serif Display',serif;font-size:1.15rem">Grades Overview</div>
+    <div style="font-size:0.75rem;color:var(--t3)">Click any grade to view students</div>
+  </div>
+  <div class="goc-grid" id="goc-grid"></div>
+</div>
+
+<!-- ALL STUDENTS -->
+<div class="page" id="page-all">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow">Management</div>
+      <div class="pg-title">All Students</div>
+      <div class="pg-sub">Every student across all grades — click a row to view profile</div>
+    </div>
+    <button class="btn btn-gold" onclick="openModal()"><i data-lucide="user-plus" style="width:14px;height:14px"></i> Add Student</button>
+  </div>
+  <div class="tw">
+    <div class="tw-top">
+      <div class="tw-title">Student Directory</div>
+      <div class="tw-controls">
+        <div class="sw"><i data-lucide="search" style="width:13px;height:13px"></i><input class="sinput" id="sa-q" placeholder="Search name, ID, email…" oninput="renderTable('all')"/></div>
+        <select class="fsel" id="sa-grade" onchange="renderTable('all')">
+          <option value="">All Grades</option>
+          <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option>
+          <option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option>
+          <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+        </select>
+        <select class="fsel" id="sa-status" onchange="renderTable('all')">
+          <option value="">All Status</option><option>Active</option><option>Inactive</option>
+        </select>
+      </div>
+    </div>
+    <table><thead><tr><th>Student</th><th>Grade</th><th>Age</th><th>Major</th><th>Score</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody id="tbody-all"></tbody></table>
+  </div>
+</div>
+
+<!-- GRADE PAGE -->
+<div class="page" id="page-grade">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow" id="gp-eyebrow">Grade</div>
+      <div class="pg-title" id="gp-title">Grade 1</div>
+      <div class="pg-sub" id="gp-sub">Students enrolled</div>
+    </div>
+    <button class="btn btn-gold" id="btn-add-grade" onclick="openModal(true,curGrade)"><i data-lucide="user-plus" style="width:14px;height:14px"></i> Add Student</button>
+  </div>
+  <div class="gp-stats" id="gp-stats"></div>
+  <div class="tw">
+    <div class="tw-top">
+      <div class="tw-title" id="gp-tw-title">Students</div>
+      <div class="tw-controls">
+        <div class="sw"><i data-lucide="search" style="width:13px;height:13px"></i><input class="sinput" id="sg-q" placeholder="Search…" oninput="renderTable('grade')"/></div>
+        <select class="fsel" id="sg-status" onchange="renderTable('grade')"><option value="">All Status</option><option>Active</option><option>Inactive</option></select>
+      </div>
+    </div>
+    <table><thead><tr><th>Student</th><th>Age</th><th>Major</th><th>Score</th><th>Attendance</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody id="tbody-grade"></tbody></table>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="page" id="page-profile">
+  <div class="pb" id="prof-back" onclick="goBack()">
+    <i data-lucide="arrow-left" style="width:15px;height:15px"></i>
+    <span id="prof-back-lbl">Back</span>
+  </div>
+  <div id="prof-content"></div>
+</div>
+
+<!-- ATTENDANCE -->
+<div class="page" id="page-attendance">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow">Tracking</div>
+      <div class="pg-title">Attendance</div>
+      <div class="pg-sub" id="att-sub">Click any cell to toggle P → A → L</div>
+    </div>
+  </div>
+
+  <!-- Filter bar -->
+  <div id="att-filter-bar" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px;background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 18px">
+    <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+      <i data-lucide="calendar" style="width:14px;height:14px;color:var(--gold)"></i>
+      <span style="font-size:0.78rem;font-weight:600;color:var(--t2)">Year</span>
+      <select class="fsel" id="att-year" onchange="renderAttendance()" style="padding:7px 10px"></select>
+    </div>
+    <div style="width:1px;height:28px;background:var(--bdr);flex-shrink:0"></div>
+    <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+      <i data-lucide="calendar-days" style="width:14px;height:14px;color:var(--gold)"></i>
+      <span style="font-size:0.78rem;font-weight:600;color:var(--t2)">Month</span>
+      <select class="fsel" id="att-month" onchange="renderAttendance()" style="padding:7px 10px">
+        <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+        <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+        <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+        <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+      </select>
+    </div>
+    <div style="width:1px;height:28px;background:var(--bdr);flex-shrink:0"></div>
+    <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+      <i data-lucide="graduation-cap" style="width:14px;height:14px;color:var(--gold)"></i>
+      <span style="font-size:0.78rem;font-weight:600;color:var(--t2)">Grade</span>
+      <select class="fsel" id="att-gf" onchange="renderAttendance()" style="padding:7px 10px">
+        <option value="">All Grades</option>
+        <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option>
+        <option value="4">Grade 4</option><option value="5">Grade 5</option><option value="6">Grade 6</option>
+        <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9">Grade 9</option>
+        <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+      </select>
+    </div>
+    <div style="margin-left:auto;font-size:0.76rem;font-weight:600;color:var(--t2);background:var(--surf2);padding:5px 12px;border-radius:8px;border:1px solid var(--bdr)" id="att-month-label"></div>
+  </div>
+
+  <div class="att-wrap">
+    <div class="att-legend">
+      <span style="font-size:0.82rem;font-weight:600;margin-right:5px;color:var(--t2)">Legend:</span>
+      <div class="ldot"><div class="ld" style="background:var(--emerald)"></div>Present</div>
+      <div class="ldot"><div class="ld" style="background:var(--rose)"></div>Absent</div>
+      <div class="ldot"><div class="ld" style="background:var(--amber)"></div>Late</div>
+      <div class="ldot"><div class="ld" style="background:var(--t3)"></div>Weekend</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;min-width:900px">
+        <thead id="att-head"></thead><tbody id="att-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- USER MANAGEMENT (Admin only) -->
+<div class="page" id="page-users">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow">Administration</div>
+      <div class="pg-title">User Management</div>
+      <div class="pg-sub">Create and manage teacher accounts</div>
+    </div>
+    <button class="btn btn-gold" onclick="openUserModal()"><i data-lucide="user-plus" style="width:14px;height:14px"></i> Add Teacher</button>
+  </div>
+  <div class="tw">
+    <div class="tw-top">
+      <div class="tw-title">System Users</div>
+      <div style="font-size:0.78rem;color:var(--t3)">Admin accounts cannot be deleted</div>
+    </div>
+    <div id="users-list"></div>
+  </div>
+</div>
+
+</main>
+
+<!-- ── MODAL ── -->
+<div class="movr" id="modal">
+  <div class="modal">
+    <button class="xbtn" onclick="closeModal()"><i data-lucide="x" style="width:12px;height:12px"></i></button>
+    <div class="m-hdr">
+      <div class="m-ico"><i data-lucide="user-plus" style="width:18px;height:18px;color:#1a1200"></i></div>
+      <div><div class="m-ttl" id="m-title">Add Student</div><div class="m-sub">Fill in the student's information</div></div>
+    </div>
+
+    <!-- Photo -->
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="camera" style="width:10px;height:10px"></i> Profile Photo</div>
+      <div class="pup" onclick="document.getElementById('photo-inp').click()">
+        <div class="pprev" id="photo-prev">📷</div>
+        <div style="font-size:0.79rem;color:var(--t2);margin-bottom:3px">Click to upload student photo</div>
+        <div style="font-size:0.7rem;color:var(--t3)">JPG, PNG — max 2MB</div>
+        <input type="file" id="photo-inp" accept="image/*" style="display:none" onchange="previewPhoto(this)"/>
+      </div>
+    </div>
+
+    <!-- Personal -->
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="user" style="width:10px;height:10px"></i> Personal Information</div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="user" style="width:10px;height:10px"></i>First Name</label><input id="f-first" placeholder="e.g. Sophea"/></div>
+        <div class="fg"><label><i data-lucide="user" style="width:10px;height:10px"></i>Last Name</label><input id="f-last" placeholder="e.g. Chan"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="calendar" style="width:10px;height:10px"></i>Date of Birth</label><input id="f-dob" type="date"/></div>
+        <div class="fg"><label><i data-lucide="user-circle" style="width:10px;height:10px"></i>Gender</label>
+          <select id="f-gender"><option value="">Select…</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="mail" style="width:10px;height:10px"></i>Email</label><input id="f-email" placeholder="student@mg.edu.kh"/></div>
+        <div class="fg"><label><i data-lucide="phone" style="width:10px;height:10px"></i>Phone</label><input id="f-phone" placeholder="+855 …"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="map-pin" style="width:10px;height:10px"></i>Address</label><input id="f-address" placeholder="City, Province…"/></div>
+        <div class="fg"><label><i data-lucide="users" style="width:10px;height:10px"></i>Parent Name</label><input id="f-parent" placeholder="Parent / Guardian"/></div>
+      </div>
+    </div>
+
+    <!-- Academic -->
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="book-open" style="width:10px;height:10px"></i> Academic Information</div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="book-open" style="width:10px;height:10px"></i>Grade</label>
+          <select id="f-grade">
+            <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option>
+            <option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option>
+            <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12" selected>Grade 12</option>
+          </select></div>
+        <div class="fg"><label><i data-lucide="graduation-cap" style="width:10px;height:10px"></i>Major</label>
+          <select id="f-major">
+            <option value="">— Select Major —</option>
+            <option>Science</option><option>Mathematics</option><option>Arts</option>
+            <option>Business</option><option>Social Studies</option><option>Technology</option><option>General</option>
+          </select></div>
+      </div>
+      <div class="fg"><label><i data-lucide="toggle-right" style="width:10px;height:10px"></i>Status</label>
+        <select id="f-status"><option>Active</option><option>Inactive</option></select></div>
+    </div>
+
+    <!-- Scores -->
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="bar-chart-2" style="width:10px;height:10px"></i> Subject Scores (0–100)</div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="calculator" style="width:10px;height:10px"></i>Math</label><input id="f-math" type="number" min="0" max="100" placeholder="0–100"/></div>
+        <div class="fg"><label><i data-lucide="flask-conical" style="width:10px;height:10px"></i>Science</label><input id="f-sci" type="number" min="0" max="100" placeholder="0–100"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="book" style="width:10px;height:10px"></i>English</label><input id="f-eng" type="number" min="0" max="100" placeholder="0–100"/></div>
+        <div class="fg"><label><i data-lucide="landmark" style="width:10px;height:10px"></i>History</label><input id="f-his" type="number" min="0" max="100" placeholder="0–100"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label><i data-lucide="palette" style="width:10px;height:10px"></i>Arts</label><input id="f-art" type="number" min="0" max="100" placeholder="0–100"/></div>
+        <div class="fg"><label><i data-lucide="dumbbell" style="width:10px;height:10px"></i>PE</label><input id="f-pe" type="number" min="0" max="100" placeholder="0–100"/></div>
+      </div>
+    </div>
+
+    <div class="m-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-gold" onclick="saveStudent()"><i data-lucide="save" style="width:13px;height:13px"></i> Save Student</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <div class="t-ico"><i data-lucide="check" style="width:12px;height:12px;color:#1a1200"></i></div>
+  <span id="toast-msg"></span>
+</div>
+
+<!-- ── USER MODAL ── -->
+<div class="movr" id="user-modal">
+  <div class="modal" style="width:420px">
+    <button class="xbtn" onclick="closeUserModal()"><i data-lucide="x" style="width:12px;height:12px"></i></button>
+    <div class="m-hdr">
+      <div class="m-ico"><i data-lucide="shield-check" style="width:18px;height:18px;color:#1a1200"></i></div>
+      <div><div class="m-ttl" id="um-title">Add Teacher</div><div class="m-sub">Create a teacher login account</div></div>
+    </div>
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="camera" style="width:10px;height:10px"></i> Profile Photo</div>
+      <div class="pup" onclick="document.getElementById('um-photo-inp').click()">
+        <div class="pprev" id="um-photo-prev">👤</div>
+        <div style="font-size:0.79rem;color:var(--t2);margin-bottom:3px">Click to upload teacher photo</div>
+        <div style="font-size:0.7rem;color:var(--t3)">JPG, PNG — max 2MB</div>
+        <input type="file" id="um-photo-inp" accept="image/*" style="display:none" onchange="previewUserPhoto(this)"/>
+      </div>
+    </div>
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="user" style="width:10px;height:10px"></i> Account Details</div>
+      <div class="fg"><label><i data-lucide="user" style="width:10px;height:10px"></i>Full Name</label><input id="um-name" placeholder="e.g. Sophea Chan"/></div>
+      <div class="fg"><label><i data-lucide="at-sign" style="width:10px;height:10px"></i>Username</label><input id="um-username" placeholder="e.g. sophea.chan" autocomplete="off"/></div>
+      <div class="fg" id="um-pw-field"><label><i data-lucide="lock" style="width:10px;height:10px"></i>Password</label><input id="um-password" type="password" placeholder="Min. 4 characters" autocomplete="new-password"/></div>
+      <div class="fg" id="um-pw2-field"><label><i data-lucide="lock" style="width:10px;height:10px"></i>Confirm Password</label><input id="um-password2" type="password" placeholder="Repeat password"/></div>
+      <div class="fg">
+        <label><i data-lucide="toggle-right" style="width:10px;height:10px"></i>Account Status</label>
+        <select id="um-status"><option value="active">Active</option><option value="inactive">Inactive</option></select>
+      </div>
+      <div class="fg">
+        <label><i data-lucide="book-open" style="width:10px;height:10px"></i>Assigned Grade <span style="color:var(--t3);font-weight:400">(Teacher only — leave blank for all)</span></label>
+        <select id="um-grade">
+          <option value="">All Grades (Admin access)</option>
+          <option value="1">Grade 1 — Elementary</option>
+          <option value="2">Grade 2 — Elementary</option>
+          <option value="3">Grade 3 — Elementary</option>
+          <option value="4">Grade 4 — Elementary</option>
+          <option value="5">Grade 5 — Elementary</option>
+          <option value="6">Grade 6 — Elementary</option>
+          <option value="7">Grade 7 — Middle School</option>
+          <option value="8">Grade 8 — Middle School</option>
+          <option value="9">Grade 9 — Middle School</option>
+          <option value="10">Grade 10 — High School</option>
+          <option value="11">Grade 11 — High School</option>
+          <option value="12">Grade 12 — High School</option>
+        </select>
+      </div>
+    </div>
+    <div class="lerr" id="um-err"></div>
+    <div class="m-actions">
+      <button class="btn btn-ghost" onclick="closeUserModal()">Cancel</button>
+      <button class="btn btn-gold" onclick="saveUser()"><i data-lucide="save" style="width:13px;height:13px"></i> Save Account</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONSTANTS ──
+const GRADES=[1,2,3,4,5,6,7,8,9,10,11,12];
+const GC=['#e8b84b','#f97316','#ef4444','#ec4899','#a855f7','#8b5cf6','#6366f1','#3b82f6','#06b6d4','#14b8a6','#10b981','#84cc16'];
+const GL={1:'Elementary',2:'Elementary',3:'Elementary',4:'Elementary',5:'Elementary',6:'Elementary',7:'Middle School',8:'Middle School',9:'Middle School',10:'High School',11:'High School',12:'High School'};
+const PAL=[
+  {bg:'rgba(232,184,75,0.16)',c:'#e8b84b'},{bg:'rgba(59,130,246,0.16)',c:'#60a5fa'},
+  {bg:'rgba(16,185,129,0.16)',c:'#34d399'},{bg:'rgba(244,63,94,0.16)',c:'#fb7185'},
+  {bg:'rgba(139,92,246,0.16)',c:'#a78bfa'},{bg:'rgba(6,182,212,0.16)',c:'#22d3ee'},
+  {bg:'rgba(249,115,22,0.16)',c:'#fb923c'},{bg:'rgba(132,204,22,0.16)',c:'#a3e635'},
+];
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Mon','Tue','Wed','Thu','Fri'];
+const SUBS=[
+  {k:'Math',ic:'calculator'},{k:'Science',ic:'flask-conical'},
+  {k:'English',ic:'book'},{k:'History',ic:'landmark'},
+  {k:'Arts',ic:'palette'},{k:'PE',ic:'dumbbell'},
+];
+
+let photos={};
+let tempPhoto=null;
+let editId=null;
+let curGrade=9;
+let prevPage='dashboard';
+
+// ── STORAGE HELPERS ──
+function saveDB(){
+  try{
+    localStorage.setItem('mg_students',JSON.stringify(students));
+    // photos are base64 strings — store separately per student to stay within quota
+    localStorage.setItem('mg_photos',JSON.stringify(photos));
+  }catch(e){console.warn('Storage save failed:',e);}
+}
+function loadDB(){
+  try{
+    const s=localStorage.getItem('mg_students');
+    const p=localStorage.getItem('mg_photos');
+    if(s){students=JSON.parse(s);}
+    if(p){photos=JSON.parse(p);}
+  }catch(e){console.warn('Storage load failed:',e);}
+}
+
+// ── SAMPLE DATA ──
+let students=[
+  // Grade 1
+  {id:'S101',first:'Lida',last:'Ros',dob:'2018-03-10',gender:'Female',email:'lida@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Ros Vanna',grade:1,major:'General',status:'Active',scores:{Math:90,Science:85,English:88,History:80,Arts:92,PE:95},attendance:{}},
+  {id:'S102',first:'Vibol',last:'Keo',dob:'2018-07-22',gender:'Male',email:'vibol@mg.edu.kh',phone:'',address:'Kandal',parent:'Keo Dara',grade:1,major:'General',status:'Active',scores:{Math:78,Science:82,English:75,History:70,Arts:80,PE:88},attendance:{}},
+  {id:'S103',first:'Sreynich',last:'Hak',dob:'2018-01-05',gender:'Female',email:'sreynich@mg.edu.kh',phone:'',address:'Siem Reap',parent:'Hak Mony',grade:1,major:'General',status:'Active',scores:{Math:94,Science:91,English:90,History:88,Arts:95,PE:90},attendance:{}},
+  // Grade 2
+  {id:'S201',first:'Bunna',last:'Tan',dob:'2017-09-08',gender:'Male',email:'bunna@mg.edu.kh',phone:'',address:'Battambang',parent:'Tan Ratha',grade:2,major:'General',status:'Active',scores:{Math:72,Science:68,English:80,History:75,Arts:70,PE:82},attendance:{}},
+  {id:'S202',first:'Chanthy',last:'Mao',dob:'2017-04-20',gender:'Female',email:'chanthy@mg.edu.kh',phone:'',address:'Kampot',parent:'Mao Sokha',grade:2,major:'General',status:'Active',scores:{Math:88,Science:90,English:86,History:83,Arts:91,PE:85},attendance:{}},
+  // Grade 3
+  {id:'S301',first:'Sokha',last:'Lim',dob:'2016-11-30',gender:'Male',email:'sokha@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Lim Chea',grade:3,major:'General',status:'Active',scores:{Math:95,Science:90,English:92,History:88,Arts:85,PE:90},attendance:{}},
+  {id:'S302',first:'Dina',last:'Pov',dob:'2016-06-12',gender:'Female',email:'dina@mg.edu.kh',phone:'',address:'Kandal',parent:'Pov Kunthy',grade:3,major:'General',status:'Inactive',scores:{Math:65,Science:60,English:70,History:58,Arts:72,PE:75},attendance:{}},
+  // Grade 4
+  {id:'S401',first:'Ratana',last:'Sok',dob:'2015-02-18',gender:'Male',email:'ratana@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Sok Piseth',grade:4,major:'Science',status:'Active',scores:{Math:91,Science:87,English:89,History:85,Arts:80,PE:88},attendance:{}},
+  {id:'S402',first:'Pheakdey',last:'Chhun',dob:'2015-08-05',gender:'Male',email:'pheakdey@mg.edu.kh',phone:'',address:'Prey Veng',parent:'Chhun Vathana',grade:4,major:'Mathematics',status:'Active',scores:{Math:76,Science:80,English:74,History:71,Arts:68,PE:80},attendance:{}},
+  // Grade 5
+  {id:'S501',first:'Sreyna',last:'Im',dob:'2014-12-25',gender:'Female',email:'sreyna@mg.edu.kh',phone:'',address:'Siem Reap',parent:'Im Sophy',grade:5,major:'Arts',status:'Active',scores:{Math:82,Science:79,English:85,History:81,Arts:95,PE:88},attendance:{}},
+  {id:'S502',first:'Kimheng',last:'Sar',dob:'2014-03-14',gender:'Male',email:'kimheng@mg.edu.kh',phone:'',address:'Battambang',parent:'Sar Borei',grade:5,major:'Science',status:'Active',scores:{Math:92,Science:94,English:90,History:87,Arts:78,PE:85},attendance:{}},
+  // Grade 6
+  {id:'S601',first:'Vanna',last:'Nget',dob:'2013-07-19',gender:'Female',email:'vanna@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Nget Chandara',grade:6,major:'Social Studies',status:'Active',scores:{Math:70,Science:73,English:78,History:82,Arts:85,PE:80},attendance:{}},
+  {id:'S602',first:'Makara',last:'Orn',dob:'2013-01-09',gender:'Male',email:'makara@mg.edu.kh',phone:'+855 17 111 222',address:'Kampong Cham',parent:'Orn Sokhom',grade:6,major:'Mathematics',status:'Active',scores:{Math:88,Science:85,English:82,History:79,Arts:74,PE:90},attendance:{}},
+  // Grade 7
+  {id:'S701',first:'Borey',last:'Pen',dob:'2012-05-23',gender:'Male',email:'borey@mg.edu.kh',phone:'+855 16 333 444',address:'Phnom Penh',parent:'Pen Virak',grade:7,major:'Technology',status:'Active',scores:{Math:85,Science:88,English:80,History:75,Arts:70,PE:92},attendance:{}},
+  {id:'S702',first:'Channary',last:'Yun',dob:'2012-10-17',gender:'Female',email:'channary@mg.edu.kh',phone:'+855 12 555 666',address:'Siem Reap',parent:'Yun Monita',grade:7,major:'Science',status:'Active',scores:{Math:95,Science:93,English:91,History:89,Arts:82,PE:88},attendance:{}},
+  // Grade 8
+  {id:'S801',first:'Sovann',last:'Ek',dob:'2011-04-02',gender:'Male',email:'sovann@mg.edu.kh',phone:'+855 18 777 888',address:'Phnom Penh',parent:'Ek Sambath',grade:8,major:'Business',status:'Active',scores:{Math:77,Science:81,English:79,History:74,Arts:72,PE:85},attendance:{}},
+  {id:'S802',first:'Pisey',last:'Kong',dob:'2011-08-15',gender:'Female',email:'pisey@mg.edu.kh',phone:'+855 16 888 999',address:'Kampot',parent:'Kong Sophal',grade:8,major:'Arts',status:'Active',scores:{Math:80,Science:76,English:88,History:82,Arts:96,PE:84},attendance:{}},
+  // Grade 9
+  {id:'S901',first:'Sophea',last:'Chan',dob:'2009-03-15',gender:'Female',email:'sophea@mg.edu.kh',phone:'+855 12 345 678',address:'Phnom Penh',parent:'Chan Sokha',grade:9,major:'Science',status:'Active',scores:{Math:88,Science:92,English:85,History:78,Arts:80,PE:86},attendance:{}},
+  {id:'S902',first:'Dara',last:'Pich',dob:'2009-08-22',gender:'Male',email:'dara@mg.edu.kh',phone:'+855 17 234 567',address:'Siem Reap',parent:'Pich Vanny',grade:9,major:'Mathematics',status:'Active',scores:{Math:72,Science:65,English:80,History:90,Arts:75,PE:80},attendance:{}},
+  // Grade 10
+  {id:'S1001',first:'Bopha',last:'Seng',dob:'2008-01-10',gender:'Female',email:'bopha@mg.edu.kh',phone:'+855 16 789 012',address:'Battambang',parent:'Seng Rathana',grade:10,major:'Science',status:'Active',scores:{Math:95,Science:90,English:88,History:82,Arts:78,PE:90},attendance:{}},
+  {id:'S1002',first:'Maly',last:'Heng',dob:'2008-06-18',gender:'Female',email:'maly@mg.edu.kh',phone:'+855 15 678 901',address:'Phnom Penh',parent:'Heng Bunna',grade:10,major:'Arts',status:'Active',scores:{Math:78,Science:83,English:91,History:76,Arts:94,PE:88},attendance:{}},
+  // Grade 11
+  {id:'S1101',first:'Pisach',last:'Lim',dob:'2007-12-05',gender:'Male',email:'pisach@mg.edu.kh',phone:'+855 18 901 234',address:'Kandal',parent:'Lim Chenda',grade:11,major:'Technology',status:'Active',scores:{Math:85,Science:79,English:77,History:88,Arts:70,PE:84},attendance:{}},
+  {id:'S1102',first:'Vicheka',last:'Noun',dob:'2007-04-14',gender:'Male',email:'vicheka@mg.edu.kh',phone:'+855 11 234 567',address:'Phnom Penh',parent:'Noun Chanthou',grade:11,major:'Business',status:'Active',scores:{Math:90,Science:87,English:83,History:86,Arts:75,PE:82},attendance:{}},
+  // Grade 12
+  {id:'S1201',first:'Ratha',last:'Keo',dob:'2006-11-30',gender:'Male',email:'ratha@mg.edu.kh',phone:'+855 11 456 789',address:'Kampot',parent:'Keo Chanthy',grade:12,major:'Science',status:'Active',scores:{Math:80,Science:75,English:82,History:78,Arts:72,PE:88},attendance:{}},
+  {id:'S1202',first:'Sreyleak',last:'Chea',dob:'2006-08-09',gender:'Female',email:'sreyleak@mg.edu.kh',phone:'+855 17 890 123',address:'Phnom Penh',parent:'Chea Sophany',grade:12,major:'Mathematics',status:'Active',scores:{Math:93,Science:91,English:95,History:90,Arts:85,PE:92},attendance:{}},
+];
+students.forEach(s=>{DAYS.forEach((_,i)=>{if(!s.attendance[i])s.attendance[i]='P';});});
+
+// ── LOAD PERSISTED DATA (overrides sample data if saved) ──
+loadDB();
+// Ensure attendance slots are filled for any loaded student
+students.forEach(s=>{DAYS.forEach((_,i)=>{if(!s.attendance[i])s.attendance[i]='P';});});
+
+// ── HELPERS ──
+const uid=()=>'S'+String(Math.floor(Math.random()*9000)+1000);
+const avg=sc=>Math.round(Object.values(sc).reduce((a,b)=>a+b,0)/Object.values(sc).length);
+const sc=v=>v>=90?'var(--emerald)':v>=75?'var(--blue)':v>=60?'var(--amber)':'var(--rose)';
+const gl=v=>v>=90?'A':v>=80?'B':v>=70?'C':v>=60?'D':'F';
+const pal=i=>PAL[i%PAL.length];
+const gradeC=g=>GC[g-1]||GC[0];
+const calcAge=d=>{if(!d)return'—';const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;};
+const fmtDate=d=>{if(!d)return'—';return new Date(d).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});};
+const attR=s=>{const v=Object.values(s.attendance);return v.length?Math.round((v.filter(a=>a==='P').length/v.length)*100):0;};
+const majorBadge=m=>{const map={Science:'b-blue',Mathematics:'b-violet',Arts:'b-gold',Business:'b-green',Technology:'b-amber','Social Studies':'b-rose',General:'b-gold'};return map[m]||'b-gold';};
+
+// ── BUILD SIDEBAR GRADE NAV ──
+function buildSidebarNav(){
+  [[1,6,'elem'],[7,9,'mid'],[10,12,'high']].forEach(([s,e,id])=>{
+    let h='';
+    for(let g=s;g<=e;g++){
+      const c=gradeC(g);const cnt=students.filter(x=>x.grade===g).length;
+      h+=`<div class="gnav" id="gnav-${g}" onclick="showGrade(${g},this)" style="position:relative">
+        <div class="g-num" style="background:${c}20;color:${c}">${g}</div>
+        <span>Grade ${g}</span>
+        <span class="n-badge" id="gb-${g}" style="margin-left:auto">${cnt}</span>
+      </div>`;
+    }
+    document.getElementById(`gnav-${id}`).innerHTML=h;
+  });
+}
+function updBadges(){
+  for(let g=1;g<=12;g++){const el=document.getElementById(`gb-${g}`);if(el)el.textContent=students.filter(s=>s.grade===g).length;}
+  document.getElementById('nav-total').textContent=students.length;
+}
+
+// ── NAVIGATION ──
+function showPage(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item,.gnav').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(el)el.classList.add('active');
+  if(id==='dashboard')renderDashboard();
+  if(id==='all')renderTable('all');
+  if(id==='attendance')renderAttendance();
+  if(id==='users')renderUsers();
+  lucide.createIcons();
+}
+
+function showGrade(g,el){
+  curGrade=g;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item,.gnav').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-grade').classList.add('active');
+  if(el)el.classList.add('active');
+  const c=gradeC(g);
+  document.getElementById('gp-eyebrow').textContent=GL[g];
+  document.getElementById('gp-title').textContent=`Grade ${g}`;
+  document.getElementById('gp-tw-title').textContent=`Grade ${g} Students`;
+  renderGradeStats(g);renderTable('grade');
+  lucide.createIcons();
+}
+
+function viewProfile(id,from){
+  prevPage=from||'all';
+  const s=students.find(x=>x.id===id);
+  const idx=students.indexOf(s);
+  const p=pal(idx);const a=avg(s.scores);const c=gradeC(s.grade);
+  const lc=sc(a);const age=calcAge(s.dob);
+  const ar=attR(s);
+  const attVals=Object.values(s.attendance);
+  const attP=attVals.filter(v=>v==='P').length;
+  const attA=attVals.filter(v=>v==='A').length;
+  const attL=attVals.filter(v=>v==='L').length;
+  const statusC=s.status==='Active'?'var(--emerald)':'var(--rose)';
+  const remark=a>=90?'Excellent':a>=80?'Great':a>=70?'Good':a>=60?'Average':'Needs Support';
+  const photoEl=photos[id]?`<img src="${photos[id]}" alt=""/>`:`<span style="background:${p.bg};color:${p.c};width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2.1rem">${s.first[0]}${s.last[0]}</span>`;
+
+  const backLbl=prevPage==='grade'?`Grade ${s.grade}`:prevPage==='dashboard'?'Dashboard':'All Students';
+  document.getElementById('prof-back-lbl').textContent=`Back to ${backLbl}`;
+
+  const subRows=SUBS.map(sub=>{
+    const sv=s.scores[sub.k]||0;const cc=sc(sv);
+    return `<div class="sub-row"><div class="sub-top"><span class="sub-name"><i data-lucide="${sub.ic}" style="width:11px;height:11px;color:var(--t3)"></i>${sub.k}</span><span class="sub-score" style="color:${cc}">${sv} <span style="font-size:0.67rem;opacity:0.7">${gl(sv)}</span></span></div><div class="btr"><div class="bfill" style="width:${sv}%;background:${cc}"></div></div></div>`;
+  }).join('');
+
+  const attDots=DAYS.map((d,i)=>{
+    const st=s.attendance[i]||'P';
+    return `<div class="ami"><div class="amd att-${st}" onclick="toggleAttProfile('${id}',${i})">${st}</div><span class="amday">${d}</span></div>`;
+  }).join('');
+
+  document.getElementById('prof-content').innerHTML=`
+  <div class="prof-hero">
+    <div class="prof-banner" style="background:linear-gradient(135deg,${c}50 0%,${c}20 60%,rgba(59,130,246,0.15) 100%)"></div>
+    <div class="prof-body">
+      <div class="prof-photo-wrap">
+        <div class="prof-photo">${photoEl}</div>
+        <div class="prof-status-dot" style="background:${statusC}22;border-color:${statusC}">
+          <i data-lucide="${s.status==='Active'?'check':'x'}" style="width:9px;height:9px;color:${statusC}"></i>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">${s.first} ${s.last}</div>
+        <div class="prof-meta">
+          <span class="pm-tag"><i data-lucide="hash" style="width:11px;height:11px"></i>${s.id}</span>
+          <span style="color:var(--t3)">·</span>
+          <span class="pm-tag" style="color:${c};font-weight:600"><i data-lucide="book-open" style="width:11px;height:11px"></i>Grade ${s.grade}</span>
+          <span style="color:var(--t3)">·</span>
+          <span class="pm-tag"><i data-lucide="clock" style="width:11px;height:11px"></i>${age} yrs old</span>
+          ${s.gender?`<span style="color:var(--t3)">·</span><span class="pm-tag">${s.gender}</span>`:''}
+        </div>
+        <div class="prof-tags">
+          <span class="badge ${s.status==='Active'?'b-green':'b-red'}"><i data-lucide="${s.status==='Active'?'check-circle':'x-circle'}" style="width:8px;height:8px"></i>${s.status}</span>
+          ${s.major?`<span class="badge ${majorBadge(s.major)}"><i data-lucide="graduation-cap" style="width:8px;height:8px"></i>${s.major}</span>`:''}
+          <span class="badge" style="background:${c}18;color:${c};border:1px solid ${c}30"><i data-lucide="layers" style="width:8px;height:8px"></i>${GL[s.grade]}</span>
+          <span class="badge" style="background:${lc}18;color:${lc};border:1px solid ${lc}40"><i data-lucide="star" style="width:8px;height:8px"></i>${remark}</span>
+        </div>
+      </div>
+      <div class="prof-actions">
+        <button class="btn btn-gold btn-sm" onclick="openEdit('${id}')"><i data-lucide="pencil" style="width:12px;height:12px"></i>Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteStudent('${id}')"><i data-lucide="trash-2" style="width:12px;height:12px"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-grid">
+    <!-- Personal -->
+    <div class="psec">
+      <div class="psec-hdr"><div class="psec-ic" style="background:rgba(232,184,75,0.14)"><i data-lucide="user" style="width:14px;height:14px;color:var(--gold)"></i></div><div class="psec-title">Personal Details</div></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="user" style="width:9px;height:9px"></i>Full Name</span><span class="ival">${s.first} ${s.last}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="hash" style="width:9px;height:9px"></i>Student ID</span><span class="ival" style="color:var(--gold);font-family:'Outfit',sans-serif;font-weight:800">${s.id}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="cake" style="width:9px;height:9px"></i>Date of Birth</span><span class="ival" style="font-size:0.79rem">${fmtDate(s.dob)}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="clock" style="width:9px;height:9px"></i>Age</span><span class="ival">${age} years old</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="user-circle" style="width:9px;height:9px"></i>Gender</span><span class="ival">${s.gender||'—'}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="map-pin" style="width:9px;height:9px"></i>Address</span><span class="ival" style="font-size:0.79rem">${s.address||'—'}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="users" style="width:9px;height:9px"></i>Parent</span><span class="ival" style="font-size:0.79rem">${s.parent||'—'}</span></div>
+    </div>
+
+    <!-- Contact & Academic -->
+    <div class="psec">
+      <div class="psec-hdr"><div class="psec-ic" style="background:rgba(59,130,246,0.14)"><i data-lucide="graduation-cap" style="width:14px;height:14px;color:var(--blue)"></i></div><div class="psec-title">Academic & Contact</div></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="mail" style="width:9px;height:9px"></i>Email</span><span class="ival" style="font-size:0.76rem">${s.email}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="phone" style="width:9px;height:9px"></i>Phone</span><span class="ival">${s.phone||'—'}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="book-open" style="width:9px;height:9px"></i>Grade</span><span class="ival"><span class="badge" style="background:${c}18;color:${c};border:1px solid ${c}30">Grade ${s.grade}</span></span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="layers" style="width:9px;height:9px"></i>Level</span><span class="ival">${GL[s.grade]}</span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="graduation-cap" style="width:9px;height:9px"></i>Major</span><span class="ival"><span class="badge ${majorBadge(s.major)}">${s.major||'—'}</span></span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="toggle-right" style="width:9px;height:9px"></i>Status</span><span class="ival"><span class="badge ${s.status==='Active'?'b-green':'b-red'}">${s.status}</span></span></div>
+      <div class="irow"><span class="ilbl"><i data-lucide="bar-chart-2" style="width:9px;height:9px"></i>Avg Score</span><span class="ival" style="color:${lc};font-weight:700">${a}% — ${gl(a)}</span></div>
+    </div>
+
+    <!-- Scores -->
+    <div class="psec">
+      <div class="psec-hdr"><div class="psec-ic" style="background:rgba(245,158,11,0.14)"><i data-lucide="bar-chart-2" style="width:14px;height:14px;color:var(--amber)"></i></div><div class="psec-title">Academic Performance</div></div>
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:15px;padding-bottom:13px;border-bottom:1px solid var(--bdr)">
+        <div>
+          <div style="font-size:0.68rem;color:var(--t3);margin-bottom:2px;text-transform:uppercase;letter-spacing:0.8px">Overall Average</div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-family:'DM Serif Display',serif;font-size:3rem;color:${lc};line-height:1">${a}</span>
+            <span style="font-size:0.76rem;font-weight:700;padding:3px 8px;border-radius:6px;background:${lc}18;color:${lc}">${gl(a)}</span>
+          </div>
+          <div style="font-size:0.76rem;color:var(--t2);margin-top:2px">${remark}</div>
+        </div>
+        <div style="flex:1">
+          <div class="btr" style="height:6px"><div class="bfill" style="width:${a}%;background:${lc};height:6px"></div></div>
+        </div>
+      </div>
+      ${subRows}
+    </div>
+
+    <!-- Attendance -->
+    <div class="psec">
+      <div class="psec-hdr"><div class="psec-ic" style="background:rgba(16,185,129,0.14)"><i data-lucide="calendar-check" style="width:14px;height:14px;color:var(--emerald)"></i></div><div class="psec-title">Attendance — 10 Days</div></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px">
+        <div style="text-align:center;padding:8px 6px;border-radius:8px;background:rgba(16,185,129,0.1)"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--emerald)">${attP}</div><div style="font-size:0.67rem;color:var(--t3)">Present</div></div>
+        <div style="text-align:center;padding:8px 6px;border-radius:8px;background:rgba(244,63,94,0.1)"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--rose)">${attA}</div><div style="font-size:0.67rem;color:var(--t3)">Absent</div></div>
+        <div style="text-align:center;padding:8px 6px;border-radius:8px;background:rgba(245,158,11,0.1)"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--amber)">${attL}</div><div style="font-size:0.67rem;color:var(--t3)">Late</div></div>
+        <div style="text-align:center;padding:8px 6px;border-radius:8px;background:${ar>=80?'rgba(16,185,129,0.1)':ar>=60?'rgba(245,158,11,0.1)':'rgba(244,63,94,0.1)'}"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:${ar>=80?'var(--emerald)':ar>=60?'var(--amber)':'var(--rose)'}">${ar}%</div><div style="font-size:0.67rem;color:var(--t3)">Rate</div></div>
+      </div>
+      <div style="font-size:0.64rem;color:var(--t3);font-weight:700;text-transform:uppercase;letter-spacing:0.9px;margin-bottom:7px">Click dot to toggle</div>
+      <div class="att-mini">${attDots}</div>
+    </div>
+  </div>`;
+
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-profile').classList.add('active');
+  lucide.createIcons();
+}
+
+function goBack(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item,.gnav').forEach(n=>n.classList.remove('active'));
+  if(prevPage==='grade'){
+    document.getElementById('page-grade').classList.add('active');
+    const el=document.getElementById(`gnav-${curGrade}`);if(el)el.classList.add('active');
+  } else if(prevPage==='all'){
+    document.getElementById('page-all').classList.add('active');
+    document.getElementById('nav-all').classList.add('active');
+    renderTable('all');
+  } else {
+    document.getElementById('page-dashboard').classList.add('active');
+    document.getElementById('nav-dashboard').classList.add('active');
+    renderDashboard();
+  }
+  lucide.createIcons();
+}
+
+function toggleAttProfile(id,day){
+  const s=students.find(x=>x.id===id);
+  s.attendance[day]={P:'A',A:'L',L:'P'}[s.attendance[day]]||'P';
+  viewProfile(id,prevPage);updBadges();
+}
+
+// ── DASHBOARD ──
+function renderDashboard(){
+  const total=students.length;
+  const active=students.filter(s=>s.status==='Active').length;
+  const allAvg=total?Math.round(students.map(s=>avg(s.scores)).reduce((a,b)=>a+b,0)/total):0;
+  const allAtt=students.flatMap(s=>Object.values(s.attendance));
+  const ar=allAtt.length?Math.round((allAtt.filter(a=>a==='P').length/allAtt.length)*100):0;
+  document.getElementById('d-total').textContent=total;
+  document.getElementById('d-active').textContent=active;
+  document.getElementById('d-avg').textContent=allAvg+'%';
+  document.getElementById('d-att').textContent=ar+'%';
+
+  document.getElementById('goc-grid').innerHTML=GRADES.map(g=>{
+    const gs=students.filter(s=>s.grade===g);const cnt=gs.length;
+    const ga=cnt?Math.round(gs.map(s=>avg(s.scores)).reduce((a,b)=>a+b,0)/cnt):0;
+    const c=gradeC(g);const actPct=cnt?Math.round(gs.filter(s=>s.status==='Active').length/cnt*100):0;
+    return `<div class="goc" onclick="showGrade(${g},document.getElementById('gnav-${g}'))">
+      <div class="goc-accent" style="background:${c}"></div>
+      <div class="goc-top">
+        <div class="goc-num" style="color:${c}">${g}</div>
+        <div class="goc-cnt">${cnt} student${cnt!==1?'s':''}</div>
+      </div>
+      <div class="goc-title">Grade ${g}</div>
+      <div class="goc-sub">${GL[g]}</div>
+      <div class="goc-stats">
+        <span style="color:var(--t3)">Avg: <span style="color:${sc(ga)};font-weight:700">${cnt?ga+'%':'—'}</span></span>
+        <span style="color:var(--t3)">Active: <span style="color:var(--emerald);font-weight:700">${actPct}%</span></span>
+      </div>
+      <div class="goc-bar-track"><div class="goc-bar-fill" style="width:${ga}%;background:${c}"></div></div>
+    </div>`;
+  }).join('');
+  lucide.createIcons();
+}
+
+// ── GRADE STATS ──
+function renderGradeStats(g){
+  const gs=students.filter(s=>s.grade===g);const cnt=gs.length;
+  const active=gs.filter(s=>s.status==='Active').length;
+  const ga=cnt?Math.round(gs.map(s=>avg(s.scores)).reduce((a,b)=>a+b,0)/cnt):0;
+  const gAtt=gs.flatMap(s=>Object.values(s.attendance));
+  const ar=gAtt.length?Math.round((gAtt.filter(a=>a==='P').length/gAtt.length)*100):0;
+  const c=gradeC(g);
+  document.getElementById('gp-sub').textContent=`${cnt} student${cnt!==1?'s':''} enrolled in ${GL[g]}`;
+  document.getElementById('gp-stats').innerHTML=`
+    <div class="scard sc1" style="border-top:2px solid ${c}"><div class="sc-top"><div class="sc-ic" style="background:${c}18;color:${c}"><i data-lucide="users" style="width:15px;height:15px"></i></div><span class="sc-pill pill-n">Total</span></div><div class="sc-val">${cnt}</div><div class="sc-lbl">Students</div></div>
+    <div class="scard sc2"><div class="sc-top"><div class="sc-ic i2"><i data-lucide="user-check" style="width:15px;height:15px"></i></div><span class="sc-pill pill-up">Active</span></div><div class="sc-val">${active}</div><div class="sc-lbl">Active</div></div>
+    <div class="scard sc3"><div class="sc-top"><div class="sc-ic i3"><i data-lucide="trending-up" style="width:15px;height:15px"></i></div><span class="sc-pill pill-up">Avg</span></div><div class="sc-val">${cnt?ga+'%':'—'}</div><div class="sc-lbl">Grade Average</div></div>
+    <div class="scard sc4"><div class="sc-top"><div class="sc-ic i4"><i data-lucide="calendar-check-2" style="width:15px;height:15px"></i></div><span class="sc-pill pill-up">Rate</span></div><div class="sc-val">${ar}%</div><div class="sc-lbl">Attendance</div></div>`;
+  lucide.createIcons();
+}
+
+// ── TABLE ──
+function renderTable(mode){
+  let list,tbody;
+  if(mode==='all'){
+    const q=(document.getElementById('sa-q').value||'').toLowerCase();
+    const fg=document.getElementById('sa-grade').value;
+    const fs=document.getElementById('sa-status').value;
+    list=students.filter(s=>{
+      const n=(s.first+' '+s.last).toLowerCase();
+      return(!q||n.includes(q)||s.id.toLowerCase().includes(q)||s.email.toLowerCase().includes(q))
+        &&(!fg||s.grade===parseInt(fg))&&(!fs||s.status===fs);
+    });
+    tbody=document.getElementById('tbody-all');
+  } else {
+    const q=(document.getElementById('sg-q').value||'').toLowerCase();
+    const fs=document.getElementById('sg-status').value;
+    list=students.filter(s=>s.grade===curGrade&&(!q||(s.first+' '+s.last).toLowerCase().includes(q)||s.id.toLowerCase().includes(q))&&(!fs||s.status===fs));
+    tbody=document.getElementById('tbody-grade');
+    document.getElementById('gp-sub').textContent=`${list.length} student${list.length!==1?'s':''} in ${GL[curGrade]}`;
+  }
+  if(!list.length){
+    tbody.innerHTML=`<tr><td colspan="8" style="padding:50px;text-align:center;color:var(--t3)"><i data-lucide="users" style="width:28px;height:28px;margin:0 auto 10px;display:block;opacity:0.25"></i><div>No students found</div></td></tr>`;
+    lucide.createIcons();return;
+  }
+  tbody.innerHTML=list.map(s=>{
+    const idx=students.indexOf(s);const p=pal(idx);const a=avg(s.scores);const c2=sc(a);
+    const gc2=gradeC(s.grade);
+    const ar=attR(s);const arc=ar>=80?'var(--emerald)':ar>=60?'var(--amber)':'var(--rose)';
+    const photoEl=photos[s.id]?`<img src="${photos[s.id]}" alt=""/>`:s.first[0]+s.last[0];
+    const canEdit = canEditStudent(s);
+    const isAdmin = currentUser && currentUser.role==='admin';
+    return `<tr onclick="viewProfile('${s.id}','${mode==='all'?'all':'grade'}')" title="View profile" class="${canEdit?'':'grade-locked-row'}">
+      <td><div class="s-cell">
+        <div class="av" style="background:${p.bg};color:${p.c}">${photoEl}</div>
+        <div><div class="s-name">${s.first} ${s.last}</div><div class="s-id">${s.id}</div></div>
+      </div></td>
+      ${mode==='all'?`<td><span class="badge" style="background:${gc2}18;color:${gc2};border:1px solid ${gc2}30">Grade ${s.grade}</span></td>`:''}
+      <td style="color:var(--t2)">${calcAge(s.dob)} yrs</td>
+      <td>${s.major?`<span class="badge ${majorBadge(s.major)}">${s.major}</span>`:'<span style="color:var(--t3)">—</span>'}</td>
+      <td><span class="spill" style="background:${c2}20;color:${c2}">${a}</span></td>
+      ${mode==='grade'?`<td><span class="badge" style="background:${arc}18;color:${arc};border:1px solid ${arc}30">${ar}%</span></td>`:''}
+      <td><span class="badge ${s.status==='Active'?'b-green':'b-red'}"><i data-lucide="${s.status==='Active'?'check-circle':'x-circle'}" style="width:8px;height:8px"></i>${s.status}</span></td>
+      <td onclick="event.stopPropagation()"><div class="act-cell">
+        ${canEdit?`<button class="btn btn-edit btn-sm" onclick="openEdit('${s.id}')"><i data-lucide="pencil" style="width:11px;height:11px"></i>Edit</button>`:`<span style="font-size:0.7rem;color:var(--t3);padding:0 6px">🔒 Locked</span>`}
+        ${(isAdmin)?`<button class="btn btn-danger btn-sm" onclick="deleteStudent('${s.id}')"><i data-lucide="trash-2" style="width:11px;height:11px"></i></button>`:''}
+      </div></td>
+    </tr>`;
+  }).join('');
+  updBadges();lucide.createIcons();
+}
+
+// ── ATTENDANCE ──
+const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+function initAttFilters(){
+  const now=new Date();
+  const yr=document.getElementById('att-year');
+  if(yr&&!yr.options.length){
+    for(let y=now.getFullYear()-2;y<=now.getFullYear()+1;y++){
+      const o=document.createElement('option');o.value=y;o.textContent=y;
+      if(y===now.getFullYear())o.selected=true;
+      yr.appendChild(o);
+    }
+  }
+  const mo=document.getElementById('att-month');
+  if(mo)mo.value=now.getMonth();
+}
+
+function getAttKey(year,month,day){return `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;}
+
+function renderAttendance(){
+  initAttFilters();
+  const year=parseInt(document.getElementById('att-year').value)||new Date().getFullYear();
+  const month=parseInt(document.getElementById('att-month').value);
+  const gf=document.getElementById('att-gf').value;
+  const daysInMonth=new Date(year,month+1,0).getDate();
+  const label=document.getElementById('att-month-label');
+  if(label)label.textContent=`${MONTH_NAMES[month]} ${year} — ${daysInMonth} days`;
+  document.getElementById('att-sub').textContent=`${MONTH_NAMES[month]} ${year} — click any weekday cell to toggle P → A → L`;
+
+  let list=gf?students.filter(s=>s.grade===parseInt(gf)):students;
+  const head=document.getElementById('att-head');
+  const body=document.getElementById('att-body');
+
+  // build day array: [{day, dayOfWeek, isWeekend}]
+  const days=[];
+  for(let d=1;d<=daysInMonth;d++){
+    const dow=new Date(year,month,d).getDay();
+    days.push({day:d,dow,isWeekend:dow===0||dow===6});
+  }
+
+  const thBase='padding:6px 3px;font-size:0.58rem;font-weight:700;text-align:center;background:var(--surf);border-bottom:1px solid var(--bdr);white-space:nowrap;';
+  head.innerHTML=`<tr>
+    <th style="${thBase}text-align:left;padding-left:14px;min-width:150px;position:sticky;left:0;z-index:2;background:var(--surf)">Student</th>
+    ${days.map(({day,dow,isWeekend})=>`<th style="${thBase}color:${isWeekend?'var(--t3)':'var(--t2)'};background:${isWeekend?'rgba(255,255,255,0.02)':'var(--surf)'};min-width:32px">
+      <div>${day}</div><div style="font-weight:400;opacity:0.55;font-size:0.52rem">${DAY_NAMES[dow]}</div>
+    </th>`).join('')}
+    <th style="${thBase}min-width:60px;color:var(--t2)">Rate</th>
+    <th style="${thBase}min-width:44px;color:var(--emerald)">P</th>
+    <th style="${thBase}min-width:44px;color:var(--rose)">A</th>
+    <th style="${thBase}min-width:44px;color:var(--amber)">L</th>
+  </tr>`;
+
+  if(!list.length){
+    body.innerHTML=`<tr><td colspan="${daysInMonth+5}" style="padding:40px;text-align:center;color:var(--t3)">No students</td></tr>`;
+    return;
+  }
+
+  body.innerHTML=list.map((s,si)=>{
+    const p=pal(si);
+    const photoEl=photos[s.id]?`<img src="${photos[s.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:7px" alt=""/>`:s.first[0]+s.last[0];
+    // ensure monthly attendance store
+    if(!s.monthlyAtt)s.monthlyAtt={};
+    let countP=0,countA=0,countL=0,totalWD=0;
+    const cells=days.map(({day,dow,isWeekend})=>{
+      if(isWeekend){
+        return `<td style="text-align:center;padding:4px 2px;border-bottom:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.015)"><span style="display:inline-flex;width:24px;height:24px;border-radius:5px;align-items:center;justify-content:center;font-size:0.55rem;color:var(--t3)">—</span></td>`;
+      }
+      const key=getAttKey(year,month,day);
+      const st=s.monthlyAtt[key]||'P';
+      totalWD++;
+      if(st==='P')countP++;else if(st==='A')countA++;else if(st==='L')countL++;
+      const cc=st==='P'?'var(--emerald)':st==='A'?'var(--rose)':'var(--amber)';
+      const bg=st==='P'?'rgba(16,185,129,0.13)':st==='A'?'rgba(244,63,94,0.13)':'rgba(245,158,11,0.13)';
+      return `<td style="text-align:center;padding:4px 2px;border-bottom:1px solid rgba(255,255,255,0.02)"><span class="atb" style="background:${bg};color:${cc};border:1.5px solid ${cc}40;width:24px;height:24px;border-radius:5px;font-size:0.62rem" onclick="toggleMonthAtt('${s.id}','${key}')">${st}</span></td>`;
+    }).join('');
+    const rate=totalWD?Math.round((countP/totalWD)*100):0;
+    const rc=rate>=80?'var(--emerald)':rate>=60?'var(--amber)':'var(--rose)';
+    return `<tr>
+      <td style="padding:8px 14px;border-bottom:1px solid rgba(255,255,255,0.025);position:sticky;left:0;z-index:1;background:var(--card)">
+        <div class="s-cell">
+          <div class="av" style="width:26px;height:26px;border-radius:6px;font-size:0.62rem;background:${p.bg};color:${p.c};flex-shrink:0">${photoEl}</div>
+          <div><div style="font-weight:600;font-size:0.79rem;white-space:nowrap">${s.first} ${s.last}</div><div style="font-size:0.63rem;color:var(--t3)">Gr.${s.grade}</div></div>
+        </div>
+      </td>
+      ${cells}
+      <td style="text-align:center;padding:4px 8px;border-bottom:1px solid rgba(255,255,255,0.02)"><span style="display:inline-flex;padding:2px 6px;border-radius:5px;font-size:0.7rem;font-weight:700;background:${rc}18;color:${rc}">${rate}%</span></td>
+      <td style="text-align:center;padding:4px;border-bottom:1px solid rgba(255,255,255,0.02);font-size:0.75rem;font-weight:700;color:var(--emerald)">${countP}</td>
+      <td style="text-align:center;padding:4px;border-bottom:1px solid rgba(255,255,255,0.02);font-size:0.75rem;font-weight:700;color:var(--rose)">${countA}</td>
+      <td style="text-align:center;padding:4px;border-bottom:1px solid rgba(255,255,255,0.02);font-size:0.75rem;font-weight:700;color:var(--amber)">${countL}</td>
+    </tr>`;
+  }).join('');
+}
+
+function toggleMonthAtt(studentId, dateKey){
+  const s=students.find(x=>x.id===studentId);
+  if(!s)return;
+  if(!s.monthlyAtt)s.monthlyAtt={};
+  s.monthlyAtt[dateKey]={P:'A',A:'L',L:'P'}[s.monthlyAtt[dateKey]||'P']||'P';
+  saveDB();
+  renderAttendance();
+}
+
+function toggleAtt(id,day){const s=students.find(x=>x.id===id);s.attendance[day]={P:'A',A:'L',L:'P'}[s.attendance[day]]||'P';saveDB();renderAttendance();}
+
+// ── MODAL ──
+function previewPhoto(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{tempPhoto=e.target.result;const pr=document.getElementById('photo-prev');pr.innerHTML=`<img src="${tempPhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`;};
+  r.readAsDataURL(f);
+}
+
+function openModal(reset=true,pg=null){
+  if(reset){
+    editId=null;tempPhoto=null;
+    document.getElementById('m-title').textContent='Add Student';
+    ['f-first','f-last','f-email','f-phone','f-address','f-parent','f-math','f-sci','f-eng','f-his','f-art','f-pe'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('f-dob').value='';
+    document.getElementById('f-gender').value='';
+    document.getElementById('f-major').value='';
+    document.getElementById('f-grade').value=pg||'9';
+    document.getElementById('f-status').value='Active';
+    document.getElementById('photo-prev').innerHTML='📷';
+    document.getElementById('photo-inp').value='';
+  }
+  document.getElementById('modal').classList.add('open');
+  lucide.createIcons();
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+
+function openEdit(id){
+  const s=students.find(x=>x.id===id);
+  if(!s) return;
+  if(!canEditStudent(s)){
+    showToast('⚠️ You can only edit students in your assigned grade.');
+    return;
+  }
+  editId=id;tempPhoto=photos[id]||null;
+  document.getElementById('m-title').textContent='Edit Student';
+  document.getElementById('f-first').value=s.first;
+  document.getElementById('f-last').value=s.last;
+  document.getElementById('f-email').value=s.email;
+  document.getElementById('f-phone').value=s.phone||'';
+  document.getElementById('f-dob').value=s.dob||'';
+  document.getElementById('f-gender').value=s.gender||'';
+  document.getElementById('f-address').value=s.address||'';
+  document.getElementById('f-parent').value=s.parent||'';
+  document.getElementById('f-grade').value=s.grade;
+  document.getElementById('f-major').value=s.major||'';
+  document.getElementById('f-status').value=s.status;
+  document.getElementById('f-math').value=s.scores.Math;
+  document.getElementById('f-sci').value=s.scores.Science;
+  document.getElementById('f-eng').value=s.scores.English;
+  document.getElementById('f-his').value=s.scores.History;
+  document.getElementById('f-art').value=s.scores.Arts||0;
+  document.getElementById('f-pe').value=s.scores.PE||0;
+  const pr=document.getElementById('photo-prev');
+  pr.innerHTML=tempPhoto?`<img src="${tempPhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`:'📷';
+  openModal(false);
+}
+
+function saveStudent(){
+  const first=document.getElementById('f-first').value.trim();
+  const last=document.getElementById('f-last').value.trim();
+  if(!first||!last){showToast('Please enter student name.');return;}
+  const data={first,last,
+    email:document.getElementById('f-email').value.trim()||`${first.toLowerCase()}@mg.edu.kh`,
+    phone:document.getElementById('f-phone').value.trim(),
+    dob:document.getElementById('f-dob').value,
+    gender:document.getElementById('f-gender').value,
+    address:document.getElementById('f-address').value.trim(),
+    parent:document.getElementById('f-parent').value.trim(),
+    grade:parseInt(document.getElementById('f-grade').value),
+    major:document.getElementById('f-major').value,
+    status:document.getElementById('f-status').value,
+    scores:{
+      Math:parseInt(document.getElementById('f-math').value)||0,
+      Science:parseInt(document.getElementById('f-sci').value)||0,
+      English:parseInt(document.getElementById('f-eng').value)||0,
+      History:parseInt(document.getElementById('f-his').value)||0,
+      Arts:parseInt(document.getElementById('f-art').value)||0,
+      PE:parseInt(document.getElementById('f-pe').value)||0,
+    }
+  };
+  if(editId){
+    const idx=students.findIndex(s=>s.id===editId);students[idx]={...students[idx],...data};
+    if(tempPhoto)photos[editId]=tempPhoto;showToast('Student updated!');
+  } else {
+    const att={};DAYS.forEach((_,i)=>att[i]='P');
+    const nid=uid();students.push({id:nid,...data,attendance:att});
+    if(tempPhoto)photos[nid]=tempPhoto;showToast('Student added!');
+  }
+  saveDB();
+  closeModal();
+  const active=document.querySelector('.page.active');
+  if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
+  else if(active?.id==='page-all'){renderTable('all');}
+  else renderDashboard();
+  updBadges();
+}
+
+function deleteStudent(id){
+  if(!confirm('Delete this student?'))return;
+  students=students.filter(s=>s.id!==id);delete photos[id];
+  saveDB();
+  showToast('Student removed.');
+  const active=document.querySelector('.page.active');
+  if(active?.id==='page-profile'){goBack();return;}
+  if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
+  else if(active?.id==='page-all'){renderTable('all');}
+  else renderDashboard();
+  updBadges();
+}
+
+function showToast(msg){
+  document.getElementById('toast-msg').textContent=msg;
+  const t=document.getElementById('toast');t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+let tempUserPhoto = null;
+
+function previewUserPhoto(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    tempUserPhoto=e.target.result;
+    const pr=document.getElementById('um-photo-prev');
+    pr.innerHTML=`<img src="${tempUserPhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`;
+  };
+  r.readAsDataURL(f);
+}
+
+function saveUserPhotos(photosObj){
+  try{localStorage.setItem('mg_user_photos',JSON.stringify(photosObj));}catch(e){}
+}
+function loadUserPhotos(){
+  try{const p=localStorage.getItem('mg_user_photos');return p?JSON.parse(p):{};}catch(e){return {};}
+}
+
+// ── AUTH & USER MANAGEMENT ──
+let currentUser = null;
+let loginRole = 'admin';
+let editUserId = null;
+
+function loadUsers(){
+  try{
+    const u = localStorage.getItem('mg_users');
+    if(u) return JSON.parse(u);
+  }catch(e){}
+  // default admin account
+  return [{id:'u001',name:'Administrator',username:'admin',password:'admin1234',role:'admin',status:'active',assignedGrade:''}];
+}
+
+function saveUsers(users){
+  try{ localStorage.setItem('mg_users', JSON.stringify(users)); }catch(e){}
+}
+
+function setLoginRole(role, el){
+  loginRole = role;
+  document.querySelectorAll('.lrtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('l-err').textContent='';
+}
+
+function doLogin(){
+  const uname = document.getElementById('l-user').value.trim();
+  const pass  = document.getElementById('l-pass').value;
+  const err   = document.getElementById('l-err');
+  if(!uname||!pass){err.textContent='Please enter username and password.';return;}
+  const users = loadUsers();
+  const found = users.find(u => u.username===uname && u.password===pass && u.role===loginRole);
+  if(!found){err.textContent='Invalid username or password.';return;}
+  if(found.status==='inactive'){err.textContent='This account is inactive. Contact admin.';return;}
+  currentUser = found;
+  document.getElementById('login-overlay').classList.add('hidden');
+  const backBtn = document.getElementById('back-to-home-btn');
+  if(backBtn) backBtn.style.display = 'none';
+  updateSidebarUser();
+  // show/hide admin-only nav
+  document.getElementById('nav-users').style.display = found.role==='admin' ? 'flex' : 'none';
+  const mnUsers = document.getElementById('mn-users');
+  if(mnUsers) mnUsers.style.display = found.role==='admin' ? 'flex' : 'none';
+  // apply grade restriction for teachers
+  applyRoleUI();
+  applyGradeRestriction();
+  lucide.createIcons();
+  showToast('Welcome, ' + found.name + '!');
+  // auto-navigate teacher to their assigned grade
+  if(found.role==='teacher' && found.assignedGrade){
+    const g=parseInt(found.assignedGrade);
+    const navEl=document.getElementById('gnav-'+g);
+    if(navEl) showGrade(g,navEl);
+  }
+}
+
+function doLogout(){
+  if(!confirm('Sign out?')) return;
+  currentUser = null;
+  document.getElementById('l-user').value='';
+  document.getElementById('l-pass').value='';
+  document.getElementById('l-err').textContent='';
+  document.getElementById('login-overlay').classList.remove('hidden');
+  // Restore back button
+  const backBtn = document.getElementById('back-to-home-btn');
+  if(backBtn) backBtn.style.display='';
+  // Reset grade nav restrictions
+  document.querySelectorAll('.gnav').forEach(el=>{el.style.opacity='';el.style.pointerEvents='';});
+  const navAll=document.getElementById('nav-all');
+  if(navAll) navAll.style.display='';
+  const mnAll=document.getElementById('mn-all');
+  if(mnAll) mnAll.style.display='';
+  lucide.createIcons();
+}
+
+function updateSidebarUser(){
+  if(!currentUser) return;
+  const av = document.getElementById('sb-av');
+  const nm = document.getElementById('sb-name');
+  const rp = document.getElementById('sb-role-pill');
+  const uPhotos = loadUserPhotos();
+  if(uPhotos[currentUser.id]){
+    av.innerHTML=`<img src="${uPhotos[currentUser.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:8px" alt=""/>`;
+    av.style.overflow='hidden';av.style.padding='0';
+  } else {
+    av.innerHTML=currentUser.name[0].toUpperCase();
+    av.style.overflow='';av.style.padding='';
+  }
+  nm.textContent = currentUser.name;
+  if(currentUser.role==='admin'){
+    rp.textContent='Administrator';
+    rp.style.background='rgba(232,184,75,0.12)';
+    rp.style.color='var(--gold)';
+  } else {
+    const g = currentUser.assignedGrade;
+    rp.innerHTML = g
+      ? `Teacher &nbsp;<span class="teacher-grade-badge"><i data-lucide="book-open" style="width:8px;height:8px"></i>Grade ${g}</span>`
+      : 'Teacher';
+    rp.style.background='rgba(59,130,246,0.12)';
+    rp.style.color='var(--blue)';
+  }
+  lucide.createIcons();
+}
+
+function applyRoleUI(){
+  const isAdmin = currentUser && currentUser.role==='admin';
+  document.querySelectorAll('.btn-gold[onclick="openModal()"]').forEach(b=>{
+    b.style.display = isAdmin ? '' : 'none';
+  });
+  const btnGrade = document.getElementById('btn-add-grade');
+  if(btnGrade) btnGrade.style.display = isAdmin ? '' : 'none';
+}
+
+function applyGradeRestriction(){
+  if(!currentUser || currentUser.role==='admin') return;
+  const assignedGrade = currentUser.assignedGrade ? parseInt(currentUser.assignedGrade) : null;
+  if(!assignedGrade) return; // teacher with no restriction = sees all
+
+  // Dim/disable sidebar grade nav items not in their grade
+  document.querySelectorAll('.gnav').forEach(el=>{
+    const gid = el.id ? parseInt(el.id.replace('gnav-','')) : null;
+    if(gid && gid !== assignedGrade){
+      el.style.opacity='0.35';
+      el.style.pointerEvents='none';
+    } else {
+      el.style.opacity='';
+      el.style.pointerEvents='';
+    }
+  });
+  // Also hide "All Students" nav (teacher only sees their grade)
+  const navAll = document.getElementById('nav-all');
+  if(navAll) navAll.style.display='none';
+  const mnAll = document.getElementById('mn-all');
+  if(mnAll) mnAll.style.display='none';
+}
+
+function canEditStudent(student){
+  if(!currentUser) return false;
+  if(currentUser.role==='admin') return true;
+  const ag = currentUser.assignedGrade ? parseInt(currentUser.assignedGrade) : null;
+  if(!ag) return true; // teacher with no assigned grade = all grades
+  return student.grade === ag;
+}
+
+// ── DARK / LIGHT MODE TOGGLE ──
+function toggleTheme(){
+  const isLight = document.body.classList.toggle('light-mode');
+  localStorage.setItem('mg_theme', isLight ? 'light' : 'dark');
+  updateThemeBtn(isLight);
+}
+function updateThemeBtn(isLight){
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if(!icon||!label) return;
+  if(isLight){
+    icon.setAttribute('data-lucide','moon');
+    label.textContent='Dark Mode';
+  } else {
+    icon.setAttribute('data-lucide','sun');
+    label.textContent='Light Mode';
+  }
+  lucide.createIcons();
+}
+// Apply saved theme on load
+(function(){
+  const saved = localStorage.getItem('mg_theme');
+  if(saved==='light'){
+    document.body.classList.add('light-mode');
+    // will be updated after lucide loads
+    window.addEventListener('load',()=>updateThemeBtn(true));
+  }
+})();
+
+// ── USER MANAGEMENT ──
+function renderUsers(){
+  const users = loadUsers();
+  const uPhotos = loadUserPhotos();
+  const el = document.getElementById('users-list');
+  if(!users.length){el.innerHTML='<div style="padding:40px;text-align:center;color:var(--t3)">No users found</div>';return;}
+  el.innerHTML = users.map((u,i)=>{
+    const col = u.role==='admin' ? 'var(--gold)' : 'var(--blue)';
+    const bgCol = u.role==='admin' ? 'rgba(232,184,75,0.14)' : 'rgba(59,130,246,0.14)';
+    const statusCol = u.status==='active' ? 'var(--emerald)' : 'var(--rose)';
+    const canDel = u.role!=='admin';
+    const photoHTML = uPhotos[u.id]
+      ? `<img src="${uPhotos[u.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" alt=""/>`
+      : u.name[0].toUpperCase();
+    return `<div class="user-row">
+      <div class="ur-av" style="background:${bgCol};color:${col};overflow:hidden">${photoHTML}</div>
+      <div class="ur-info">
+        <div class="ur-name">${u.name}</div>
+        <div class="ur-meta">@${u.username} &nbsp;·&nbsp; <span style="color:${statusCol}">${u.status==='active'?'Active':'Inactive'}</span>${u.role==='teacher'&&u.assignedGrade?` &nbsp;·&nbsp; <span style="color:var(--blue);font-weight:600">Grade ${u.assignedGrade} only</span>`:u.role==='teacher'?' &nbsp;·&nbsp; <span style="color:var(--t3)">All grades</span>':''}</div>
+      </div>
+      <span class="badge" style="background:${bgCol};color:${col};border:1px solid ${col}30;flex-shrink:0">${u.role==='admin'?'Admin':'Teacher'}</span>
+      <div class="ur-actions">
+        <button class="btn btn-edit btn-sm" onclick="openEditUser('${u.id}')"><i data-lucide="pencil" style="width:11px;height:11px"></i>Edit</button>
+        ${canDel?`<button class="btn btn-danger btn-sm" onclick="deleteUser('${u.id}')"><i data-lucide="trash-2" style="width:11px;height:11px"></i></button>`:'<div style="width:34px"></div>'}
+      </div>
+    </div>`;
+  }).join('');
+  lucide.createIcons();
+}
+
+function openUserModal(){
+  editUserId = null;
+  tempUserPhoto = null;
+  document.getElementById('um-title').textContent = 'Add Teacher';
+  document.getElementById('um-name').value='';
+  document.getElementById('um-username').value='';
+  document.getElementById('um-password').value='';
+  document.getElementById('um-password2').value='';
+  document.getElementById('um-status').value='active';
+  document.getElementById('um-grade').value='';
+  document.getElementById('um-err').textContent='';
+  document.getElementById('um-pw-field').style.display='';
+  document.getElementById('um-pw2-field').style.display='';
+  document.getElementById('um-photo-prev').innerHTML='👤';
+  document.getElementById('um-photo-inp').value='';
+  document.getElementById('user-modal').classList.add('open');
+  lucide.createIcons();
+}
+
+function openEditUser(id){
+  const users = loadUsers();
+  const u = users.find(x=>x.id===id);
+  if(!u) return;
+  editUserId = id;
+  tempUserPhoto = null;
+  const uPhotos = loadUserPhotos();
+  document.getElementById('um-title').textContent = 'Edit Account';
+  document.getElementById('um-name').value = u.name;
+  document.getElementById('um-username').value = u.username;
+  document.getElementById('um-password').value = '';
+  document.getElementById('um-password2').value = '';
+  document.getElementById('um-status').value = u.status;
+  document.getElementById('um-grade').value = u.assignedGrade||'';
+  document.getElementById('um-err').textContent='';
+  const pr = document.getElementById('um-photo-prev');
+  document.getElementById('um-photo-inp').value='';
+  if(uPhotos[id]){
+    pr.innerHTML=`<img src="${uPhotos[id]}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`;
+    tempUserPhoto = uPhotos[id];
+  } else {
+    pr.innerHTML='👤';
+  }
+  // password fields optional on edit
+  document.getElementById('um-pw-field').querySelector('label').innerHTML='<i data-lucide="lock" style="width:10px;height:10px"></i>New Password <span style="color:var(--t3);font-weight:400">(leave blank to keep)</span>';
+  document.getElementById('user-modal').classList.add('open');
+  lucide.createIcons();
+}
+
+function closeUserModal(){
+  document.getElementById('user-modal').classList.remove('open');
+}
+
+function saveUser(){
+  const name     = document.getElementById('um-name').value.trim();
+  const username = document.getElementById('um-username').value.trim().toLowerCase();
+  const pw       = document.getElementById('um-password').value;
+  const pw2      = document.getElementById('um-password2').value;
+  const status   = document.getElementById('um-status').value;
+  const errEl    = document.getElementById('um-err');
+  errEl.textContent='';
+
+  if(!name||!username){errEl.textContent='Name and username are required.';return;}
+  if(!/^[a-z0-9._]+$/.test(username)){errEl.textContent='Username: letters, numbers, . _ only.';return;}
+
+  const users = loadUsers();
+  const uPhotos = loadUserPhotos();
+
+  if(!editUserId){
+    // new user
+    if(!pw){errEl.textContent='Password is required.';return;}
+    if(pw.length<4){errEl.textContent='Password must be at least 4 characters.';return;}
+    if(pw!==pw2){errEl.textContent='Passwords do not match.';return;}
+    if(users.find(u=>u.username===username)){errEl.textContent='Username already taken.';return;}
+    const nid='u'+Date.now();
+    const newU = {id:nid,name,username,password:pw,role:'teacher',status,assignedGrade:document.getElementById('um-grade').value};
+    users.push(newU);
+    saveUsers(users);
+    if(tempUserPhoto){uPhotos[nid]=tempUserPhoto;saveUserPhotos(uPhotos);}
+    showToast('Teacher account created!');
+  } else {
+    const idx = users.findIndex(u=>u.id===editUserId);
+    if(idx===-1) return;
+    // check duplicate username (excluding self)
+    if(users.find(u=>u.username===username&&u.id!==editUserId)){errEl.textContent='Username already taken.';return;}
+    if(pw){
+      if(pw.length<4){errEl.textContent='Password must be at least 4 characters.';return;}
+      if(pw!==pw2){errEl.textContent='Passwords do not match.';return;}
+      users[idx].password=pw;
+    }
+    users[idx].name=name;
+    users[idx].username=username;
+    users[idx].status=status;
+    users[idx].assignedGrade=document.getElementById('um-grade').value;
+    saveUsers(users);
+    if(tempUserPhoto){uPhotos[editUserId]=tempUserPhoto;saveUserPhotos(uPhotos);}
+    showToast('Account updated!');
+    // if editing self, update sidebar
+    if(currentUser && currentUser.id===editUserId){
+      currentUser.name=name;currentUser.username=username;currentUser.status=status;
+      updateSidebarUser();
+    }
+  }
+  closeUserModal();
+  renderUsers();
+}
+
+function deleteUser(id){
+  if(!confirm('Delete this teacher account?')) return;
+  let users = loadUsers();
+  users = users.filter(u=>u.id!==id);
+  saveUsers(users);
+  const uPhotos=loadUserPhotos();delete uPhotos[id];saveUserPhotos(uPhotos);
+  showToast('Account removed.');
+  renderUsers();
+}
+
+// ── MOBILE RESPONSIVE ──
+function isMobile(){return window.innerWidth<=768;}
+
+function applyMobileLayout(){
+  const mob = isMobile();
+  document.getElementById('mob-header').style.display = mob ? 'flex' : 'none';
+  document.getElementById('mob-nav').style.display    = mob ? 'flex' : 'none';
+  if(!mob){
+    // ensure sidebar always visible on desktop
+    document.querySelector('.sidebar').classList.remove('mob-open');
+    document.getElementById('sb-backdrop').classList.remove('show');
+  }
+}
+
+function toggleSidebar(){
+  const sb = document.querySelector('.sidebar');
+  const bd = document.getElementById('sb-backdrop');
+  const open = sb.classList.toggle('mob-open');
+  bd.classList.toggle('show', open);
+}
+
+function closeSidebar(){
+  document.querySelector('.sidebar').classList.remove('mob-open');
+  document.getElementById('sb-backdrop').classList.remove('show');
+}
+
+function mobNav(page, activeId){
+  // update bottom nav highlight
+  document.querySelectorAll('.mob-nav-item').forEach(el=>el.classList.remove('active'));
+  const el = document.getElementById(activeId);
+  if(el) el.classList.add('active');
+  // find matching sidebar nav item and call showPage
+  const sidebarNav = document.getElementById('nav-'+page);
+  showPage(page, sidebarNav);
+  closeSidebar();
+}
+
+// Sync bottom nav active state when sidebar nav is clicked
+const _origSidebarNav = showPage;
+// Intercept nav-item clicks to also update bottom nav
+document.addEventListener('click', e=>{
+  const ni = e.target.closest('.nav-item[id^="nav-"], .gnav');
+  if(!ni) return;
+  const id = ni.id ? ni.id.replace('nav-','') : null;
+  if(!id) return;
+  document.querySelectorAll('.mob-nav-item').forEach(el=>el.classList.remove('active'));
+  const mn = document.getElementById('mn-'+id);
+  if(mn) mn.classList.add('active');
+  if(isMobile()) closeSidebar();
+});
+
+window.addEventListener('resize', applyMobileLayout);
+applyMobileLayout();
+
+// ── INIT ──
+buildSidebarNav();
+initAttFilters();
+lucide.createIcons();
+renderDashboard();
+lucide.createIcons();
+</script>
+</body>
+</html>
