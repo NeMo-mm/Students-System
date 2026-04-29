@@ -111,7 +111,6 @@ body.light-mode .toggle-thumb{background:#fff;left:18px}
   background:rgba(59,130,246,0.12);color:var(--blue);
   border:1px solid rgba(59,130,246,0.2);margin-top:3px;
 }
-/* ── GRADE LOCKED NOTICE ── */
 .grade-lock-notice{
   display:flex;align-items:center;gap:8px;
   background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);
@@ -123,13 +122,13 @@ body.light-mode .toggle-thumb{background:#fff;left:18px}
 html,body{height:100%}
 body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;height:100%;display:flex;overflow-x:hidden}
 
-/* ── ambient glow ── */
+/* ambient glow */
 .glow-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:0.12}
 .orb1{width:500px;height:500px;top:-150px;left:-150px;background:radial-gradient(#3b82f6,transparent)}
 .orb2{width:400px;height:400px;bottom:-100px;right:-100px;background:radial-gradient(#e8b84b,transparent)}
 .orb3{width:300px;height:300px;top:50%;left:40%;background:radial-gradient(#8b5cf6,transparent)}
 
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sidebar{
   width:252px;min-height:100vh;height:100%;
   background:linear-gradient(180deg,#0a1020 0%,#080d18 100%);
@@ -204,7 +203,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .n-badge{margin-left:auto;font-size:0.66rem;font-weight:700;padding:2px 6px;border-radius:10px;background:rgba(232,184,75,0.15);color:var(--gold)}
 .nav-item:not(.active) .n-badge{background:var(--surf2);color:var(--t3)}
 
-/* grade dividers */
 .grade-div{display:flex;align-items:center;gap:7px;margin:10px 0 4px}
 .grade-div-line{flex:1;height:1px;background:var(--bdr)}
 .grade-div-lbl{font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t3);white-space:nowrap}
@@ -214,15 +212,10 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
   padding:7px 10px;border-radius:8px;cursor:pointer;
   font-size:0.83rem;font-weight:500;color:var(--t2);
   transition:all 0.16s;margin-bottom:2px;
-  border:1px solid transparent;
+  border:1px solid transparent;position:relative;
 }
 .gnav:hover{background:var(--surf2);color:var(--text)}
 .gnav.active{color:var(--text);border-color:rgba(255,255,255,0.08);background:var(--surf2)}
-.gnav.active::before{
-  content:'';position:absolute;left:-1px;top:50%;transform:translateY(-50%);
-  width:2.5px;height:55%;border-radius:0 2px 2px 0;
-}
-.gnav{position:relative}
 .g-num{
   width:28px;height:28px;border-radius:7px;
   display:flex;align-items:center;justify-content:center;
@@ -246,13 +239,12 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
   font-weight:700;font-size:0.82rem;color:#fff;
 }
 
-/* ── MAIN ── */
+/* MAIN */
 .main{margin-left:252px;flex:1;padding:30px 34px;min-height:100vh;height:100%;position:relative;z-index:1}
 .page{display:none;animation:fadeUp 0.3s ease}
 .page.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── TOPBAR ── */
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:28px;flex-wrap:wrap;gap:12px;
@@ -261,7 +253,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .pg-title{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;color:var(--text)}
 .pg-sub{font-size:0.82rem;color:var(--t2);margin-top:3px}
 
-/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--rs);border:none;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.18s;white-space:nowrap}
 .btn-gold{background:linear-gradient(135deg,var(--gold),#c8922a);color:#1a1200;box-shadow:0 4px 16px rgba(232,184,75,0.3)}
 .btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,184,75,0.45)}
@@ -273,7 +264,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .btn-edit:hover{background:var(--blue);color:#fff}
 .btn-sm{padding:6px 12px;font-size:0.77rem;border-radius:7px;gap:4px}
 
-/* ── BADGES ── */
 .badge{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:20px;font-size:0.7rem;font-weight:700}
 .b-green{background:rgba(16,185,129,0.12);color:var(--emerald);border:1px solid rgba(16,185,129,0.2)}
 .b-red{background:rgba(244,63,94,0.12);color:var(--rose);border:1px solid rgba(244,63,94,0.2)}
@@ -282,7 +272,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .b-gold{background:rgba(232,184,75,0.12);color:var(--gold);border:1px solid rgba(232,184,75,0.2)}
 .b-violet{background:rgba(139,92,246,0.12);color:var(--violet);border:1px solid rgba(139,92,246,0.2)}
 
-/* ── STAT CARDS ── */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
 .scard{
   background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
@@ -304,7 +293,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .sc-val{font-family:'DM Serif Display',serif;font-size:2rem;margin-bottom:2px;line-height:1}
 .sc-lbl{font-size:0.78rem;color:var(--t2)}
 
-/* ── GRADE OVERVIEW GRID ── */
 .goc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:24px}
 .goc{
   background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
@@ -322,7 +310,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-
 .goc-bar-track{height:2.5px;background:var(--surf2);border-radius:3px;margin-top:8px}
 .goc-bar-fill{height:2.5px;border-radius:3px}
 
-/* ── TABLE ── */
 .tw{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
 .tw-top{
   display:flex;align-items:center;justify-content:space-between;
@@ -355,10 +342,8 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .spill{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:22px;border-radius:5px;font-size:0.74rem;font-weight:700;padding:0 6px}
 .act-cell{display:flex;align-items:center;gap:5px}
 
-/* ── GRADE PAGE STATS ── */
 .gp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:20px}
 
-/* ── PROFILE ── */
 .pb{display:inline-flex;align-items:center;gap:7px;color:var(--t2);font-size:0.83rem;font-weight:500;cursor:pointer;padding:8px 0;margin-bottom:20px;transition:color 0.18s}
 .pb:hover{color:var(--text)}
 
@@ -404,7 +389,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .prof-tags{display:flex;gap:6px;flex-wrap:wrap}
 .prof-actions{display:flex;gap:7px;padding-top:10px;flex-wrap:wrap}
 
-/* Profile detail grid */
 .prof-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
 .psec{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:20px;transition:border-color 0.2s}
 .psec:hover{border-color:var(--bdr2)}
@@ -416,7 +400,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .ilbl{font-size:0.74rem;color:var(--t3);font-weight:500;display:flex;align-items:center;gap:5px;flex-shrink:0;min-width:90px}
 .ival{font-size:0.83rem;font-weight:600;text-align:right}
 
-/* Subject bars */
 .sub-row{margin-bottom:9px}.sub-row:last-child{margin-bottom:0}
 .sub-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .sub-name{font-size:0.78rem;color:var(--t2);font-weight:500;display:flex;align-items:center;gap:5px}
@@ -424,7 +407,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .btr{height:4px;background:var(--surf2);border-radius:10px;overflow:hidden}
 .bfill{height:4px;border-radius:10px;transition:width 1s cubic-bezier(0.4,0,0.2,1)}
 
-/* Attendance mini */
 .att-mini{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .ami{display:flex;flex-direction:column;align-items:center;gap:3px}
 .amd{
@@ -439,7 +421,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .att-L{background:rgba(245,158,11,0.14);color:var(--amber);border-color:rgba(245,158,11,0.26)}
 .amday{font-size:0.6rem;color:var(--t3);font-weight:500}
 
-/* ── MODAL ── */
 .movr{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center}
 .movr.open{display:flex;animation:mf 0.18s ease}
 @keyframes mf{from{opacity:0}to{opacity:1}}
@@ -469,7 +450,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .fg input:focus,.fg select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,184,75,0.08)}
 .m-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:4px;padding-top:16px;border-top:1px solid var(--bdr)}
 
-/* Photo upload */
 .pup{
   border:2px dashed var(--bdr2);border-radius:11px;padding:18px;
   text-align:center;cursor:pointer;transition:all 0.2s;background:var(--surf2);
@@ -483,7 +463,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 }
 .pprev img{width:100%;height:100%;object-fit:cover}
 
-/* ── ATTENDANCE PAGE ── */
 .att-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
 .att-legend{display:flex;gap:14px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--bdr);background:var(--surf);flex-wrap:wrap}
 .ldot{display:flex;align-items:center;gap:5px;font-size:0.75rem;font-weight:500}
@@ -496,7 +475,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 }
 .atb:hover{transform:scale(1.15)}
 
-/* ── TOAST ── */
 .toast{
   position:fixed;bottom:24px;right:24px;
   background:var(--surf2);border:1px solid var(--bdr2);color:var(--text);
@@ -509,7 +487,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .toast.show{opacity:1;transform:translateY(0) scale(1)}
 .t-ico{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--gold),#b8842a);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* ── LOGIN OVERLAY ── */
 #login-overlay{
   position:fixed;inset:0;z-index:9999;
   background:linear-gradient(135deg,#05080f 0%,#080d18 60%,#0a1020 100%);
@@ -552,7 +529,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .lrtab{flex:1;text-align:center;padding:7px;border-radius:7px;font-size:0.8rem;font-weight:600;cursor:pointer;color:var(--t2);transition:all 0.18s}
 .lrtab.active{background:var(--card2);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 
-/* ── USER MANAGEMENT PAGE ── */
 .um-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .user-row{
   display:flex;align-items:center;gap:14px;
@@ -571,37 +547,19 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 .ur-meta{font-size:0.72rem;color:var(--t3);margin-top:1px}
 .ur-actions{display:flex;gap:5px;flex-shrink:0}
 
-/* current user pill in sidebar footer */
 .cu-role{font-size:0.64rem;padding:2px 7px;border-radius:8px;margin-top:1px;display:inline-block}
 
-/* ══════════════════════════════════════════
-   RESPONSIVE — TABLET (≤1200px)
-══════════════════════════════════════════ */
 @media(max-width:1200px){
   .goc-grid{grid-template-columns:repeat(3,1fr)}
   .stats-row{grid-template-columns:repeat(2,1fr)}
 }
-
-/* ══════════════════════════════════════════
-   RESPONSIVE — SMALL TABLET (≤980px)
-══════════════════════════════════════════ */
 @media(max-width:980px){
   .goc-grid{grid-template-columns:repeat(2,1fr)}
   .prof-grid{grid-template-columns:1fr}
   .stats-row{grid-template-columns:repeat(2,1fr)}
 }
-
-/* ══════════════════════════════════════════
-   RESPONSIVE — MOBILE (≤768px)
-   Sidebar collapses to slide-over drawer
-   Bottom navigation bar added
-══════════════════════════════════════════ */
 @media(max-width:768px){
-
-  /* ── Body layout ── */
   body{flex-direction:column}
-
-  /* ── Sidebar becomes slide-over drawer ── */
   .sidebar{
     width:280px;
     transform:translateX(-100%);
@@ -610,8 +568,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     box-shadow:6px 0 40px rgba(0,0,0,0.6);
   }
   .sidebar.mob-open{transform:translateX(0)}
-
-  /* ── Sidebar overlay backdrop ── */
   #sb-backdrop{
     display:none;
     position:fixed;inset:0;z-index:299;
@@ -619,8 +575,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     backdrop-filter:blur(3px);
   }
   #sb-backdrop.show{display:block}
-
-  /* ── Top mobile header bar ── */
   #mob-header{
     display:flex;
     position:fixed;top:0;left:0;right:0;z-index:200;
@@ -653,15 +607,11 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     transition:all 0.18s;
   }
   #mob-hamburger:active{background:var(--card2)}
-
-  /* ── Main content shifts down for header ── */
   .main{
     margin-left:0 !important;
     padding:70px 14px 80px;
     width:100%;
   }
-
-  /* ── Bottom navigation bar ── */
   #mob-nav{
     display:flex;
     position:fixed;bottom:0;left:0;right:0;z-index:200;
@@ -682,42 +632,26 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   .mob-nav-item svg{width:20px;height:20px;stroke-width:1.8}
   .mob-nav-item.active{color:var(--gold)}
   .mob-nav-item.active svg{filter:drop-shadow(0 0 4px rgba(232,184,75,0.5))}
-
-  /* ── Page title ── */
   .pg-title{font-size:1.5rem}
   .topbar{margin-bottom:16px;gap:8px}
   .topbar > div:first-child{flex:1}
-
-  /* ── Stat cards ── */
   .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
   .scard{padding:14px 14px}
   .sc-val{font-size:1.6rem}
-
-  /* ── Grade overview ── */
   .goc-grid{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
   .goc{padding:12px}
-
-  /* ── Table wrapper ── */
   .tw{overflow:hidden}
   .tw-top{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 14px}
   .tw-controls{flex-direction:column;width:100%;max-width:100%;gap:7px}
   .sw{width:100%}
   .sinput{font-size:0.85rem}
   .fsel{width:100%;font-size:0.84rem;padding:9px 10px}
-
-  /* Table — horizontal scroll with sticky name col */
   .tw > table, .tw > div > table{min-width:500px}
   .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-  /* Hide less-important table columns on mobile */
   table thead th:nth-child(3),
-  table tbody td:nth-child(3){display:none} /* Age */
-
-  /* ── Buttons ── */
+  table tbody td:nth-child(3){display:none}
   .btn{padding:8px 14px;font-size:0.82rem}
   .btn-sm{padding:5px 9px;font-size:0.73rem}
-
-  /* ── Profile page ── */
   .prof-grid{grid-template-columns:1fr;gap:12px}
   .prof-hero{margin-bottom:12px}
   .prof-body{padding:0 16px 18px;gap:14px}
@@ -725,8 +659,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   .prof-name{font-size:1.35rem}
   .prof-actions{gap:6px}
   .prof-banner{height:100px}
-
-  /* ── Modal ── */
   .modal{
     width:100% !important;
     max-width:100% !important;
@@ -737,32 +669,16 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   }
   .movr{align-items:flex-end}
   .frow{grid-template-columns:1fr}
-
-  /* ── Attendance filter bar ── */
   #att-filter-bar{flex-wrap:wrap;gap:8px;padding:12px}
   #att-filter-bar > div{flex:1;min-width:calc(50% - 8px)}
   #att-month-label{width:100%;text-align:center;margin-left:0 !important}
-
-  /* ── Grade page stats ── */
   .gp-stats{grid-template-columns:repeat(2,1fr)}
-
-  /* ── User management rows ── */
   .user-row{padding:12px 14px;gap:10px}
   .ur-info .ur-name{font-size:0.84rem}
-
-  /* ── Toast ── */
   .toast{bottom:76px;left:14px;right:14px;width:auto}
-
-  /* ── Login box ── */
   .login-box{padding:28px 22px 24px}
-
-  /* ── Sidebar footer — hide in drawer mode ── */
   .cu-role{font-size:0.62rem}
 }
-
-/* ══════════════════════════════════════════
-   RESPONSIVE — VERY SMALL (≤400px)
-══════════════════════════════════════════ */
 @media(max-width:400px){
   .stats-row{grid-template-columns:1fr 1fr}
   .goc-grid{grid-template-columns:1fr 1fr}
@@ -774,14 +690,13 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
 </head>
 <body>
 
-<!-- ambient -->
 <div class="glow-orb orb1"></div>
 <div class="glow-orb orb2"></div>
 <div class="glow-orb orb3"></div>
 
-<!-- ── LOGIN OVERLAY ── -->
+<!-- LOGIN OVERLAY -->
 <div id="login-overlay">
-  <a href="Home.html" id="back-to-home-btn" style="
+  <a href="index.html" id="back-to-home-btn" style="
     position:fixed;top:20px;left:20px;
     display:flex;align-items:center;gap:8px;
     background:rgba(255,255,255,0.05);
@@ -820,7 +735,7 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     <div class="lerr" id="l-err"></div>
     <button class="lbtn" onclick="doLogin()">Sign In</button>
     <div style="text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)">
-      <a href="Home.html" style="
+      <a href="index.html" style="
         display:inline-flex;align-items:center;gap:6px;
         color:#3d4f72;font-size:0.76rem;font-weight:500;
         text-decoration:none;font-family:'Outfit',sans-serif;
@@ -833,10 +748,10 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 </div>
 
-<!-- ── SIDEBAR BACKDROP (mobile) ── -->
+<!-- SIDEBAR BACKDROP (mobile) -->
 <div id="sb-backdrop" onclick="closeSidebar()"></div>
 
-<!-- ── MOBILE TOP HEADER ── -->
+<!-- MOBILE TOP HEADER -->
 <div id="mob-header" style="display:none">
   <button id="mob-hamburger" onclick="toggleSidebar()">
     <i data-lucide="menu" style="width:18px;height:18px"></i>
@@ -847,7 +762,7 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 </div>
 
-<!-- ── MOBILE BOTTOM NAV ── -->
+<!-- MOBILE BOTTOM NAV -->
 <div id="mob-nav" style="display:none">
   <div class="mob-nav-item active" id="mn-dashboard" onclick="mobNav('dashboard','mn-dashboard')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
@@ -865,16 +780,20 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
     Users
   </div>
+  <div class="mob-nav-item" id="mn-salary" onclick="mobNav('salary','mn-salary')" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+    ប្រាក់ខែ
+  </div>
   <div class="mob-nav-item" id="mn-menu" onclick="toggleSidebar()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     More
   </div>
 </div>
 
-<!-- ── SIDEBAR ── -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sb-header">
-    <a href="Home.html" class="back-home-btn" title="Back to Home">
+    <a href="index.html" class="back-home-btn" title="Back to Home">
       <i data-lucide="arrow-left" style="width:13px;height:13px;flex-shrink:0"></i>
       <span>ត្រឡប់ទំព័រដើម</span>
     </a>
@@ -906,6 +825,10 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
       <div class="n-icon"><i data-lucide="shield-check" style="width:15px;height:15px"></i></div>
       <span>User Management</span>
     </div>
+    <div class="nav-item" id="nav-salary" onclick="showPage('salary',this)" style="display:none">
+      <div class="n-icon"><i data-lucide="banknote" style="width:15px;height:15px"></i></div>
+      <span>ប្រាក់ខែគ្រូ</span>
+    </div>
 
     <!-- Elementary -->
     <div class="grade-div"><div class="grade-div-line"></div><div class="grade-div-lbl">Elementary</div><div class="grade-div-line"></div></div>
@@ -921,7 +844,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 
   <div class="sb-footer">
-    <!-- Theme Toggle -->
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle-btn">
       <span style="display:flex;align-items:center;gap:7px">
         <i data-lucide="sun" style="width:13px;height:13px" id="theme-icon"></i>
@@ -942,7 +864,7 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 </aside>
 
-<!-- ── MAIN ── -->
+<!-- MAIN -->
 <main class="main">
 
 <!-- DASHBOARD -->
@@ -994,8 +916,10 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
         </select>
       </div>
     </div>
-    <table><thead><tr><th>Student</th><th>Grade</th><th>Age</th><th>Major</th><th>Score</th><th>Status</th><th>Actions</th></tr></thead>
-    <tbody id="tbody-all"></tbody></table>
+    <table>
+      <thead><tr><th>Student</th><th>Grade</th><th>Age</th><th>Major</th><th>Score</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="tbody-all"></tbody>
+    </table>
   </div>
 </div>
 
@@ -1018,8 +942,10 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
         <select class="fsel" id="sg-status" onchange="renderTable('grade')"><option value="">All Status</option><option>Active</option><option>Inactive</option></select>
       </div>
     </div>
-    <table><thead><tr><th>Student</th><th>Age</th><th>Major</th><th>Score</th><th>Attendance</th><th>Status</th><th>Actions</th></tr></thead>
-    <tbody id="tbody-grade"></tbody></table>
+    <table>
+      <thead><tr><th>Student</th><th>Age</th><th>Major</th><th>Score</th><th>Attendance</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="tbody-grade"></tbody>
+    </table>
   </div>
 </div>
 
@@ -1042,7 +968,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
     </div>
   </div>
 
-  <!-- Filter bar -->
   <div id="att-filter-bar" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px;background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 18px">
     <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
       <i data-lucide="calendar" style="width:14px;height:14px;color:var(--gold)"></i>
@@ -1110,9 +1035,70 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 </div>
 
+<!-- SALARY MANAGEMENT (Admin only) -->
+<div class="page" id="page-salary">
+  <div class="topbar">
+    <div>
+      <div class="pg-eyebrow">Administration</div>
+      <div class="pg-title">ប្រាក់ខែគ្រូ</div>
+      <div class="pg-sub">រៀបចំ និងគ្រប់គ្រងប្រាក់ខែគ្រូបង្រៀន</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <select class="fsel" id="sal-month-sel" onchange="renderSalaryTable()" style="padding:8px 12px">
+        <option value="0">មករា</option><option value="1">កុម្ភៈ</option><option value="2">មីនា</option>
+        <option value="3">មេសា</option><option value="4">ឧសភា</option><option value="5">មិថុនា</option>
+        <option value="6">កក្កដា</option><option value="7">សីហា</option><option value="8">កញ្ញា</option>
+        <option value="9">តុលា</option><option value="10">វិច្ឆិកា</option><option value="11">ធ្នូ</option>
+      </select>
+      <select class="fsel" id="sal-year-sel" onchange="renderSalaryTable()" style="padding:8px 12px"></select>
+      <button class="btn btn-gold" onclick="openSalaryModal()"><i data-lucide="plus" style="width:14px;height:14px"></i> កំណត់ប្រាក់ខែ</button>
+    </div>
+  </div>
+  <div class="stats-row" style="margin-bottom:20px">
+    <div class="scard sc1"><div class="sc-top"><div class="sc-ic i1"><i data-lucide="users" style="width:16px;height:16px"></i></div><span class="sc-pill pill-n">Total</span></div><div class="sc-val" id="sal-total-teachers">0</div><div class="sc-lbl">គ្រូបង្រៀន</div></div>
+    <div class="scard sc2"><div class="sc-top"><div class="sc-ic i2"><i data-lucide="check-circle" style="width:16px;height:16px"></i></div><span class="sc-pill pill-up">បង់ហើយ</span></div><div class="sc-val" id="sal-paid-count">0</div><div class="sc-lbl">បានទទួល</div></div>
+    <div class="scard sc3"><div class="sc-top"><div class="sc-ic i3"><i data-lucide="clock" style="width:16px;height:16px"></i></div><span class="sc-pill pill-n">រង់ចាំ</span></div><div class="sc-val" id="sal-pending-count">0</div><div class="sc-lbl">មិនទាន់បង់</div></div>
+    <div class="scard sc4"><div class="sc-top"><div class="sc-ic i4"><i data-lucide="dollar-sign" style="width:16px;height:16px"></i></div><span class="sc-pill pill-up">សរុប</span></div><div class="sc-val" id="sal-total-amount">$0</div><div class="sc-lbl">ប្រាក់ខែសរុប</div></div>
+  </div>
+  <div class="tw">
+    <div class="tw-top">
+      <div class="tw-title">តារាងប្រាក់ខែ</div>
+      <div class="tw-controls">
+        <div class="sw"><i data-lucide="search" style="width:13px;height:13px"></i><input class="sinput" id="sal-search" placeholder="ស្វែងរកឈ្មោះគ្រូ…" oninput="renderSalaryTable()"/></div>
+        <select class="fsel" id="sal-status-filter" onchange="renderSalaryTable()">
+          <option value="">ទាំងអស់</option>
+          <option value="paid">បង់ហើយ</option>
+          <option value="pending">មិនទាន់បង់</option>
+        </select>
+      </div>
+    </div>
+    <div style="overflow-x:auto">
+      <table style="min-width:800px">
+        <thead>
+          <tr>
+            <th>គ្រូបង្រៀន</th>
+            <th>ថ្នាក់</th>
+            <th>ប្រាក់ខែមូលដ្ឋាន</th>
+            <th>ប្រាក់បន្ថែម</th>
+            <th>កាត់ប្រាក់</th>
+            <th>សរុប</th>
+            <th>ស្ថានភាព</th>
+            <th>សកម្មភាព</th>
+          </tr>
+        </thead>
+        <tbody id="sal-tbody"></tbody>
+      </table>
+    </div>
+    <div id="sal-empty" style="display:none;text-align:center;padding:40px;color:var(--t3);font-size:0.85rem">
+      <i data-lucide="inbox" style="width:36px;height:36px;margin-bottom:10px;opacity:0.4;display:block;margin-inline:auto"></i>
+      <div>មិនមានទិន្នន័យប្រាក់ខែ</div>
+    </div>
+  </div>
+</div>
+
 </main>
 
-<!-- ── MODAL ── -->
+<!-- MODAL -->
 <div class="movr" id="modal">
   <div class="modal">
     <button class="xbtn" onclick="closeModal()"><i data-lucide="x" style="width:12px;height:12px"></i></button>
@@ -1121,7 +1107,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
       <div><div class="m-ttl" id="m-title">Add Student</div><div class="m-sub">Fill in the student's information</div></div>
     </div>
 
-    <!-- Photo -->
     <div class="fsec">
       <div class="ftitle"><i data-lucide="camera" style="width:10px;height:10px"></i> Profile Photo</div>
       <div class="pup" onclick="document.getElementById('photo-inp').click()">
@@ -1132,7 +1117,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
       </div>
     </div>
 
-    <!-- Personal -->
     <div class="fsec">
       <div class="ftitle"><i data-lucide="user" style="width:10px;height:10px"></i> Personal Information</div>
       <div class="frow">
@@ -1154,7 +1138,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
       </div>
     </div>
 
-    <!-- Academic -->
     <div class="fsec">
       <div class="ftitle"><i data-lucide="book-open" style="width:10px;height:10px"></i> Academic Information</div>
       <div class="frow">
@@ -1175,7 +1158,6 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
         <select id="f-status"><option>Active</option><option>Inactive</option></select></div>
     </div>
 
-    <!-- Scores -->
     <div class="fsec">
       <div class="ftitle"><i data-lucide="bar-chart-2" style="width:10px;height:10px"></i> Subject Scores (0–100)</div>
       <div class="frow">
@@ -1204,7 +1186,7 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   <span id="toast-msg"></span>
 </div>
 
-<!-- ── USER MODAL ── -->
+<!-- USER MODAL -->
 <div class="movr" id="user-modal">
   <div class="modal" style="width:420px">
     <button class="xbtn" onclick="closeUserModal()"><i data-lucide="x" style="width:12px;height:12px"></i></button>
@@ -1258,112 +1240,305 @@ tbody td{padding:12px 16px;font-size:0.84rem;vertical-align:middle}
   </div>
 </div>
 
+<!-- SALARY MODAL -->
+<div class="movr" id="salary-modal">
+  <div class="modal" style="width:480px;max-height:90vh;overflow-y:auto">
+    <button class="xbtn" onclick="closeSalaryModal()"><i data-lucide="x" style="width:12px;height:12px"></i></button>
+    <div class="m-hdr">
+      <div class="m-ico" style="background:linear-gradient(135deg,var(--emerald),#059669)"><i data-lucide="banknote" style="width:18px;height:18px;color:#fff"></i></div>
+      <div><div class="m-ttl" id="sm-title">កំណត់ប្រាក់ខែ</div><div class="m-sub" id="sm-sub">បញ្ចូលព័ត៌មានប្រាក់ខែ</div></div>
+    </div>
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="user" style="width:10px;height:10px"></i> ជ្រើសគ្រូ</div>
+      <div class="fg">
+        <label>គ្រូបង្រៀន</label>
+        <select id="sm-teacher"><option value="">— ជ្រើសគ្រូ —</option></select>
+      </div>
+    </div>
+    <div class="fsec">
+      <div class="ftitle"><i data-lucide="dollar-sign" style="width:10px;height:10px"></i> ព័ត៌មានប្រាក់ខែ</div>
+      <div class="frow">
+        <div class="fg">
+          <label>ប្រាក់ខែមូលដ្ឋាន ($)</label>
+          <input id="sm-base" type="number" min="0" placeholder="0.00" oninput="calcSalaryTotal()"/>
+        </div>
+        <div class="fg">
+          <label>ប្រាក់បន្ថែម ($)</label>
+          <input id="sm-bonus" type="number" min="0" placeholder="0.00" oninput="calcSalaryTotal()"/>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label>កាត់ប្រាក់ ($)</label>
+          <input id="sm-deduct" type="number" min="0" placeholder="0.00" oninput="calcSalaryTotal()"/>
+        </div>
+        <div class="fg">
+          <label>ខែ/ឆ្នាំ</label>
+          <input id="sm-period" type="month"/>
+        </div>
+      </div>
+      <div style="background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);padding:14px 16px;margin-top:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.82rem;color:var(--t2)">ប្រាក់ខែសរុប</span>
+          <span id="sm-total-display" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--emerald)">$0.00</span>
+        </div>
+      </div>
+      <div class="fg" style="margin-top:10px">
+        <label>កំណត់ចំណាំ</label>
+        <input id="sm-note" placeholder="e.g. ប្រាក់ខែខែមករា…"/>
+      </div>
+      <div class="fg">
+        <label>ស្ថានភាព</label>
+        <select id="sm-status">
+          <option value="pending">មិនទាន់បង់</option>
+          <option value="paid">បង់ហើយ</option>
+        </select>
+      </div>
+    </div>
+    <div class="lerr" id="sm-err"></div>
+    <div class="m-actions">
+      <button class="btn btn-ghost" onclick="closeSalaryModal()">បោះបង់</button>
+      <button class="btn btn-gold" onclick="saveSalary()"><i data-lucide="save" style="width:13px;height:13px"></i> រក្សាទុក</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// ── CONSTANTS ──
-const GRADES=[1,2,3,4,5,6,7,8,9,10,11,12];
-const GC=['#e8b84b','#f97316','#ef4444','#ec4899','#a855f7','#8b5cf6','#6366f1','#3b82f6','#06b6d4','#14b8a6','#10b981','#84cc16'];
-const GL={1:'Elementary',2:'Elementary',3:'Elementary',4:'Elementary',5:'Elementary',6:'Elementary',7:'Middle School',8:'Middle School',9:'Middle School',10:'High School',11:'High School',12:'High School'};
-const PAL=[
+// ============= LOCAL STORAGE DATABASE (No Server Needed) =============
+const DB_KEY_STUDENTS = 'meng_students';
+const DB_KEY_USERS    = 'meng_users';
+const DB_KEY_PHOTOS   = 'meng_photos';
+const DB_KEY_SALARY   = 'meng_salary';
+
+// ── DEFAULT USERS (admin + demo teacher) ──
+const DEFAULT_USERS = [
+  {
+    id: 'u001',
+    name: 'Administrator',
+    username: 'admin',
+    password: 'admin1234',
+    role: 'admin',
+    status: 'active',
+    assigned_grade: '',
+    photo_base64: null
+  },
+  {
+    id: 'u002',
+    name: 'Demo Teacher',
+    username: 'teacher',
+    password: 'teacher123',
+    role: 'teacher',
+    status: 'active',
+    assigned_grade: '9',
+    photo_base64: null
+  }
+];
+
+// ── DEFAULT STUDENTS ──
+const DEFAULT_STUDENTS = [
+  {id:'S901',first:'Sophea',last:'Chan',dob:'2009-03-15',gender:'Female',email:'sophea@meng.edu.kh',phone:'+855 12 345 678',address:'Phnom Penh',parent:'Chan Sokha',grade:9,major:'Science',status:'Active',scores:{Math:88,Science:92,English:85,History:78,Arts:80,PE:86},attendance:{}},
+  {id:'S902',first:'Dara',last:'Pich',dob:'2009-08-22',gender:'Male',email:'dara@meng.edu.kh',phone:'+855 17 234 567',address:'Siem Reap',parent:'Pich Vanny',grade:9,major:'Mathematics',status:'Active',scores:{Math:72,Science:65,English:80,History:90,Arts:75,PE:80},attendance:{}},
+  {id:'S1001',first:'Bopha',last:'Seng',dob:'2008-01-10',gender:'Female',email:'bopha@meng.edu.kh',phone:'+855 16 789 012',address:'Battambang',parent:'Seng Rathana',grade:10,major:'Science',status:'Active',scores:{Math:95,Science:90,English:88,History:82,Arts:78,PE:90},attendance:{}},
+  {id:'S1002',first:'Maly',last:'Heng',dob:'2008-06-18',gender:'Female',email:'maly@meng.edu.kh',phone:'+855 15 678 901',address:'Phnom Penh',parent:'Heng Bunna',grade:10,major:'Arts',status:'Active',scores:{Math:78,Science:83,English:91,History:76,Arts:94,PE:88},attendance:{}},
+  {id:'S1101',first:'Pisach',last:'Lim',dob:'2007-12-05',gender:'Male',email:'pisach@meng.edu.kh',phone:'+855 18 901 234',address:'Kandal',parent:'Lim Chenda',grade:11,major:'Technology',status:'Active',scores:{Math:85,Science:79,English:77,History:88,Arts:70,PE:84},attendance:{}},
+  {id:'S1201',first:'Ratha',last:'Keo',dob:'2006-11-30',gender:'Male',email:'ratha@meng.edu.kh',phone:'+855 11 456 789',address:'Kampot',parent:'Keo Chanthy',grade:12,major:'Science',status:'Active',scores:{Math:80,Science:75,English:82,History:78,Arts:72,PE:88},attendance:{}},
+  {id:'S1202',first:'Sreyleak',last:'Chea',dob:'2006-08-09',gender:'Female',email:'sreyleak@meng.edu.kh',phone:'+855 17 890 123',address:'Phnom Penh',parent:'Chea Sophany',grade:12,major:'Mathematics',status:'Active',scores:{Math:93,Science:91,English:95,History:90,Arts:85,PE:92},attendance:{}},
+  {id:'S101',first:'Lida',last:'Ros',dob:'2018-03-10',gender:'Female',email:'lida@meng.edu.kh',phone:'',address:'Phnom Penh',parent:'Ros Vanna',grade:1,major:'General',status:'Active',scores:{Math:90,Science:85,English:88,History:80,Arts:92,PE:95},attendance:{}},
+  {id:'S201',first:'Bunna',last:'Tan',dob:'2017-09-08',gender:'Male',email:'bunna@meng.edu.kh',phone:'',address:'Battambang',parent:'Tan Ratha',grade:2,major:'General',status:'Active',scores:{Math:72,Science:68,English:80,History:75,Arts:70,PE:82},attendance:{}},
+  {id:'S301',first:'Sokha',last:'Lim',dob:'2016-11-30',gender:'Male',email:'sokha@meng.edu.kh',phone:'',address:'Phnom Penh',parent:'Lim Chea',grade:3,major:'General',status:'Active',scores:{Math:95,Science:90,English:92,History:88,Arts:85,PE:90},attendance:{}},
+  {id:'S401',first:'Ratana',last:'Sok',dob:'2015-02-18',gender:'Male',email:'ratana@meng.edu.kh',phone:'',address:'Phnom Penh',parent:'Sok Piseth',grade:4,major:'Science',status:'Active',scores:{Math:91,Science:87,English:89,History:85,Arts:80,PE:88},attendance:{}},
+  {id:'S501',first:'Sreyna',last:'Im',dob:'2014-12-25',gender:'Female',email:'sreyna@meng.edu.kh',phone:'',address:'Siem Reap',parent:'Im Sophy',grade:5,major:'Arts',status:'Active',scores:{Math:82,Science:79,English:85,History:81,Arts:95,PE:88},attendance:{}},
+  {id:'S601',first:'Vanna',last:'Nget',dob:'2013-07-19',gender:'Female',email:'vanna@meng.edu.kh',phone:'',address:'Phnom Penh',parent:'Nget Chandara',grade:6,major:'Social Studies',status:'Active',scores:{Math:70,Science:73,English:78,History:82,Arts:85,PE:80},attendance:{}},
+  {id:'S701',first:'Borey',last:'Pen',dob:'2012-05-23',gender:'Male',email:'borey@meng.edu.kh',phone:'+855 16 333 444',address:'Phnom Penh',parent:'Pen Virak',grade:7,major:'Technology',status:'Active',scores:{Math:85,Science:88,English:80,History:75,Arts:70,PE:92},attendance:{}},
+  {id:'S801',first:'Sovann',last:'Ek',dob:'2011-04-02',gender:'Male',email:'sovann@meng.edu.kh',phone:'+855 18 777 888',address:'Phnom Penh',parent:'Ek Sambath',grade:8,major:'Business',status:'Active',scores:{Math:77,Science:81,English:79,History:74,Arts:72,PE:85},attendance:{}},
+];
+
+// ── STORAGE HELPERS ──
+function dbGetStudents() {
+  try {
+    const raw = localStorage.getItem(DB_KEY_STUDENTS);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  // First run: seed defaults
+  localStorage.setItem(DB_KEY_STUDENTS, JSON.stringify(DEFAULT_STUDENTS));
+  return DEFAULT_STUDENTS;
+}
+
+function dbSaveStudents(arr) {
+  localStorage.setItem(DB_KEY_STUDENTS, JSON.stringify(arr));
+}
+
+function dbGetUsers() {
+  try {
+    const raw = localStorage.getItem(DB_KEY_USERS);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  localStorage.setItem(DB_KEY_USERS, JSON.stringify(DEFAULT_USERS));
+  return DEFAULT_USERS;
+}
+
+function dbSaveUsers(arr) {
+  localStorage.setItem(DB_KEY_USERS, JSON.stringify(arr));
+}
+
+function dbGetPhotos() {
+  try {
+    const raw = localStorage.getItem(DB_KEY_PHOTOS);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return {};
+}
+
+function dbSavePhotos(obj) {
+  try { localStorage.setItem(DB_KEY_PHOTOS, JSON.stringify(obj)); } catch(e) {}
+}
+
+// ── STUDENT API (localStorage) ──
+async function loadStudents() {
+  students = dbGetStudents();
+  photos   = dbGetPhotos();
+  renderDashboard();
+  updBadges();
+  buildSidebarNav();
+}
+
+async function saveStudentToAPI(studentData) {
+  const arr = dbGetStudents();
+  if (studentData.id) {
+    const idx = arr.findIndex(s => s.id === studentData.id);
+    if (idx >= 0) arr[idx] = { ...arr[idx], ...studentData };
+  } else {
+    const newId = 'S' + Date.now().toString().slice(-6);
+    arr.push({ ...studentData, id: newId });
+    studentData.id = newId;
+  }
+  dbSaveStudents(arr);
+  students = arr;
+  if (tempPhoto && studentData.id) {
+    photos[studentData.id] = tempPhoto;
+    dbSavePhotos(photos);
+  }
+  return { id: studentData.id };
+}
+
+async function deleteStudentFromAPI(id) {
+  const arr = dbGetStudents().filter(s => s.id !== id);
+  dbSaveStudents(arr);
+  students = arr;
+  const ph = dbGetPhotos();
+  delete ph[id];
+  dbSavePhotos(ph);
+}
+
+// ── USER API (localStorage) ──
+async function loadUsersFromAPI() {
+  return dbGetUsers();
+}
+
+async function saveUserToAPI(userData) {
+  const arr = dbGetUsers();
+  if (userData.id) {
+    const idx = arr.findIndex(u => u.id === userData.id);
+    if (idx >= 0) {
+      if (!userData.password) userData.password = arr[idx].password; // keep old pw
+      arr[idx] = { ...arr[idx], ...userData };
+    }
+  } else {
+    const newId = 'u' + Date.now().toString().slice(-6);
+    arr.push({ ...userData, id: newId, role: 'teacher' });
+    userData.id = newId;
+  }
+  dbSaveUsers(arr);
+  return { id: userData.id };
+}
+
+async function deleteUserFromAPI(id) {
+  const arr = dbGetUsers().filter(u => u.id !== id);
+  dbSaveUsers(arr);
+}
+
+// ── LOGIN (localStorage) ──
+async function loginToAPI(username, password, role) {
+  const users = dbGetUsers();
+  const user = users.find(u =>
+    u.username === username.trim().toLowerCase() &&
+    u.password === password &&
+    u.status   !== 'inactive'
+  );
+  if (!user) throw new Error('Invalid credentials');
+  if (role === 'admin' && user.role !== 'admin') throw new Error('Not an admin account');
+  if (role === 'teacher' && user.role !== 'teacher' && user.role !== 'admin') throw new Error('Not a teacher account');
+  return {
+    id:             user.id,
+    name:           user.name,
+    username:       user.username,
+    role:           user.role,
+    assigned_grade: user.assigned_grade || '',
+    photo_base64:   user.photo_base64 || null
+  };
+}
+
+// ============= GLOBAL VARIABLES =============
+const GRADES = [1,2,3,4,5,6,7,8,9,10,11,12];
+const GC = ['#e8b84b','#f97316','#ef4444','#ec4899','#a855f7','#8b5cf6','#6366f1','#3b82f6','#06b6d4','#14b8a6','#10b981','#84cc16'];
+const GL = {1:'Elementary',2:'Elementary',3:'Elementary',4:'Elementary',5:'Elementary',6:'Elementary',7:'Middle School',8:'Middle School',9:'Middle School',10:'High School',11:'High School',12:'High School'};
+const PAL = [
   {bg:'rgba(232,184,75,0.16)',c:'#e8b84b'},{bg:'rgba(59,130,246,0.16)',c:'#60a5fa'},
   {bg:'rgba(16,185,129,0.16)',c:'#34d399'},{bg:'rgba(244,63,94,0.16)',c:'#fb7185'},
   {bg:'rgba(139,92,246,0.16)',c:'#a78bfa'},{bg:'rgba(6,182,212,0.16)',c:'#22d3ee'},
   {bg:'rgba(249,115,22,0.16)',c:'#fb923c'},{bg:'rgba(132,204,22,0.16)',c:'#a3e635'},
 ];
-const DAYS=['Mon','Tue','Wed','Thu','Fri','Mon','Tue','Wed','Thu','Fri'];
-const SUBS=[
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Mon','Tue','Wed','Thu','Fri'];
+const SUBS = [
   {k:'Math',ic:'calculator'},{k:'Science',ic:'flask-conical'},
   {k:'English',ic:'book'},{k:'History',ic:'landmark'},
   {k:'Arts',ic:'palette'},{k:'PE',ic:'dumbbell'},
 ];
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
-let photos={};
-let tempPhoto=null;
-let editId=null;
-let curGrade=9;
-let prevPage='dashboard';
+let students = [];
+let photos = {};
+let currentUser = null;
+let loginRole = 'admin';
+let editId = null;
+let curGrade = 9;
+let prevPage = 'dashboard';
+let tempPhoto = null;
+let tempUserPhoto = null;
+let editUserId = null;
+let editSalaryId = null;
 
-// ── STORAGE HELPERS ──
-function saveDB(){
-  try{
-    localStorage.setItem('mg_students',JSON.stringify(students));
-    // photos are base64 strings — store separately per student to stay within quota
-    localStorage.setItem('mg_photos',JSON.stringify(photos));
-  }catch(e){console.warn('Storage save failed:',e);}
+// ============= SALARY DB =============
+function dbGetSalaries(){ try{return JSON.parse(localStorage.getItem(DB_KEY_SALARY)||'[]');}catch{return[];} }
+function dbSaveSalaries(arr){ localStorage.setItem(DB_KEY_SALARY, JSON.stringify(arr)); }
+
+// ============= HELPER FUNCTIONS =============
+const avg = sc => Math.round(Object.values(sc).reduce((a,b)=>a+b,0)/Object.values(sc).length);
+const sc = v => v>=90?'var(--emerald)':v>=75?'var(--blue)':v>=60?'var(--amber)':'var(--rose)';
+const gl = v => v>=90?'A':v>=80?'B':v>=70?'C':v>=60?'D':'F';
+const pal = i => PAL[i%PAL.length];
+const gradeC = g => GC[g-1]||GC[0];
+const calcAge = d => {if(!d)return'—';const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;};
+const fmtDate = d => {if(!d)return'—';return new Date(d).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});};
+const attR = s => {const v=Object.values(s.attendance||{});return v.length?Math.round((v.filter(a=>a==='P').length/v.length)*100):0;};
+const majorBadge = m => {const map={Science:'b-blue',Mathematics:'b-violet',Arts:'b-gold',Business:'b-green',Technology:'b-amber','Social Studies':'b-rose',General:'b-gold'};return map[m]||'b-gold';};
+
+function showToast(msg){
+  document.getElementById('toast-msg').textContent=msg;
+  const t=document.getElementById('toast');t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
-function loadDB(){
-  try{
-    const s=localStorage.getItem('mg_students');
-    const p=localStorage.getItem('mg_photos');
-    if(s){students=JSON.parse(s);}
-    if(p){photos=JSON.parse(p);}
-  }catch(e){console.warn('Storage load failed:',e);}
-}
 
-// ── SAMPLE DATA ──
-let students=[
-  // Grade 1
-  {id:'S101',first:'Lida',last:'Ros',dob:'2018-03-10',gender:'Female',email:'lida@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Ros Vanna',grade:1,major:'General',status:'Active',scores:{Math:90,Science:85,English:88,History:80,Arts:92,PE:95},attendance:{}},
-  {id:'S102',first:'Vibol',last:'Keo',dob:'2018-07-22',gender:'Male',email:'vibol@mg.edu.kh',phone:'',address:'Kandal',parent:'Keo Dara',grade:1,major:'General',status:'Active',scores:{Math:78,Science:82,English:75,History:70,Arts:80,PE:88},attendance:{}},
-  {id:'S103',first:'Sreynich',last:'Hak',dob:'2018-01-05',gender:'Female',email:'sreynich@mg.edu.kh',phone:'',address:'Siem Reap',parent:'Hak Mony',grade:1,major:'General',status:'Active',scores:{Math:94,Science:91,English:90,History:88,Arts:95,PE:90},attendance:{}},
-  // Grade 2
-  {id:'S201',first:'Bunna',last:'Tan',dob:'2017-09-08',gender:'Male',email:'bunna@mg.edu.kh',phone:'',address:'Battambang',parent:'Tan Ratha',grade:2,major:'General',status:'Active',scores:{Math:72,Science:68,English:80,History:75,Arts:70,PE:82},attendance:{}},
-  {id:'S202',first:'Chanthy',last:'Mao',dob:'2017-04-20',gender:'Female',email:'chanthy@mg.edu.kh',phone:'',address:'Kampot',parent:'Mao Sokha',grade:2,major:'General',status:'Active',scores:{Math:88,Science:90,English:86,History:83,Arts:91,PE:85},attendance:{}},
-  // Grade 3
-  {id:'S301',first:'Sokha',last:'Lim',dob:'2016-11-30',gender:'Male',email:'sokha@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Lim Chea',grade:3,major:'General',status:'Active',scores:{Math:95,Science:90,English:92,History:88,Arts:85,PE:90},attendance:{}},
-  {id:'S302',first:'Dina',last:'Pov',dob:'2016-06-12',gender:'Female',email:'dina@mg.edu.kh',phone:'',address:'Kandal',parent:'Pov Kunthy',grade:3,major:'General',status:'Inactive',scores:{Math:65,Science:60,English:70,History:58,Arts:72,PE:75},attendance:{}},
-  // Grade 4
-  {id:'S401',first:'Ratana',last:'Sok',dob:'2015-02-18',gender:'Male',email:'ratana@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Sok Piseth',grade:4,major:'Science',status:'Active',scores:{Math:91,Science:87,English:89,History:85,Arts:80,PE:88},attendance:{}},
-  {id:'S402',first:'Pheakdey',last:'Chhun',dob:'2015-08-05',gender:'Male',email:'pheakdey@mg.edu.kh',phone:'',address:'Prey Veng',parent:'Chhun Vathana',grade:4,major:'Mathematics',status:'Active',scores:{Math:76,Science:80,English:74,History:71,Arts:68,PE:80},attendance:{}},
-  // Grade 5
-  {id:'S501',first:'Sreyna',last:'Im',dob:'2014-12-25',gender:'Female',email:'sreyna@mg.edu.kh',phone:'',address:'Siem Reap',parent:'Im Sophy',grade:5,major:'Arts',status:'Active',scores:{Math:82,Science:79,English:85,History:81,Arts:95,PE:88},attendance:{}},
-  {id:'S502',first:'Kimheng',last:'Sar',dob:'2014-03-14',gender:'Male',email:'kimheng@mg.edu.kh',phone:'',address:'Battambang',parent:'Sar Borei',grade:5,major:'Science',status:'Active',scores:{Math:92,Science:94,English:90,History:87,Arts:78,PE:85},attendance:{}},
-  // Grade 6
-  {id:'S601',first:'Vanna',last:'Nget',dob:'2013-07-19',gender:'Female',email:'vanna@mg.edu.kh',phone:'',address:'Phnom Penh',parent:'Nget Chandara',grade:6,major:'Social Studies',status:'Active',scores:{Math:70,Science:73,English:78,History:82,Arts:85,PE:80},attendance:{}},
-  {id:'S602',first:'Makara',last:'Orn',dob:'2013-01-09',gender:'Male',email:'makara@mg.edu.kh',phone:'+855 17 111 222',address:'Kampong Cham',parent:'Orn Sokhom',grade:6,major:'Mathematics',status:'Active',scores:{Math:88,Science:85,English:82,History:79,Arts:74,PE:90},attendance:{}},
-  // Grade 7
-  {id:'S701',first:'Borey',last:'Pen',dob:'2012-05-23',gender:'Male',email:'borey@mg.edu.kh',phone:'+855 16 333 444',address:'Phnom Penh',parent:'Pen Virak',grade:7,major:'Technology',status:'Active',scores:{Math:85,Science:88,English:80,History:75,Arts:70,PE:92},attendance:{}},
-  {id:'S702',first:'Channary',last:'Yun',dob:'2012-10-17',gender:'Female',email:'channary@mg.edu.kh',phone:'+855 12 555 666',address:'Siem Reap',parent:'Yun Monita',grade:7,major:'Science',status:'Active',scores:{Math:95,Science:93,English:91,History:89,Arts:82,PE:88},attendance:{}},
-  // Grade 8
-  {id:'S801',first:'Sovann',last:'Ek',dob:'2011-04-02',gender:'Male',email:'sovann@mg.edu.kh',phone:'+855 18 777 888',address:'Phnom Penh',parent:'Ek Sambath',grade:8,major:'Business',status:'Active',scores:{Math:77,Science:81,English:79,History:74,Arts:72,PE:85},attendance:{}},
-  {id:'S802',first:'Pisey',last:'Kong',dob:'2011-08-15',gender:'Female',email:'pisey@mg.edu.kh',phone:'+855 16 888 999',address:'Kampot',parent:'Kong Sophal',grade:8,major:'Arts',status:'Active',scores:{Math:80,Science:76,English:88,History:82,Arts:96,PE:84},attendance:{}},
-  // Grade 9
-  {id:'S901',first:'Sophea',last:'Chan',dob:'2009-03-15',gender:'Female',email:'sophea@mg.edu.kh',phone:'+855 12 345 678',address:'Phnom Penh',parent:'Chan Sokha',grade:9,major:'Science',status:'Active',scores:{Math:88,Science:92,English:85,History:78,Arts:80,PE:86},attendance:{}},
-  {id:'S902',first:'Dara',last:'Pich',dob:'2009-08-22',gender:'Male',email:'dara@mg.edu.kh',phone:'+855 17 234 567',address:'Siem Reap',parent:'Pich Vanny',grade:9,major:'Mathematics',status:'Active',scores:{Math:72,Science:65,English:80,History:90,Arts:75,PE:80},attendance:{}},
-  // Grade 10
-  {id:'S1001',first:'Bopha',last:'Seng',dob:'2008-01-10',gender:'Female',email:'bopha@mg.edu.kh',phone:'+855 16 789 012',address:'Battambang',parent:'Seng Rathana',grade:10,major:'Science',status:'Active',scores:{Math:95,Science:90,English:88,History:82,Arts:78,PE:90},attendance:{}},
-  {id:'S1002',first:'Maly',last:'Heng',dob:'2008-06-18',gender:'Female',email:'maly@mg.edu.kh',phone:'+855 15 678 901',address:'Phnom Penh',parent:'Heng Bunna',grade:10,major:'Arts',status:'Active',scores:{Math:78,Science:83,English:91,History:76,Arts:94,PE:88},attendance:{}},
-  // Grade 11
-  {id:'S1101',first:'Pisach',last:'Lim',dob:'2007-12-05',gender:'Male',email:'pisach@mg.edu.kh',phone:'+855 18 901 234',address:'Kandal',parent:'Lim Chenda',grade:11,major:'Technology',status:'Active',scores:{Math:85,Science:79,English:77,History:88,Arts:70,PE:84},attendance:{}},
-  {id:'S1102',first:'Vicheka',last:'Noun',dob:'2007-04-14',gender:'Male',email:'vicheka@mg.edu.kh',phone:'+855 11 234 567',address:'Phnom Penh',parent:'Noun Chanthou',grade:11,major:'Business',status:'Active',scores:{Math:90,Science:87,English:83,History:86,Arts:75,PE:82},attendance:{}},
-  // Grade 12
-  {id:'S1201',first:'Ratha',last:'Keo',dob:'2006-11-30',gender:'Male',email:'ratha@mg.edu.kh',phone:'+855 11 456 789',address:'Kampot',parent:'Keo Chanthy',grade:12,major:'Science',status:'Active',scores:{Math:80,Science:75,English:82,History:78,Arts:72,PE:88},attendance:{}},
-  {id:'S1202',first:'Sreyleak',last:'Chea',dob:'2006-08-09',gender:'Female',email:'sreyleak@mg.edu.kh',phone:'+855 17 890 123',address:'Phnom Penh',parent:'Chea Sophany',grade:12,major:'Mathematics',status:'Active',scores:{Math:93,Science:91,English:95,History:90,Arts:85,PE:92},attendance:{}},
-];
-students.forEach(s=>{DAYS.forEach((_,i)=>{if(!s.attendance[i])s.attendance[i]='P';});});
+// (API functions now use localStorage — see above)
 
-// ── LOAD PERSISTED DATA (overrides sample data if saved) ──
-loadDB();
-// Ensure attendance slots are filled for any loaded student
-students.forEach(s=>{DAYS.forEach((_,i)=>{if(!s.attendance[i])s.attendance[i]='P';});});
-
-// ── HELPERS ──
-const uid=()=>'S'+String(Math.floor(Math.random()*9000)+1000);
-const avg=sc=>Math.round(Object.values(sc).reduce((a,b)=>a+b,0)/Object.values(sc).length);
-const sc=v=>v>=90?'var(--emerald)':v>=75?'var(--blue)':v>=60?'var(--amber)':'var(--rose)';
-const gl=v=>v>=90?'A':v>=80?'B':v>=70?'C':v>=60?'D':'F';
-const pal=i=>PAL[i%PAL.length];
-const gradeC=g=>GC[g-1]||GC[0];
-const calcAge=d=>{if(!d)return'—';const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;};
-const fmtDate=d=>{if(!d)return'—';return new Date(d).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});};
-const attR=s=>{const v=Object.values(s.attendance);return v.length?Math.round((v.filter(a=>a==='P').length/v.length)*100):0;};
-const majorBadge=m=>{const map={Science:'b-blue',Mathematics:'b-violet',Arts:'b-gold',Business:'b-green',Technology:'b-amber','Social Studies':'b-rose',General:'b-gold'};return map[m]||'b-gold';};
-
-// ── BUILD SIDEBAR GRADE NAV ──
-function buildSidebarNav(){
+// ============= UI FUNCTIONS =============
+function buildSidebarNav() {
   [[1,6,'elem'],[7,9,'mid'],[10,12,'high']].forEach(([s,e,id])=>{
     let h='';
     for(let g=s;g<=e;g++){
-      const c=gradeC(g);const cnt=students.filter(x=>x.grade===g).length;
+      const c=gradeC(g);
+      const cnt=students.filter(x=>x.grade===g).length;
       h+=`<div class="gnav" id="gnav-${g}" onclick="showGrade(${g},this)" style="position:relative">
         <div class="g-num" style="background:${c}20;color:${c}">${g}</div>
         <span>Grade ${g}</span>
@@ -1373,12 +1548,12 @@ function buildSidebarNav(){
     document.getElementById(`gnav-${id}`).innerHTML=h;
   });
 }
+
 function updBadges(){
   for(let g=1;g<=12;g++){const el=document.getElementById(`gb-${g}`);if(el)el.textContent=students.filter(s=>s.grade===g).length;}
   document.getElementById('nav-total').textContent=students.length;
 }
 
-// ── NAVIGATION ──
 function showPage(id,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item,.gnav').forEach(n=>n.classList.remove('active'));
@@ -1388,6 +1563,7 @@ function showPage(id,el){
   if(id==='all')renderTable('all');
   if(id==='attendance')renderAttendance();
   if(id==='users')renderUsers();
+  if(id==='salary')renderSalaryPage();
   lucide.createIcons();
 }
 
@@ -1401,18 +1577,23 @@ function showGrade(g,el){
   document.getElementById('gp-eyebrow').textContent=GL[g];
   document.getElementById('gp-title').textContent=`Grade ${g}`;
   document.getElementById('gp-tw-title').textContent=`Grade ${g} Students`;
-  renderGradeStats(g);renderTable('grade');
+  renderGradeStats(g);
+  renderTable('grade');
   lucide.createIcons();
 }
 
 function viewProfile(id,from){
   prevPage=from||'all';
   const s=students.find(x=>x.id===id);
+  if(!s) return;
   const idx=students.indexOf(s);
-  const p=pal(idx);const a=avg(s.scores);const c=gradeC(s.grade);
-  const lc=sc(a);const age=calcAge(s.dob);
+  const p=pal(idx);
+  const a=avg(s.scores);
+  const c=gradeC(s.grade);
+  const lc=sc(a);
+  const age=calcAge(s.dob);
   const ar=attR(s);
-  const attVals=Object.values(s.attendance);
+  const attVals=Object.values(s.attendance||{});
   const attP=attVals.filter(v=>v==='P').length;
   const attA=attVals.filter(v=>v==='A').length;
   const attL=attVals.filter(v=>v==='L').length;
@@ -1424,12 +1605,13 @@ function viewProfile(id,from){
   document.getElementById('prof-back-lbl').textContent=`Back to ${backLbl}`;
 
   const subRows=SUBS.map(sub=>{
-    const sv=s.scores[sub.k]||0;const cc=sc(sv);
+    const sv=s.scores[sub.k]||0;
+    const cc=sc(sv);
     return `<div class="sub-row"><div class="sub-top"><span class="sub-name"><i data-lucide="${sub.ic}" style="width:11px;height:11px;color:var(--t3)"></i>${sub.k}</span><span class="sub-score" style="color:${cc}">${sv} <span style="font-size:0.67rem;opacity:0.7">${gl(sv)}</span></span></div><div class="btr"><div class="bfill" style="width:${sv}%;background:${cc}"></div></div></div>`;
   }).join('');
 
   const attDots=DAYS.map((d,i)=>{
-    const st=s.attendance[i]||'P';
+    const st=s.attendance?.[i]||'P';
     return `<div class="ami"><div class="amd att-${st}" onclick="toggleAttProfile('${id}',${i})">${st}</div><span class="amday">${d}</span></div>`;
   }).join('');
 
@@ -1468,7 +1650,6 @@ function viewProfile(id,from){
   </div>
 
   <div class="prof-grid">
-    <!-- Personal -->
     <div class="psec">
       <div class="psec-hdr"><div class="psec-ic" style="background:rgba(232,184,75,0.14)"><i data-lucide="user" style="width:14px;height:14px;color:var(--gold)"></i></div><div class="psec-title">Personal Details</div></div>
       <div class="irow"><span class="ilbl"><i data-lucide="user" style="width:9px;height:9px"></i>Full Name</span><span class="ival">${s.first} ${s.last}</span></div>
@@ -1480,7 +1661,6 @@ function viewProfile(id,from){
       <div class="irow"><span class="ilbl"><i data-lucide="users" style="width:9px;height:9px"></i>Parent</span><span class="ival" style="font-size:0.79rem">${s.parent||'—'}</span></div>
     </div>
 
-    <!-- Contact & Academic -->
     <div class="psec">
       <div class="psec-hdr"><div class="psec-ic" style="background:rgba(59,130,246,0.14)"><i data-lucide="graduation-cap" style="width:14px;height:14px;color:var(--blue)"></i></div><div class="psec-title">Academic & Contact</div></div>
       <div class="irow"><span class="ilbl"><i data-lucide="mail" style="width:9px;height:9px"></i>Email</span><span class="ival" style="font-size:0.76rem">${s.email}</span></div>
@@ -1492,7 +1672,6 @@ function viewProfile(id,from){
       <div class="irow"><span class="ilbl"><i data-lucide="bar-chart-2" style="width:9px;height:9px"></i>Avg Score</span><span class="ival" style="color:${lc};font-weight:700">${a}% — ${gl(a)}</span></div>
     </div>
 
-    <!-- Scores -->
     <div class="psec">
       <div class="psec-hdr"><div class="psec-ic" style="background:rgba(245,158,11,0.14)"><i data-lucide="bar-chart-2" style="width:14px;height:14px;color:var(--amber)"></i></div><div class="psec-title">Academic Performance</div></div>
       <div style="display:flex;align-items:center;gap:18px;margin-bottom:15px;padding-bottom:13px;border-bottom:1px solid var(--bdr)">
@@ -1511,7 +1690,6 @@ function viewProfile(id,from){
       ${subRows}
     </div>
 
-    <!-- Attendance -->
     <div class="psec">
       <div class="psec-hdr"><div class="psec-ic" style="background:rgba(16,185,129,0.14)"><i data-lucide="calendar-check" style="width:14px;height:14px;color:var(--emerald)"></i></div><div class="psec-title">Attendance — 10 Days</div></div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px">
@@ -1550,16 +1728,19 @@ function goBack(){
 
 function toggleAttProfile(id,day){
   const s=students.find(x=>x.id===id);
-  s.attendance[day]={P:'A',A:'L',L:'P'}[s.attendance[day]]||'P';
-  viewProfile(id,prevPage);updBadges();
+  if(!s) return;
+  if(!s.attendance) s.attendance={};
+  s.attendance[day]={P:'A',A:'L',L:'P'}[s.attendance[day]||'P']||'P';
+  viewProfile(id,prevPage);
+  updBadges();
 }
 
-// ── DASHBOARD ──
+// ============= DASHBOARD =============
 function renderDashboard(){
   const total=students.length;
   const active=students.filter(s=>s.status==='Active').length;
   const allAvg=total?Math.round(students.map(s=>avg(s.scores)).reduce((a,b)=>a+b,0)/total):0;
-  const allAtt=students.flatMap(s=>Object.values(s.attendance));
+  const allAtt=students.flatMap(s=>Object.values(s.attendance||{}));
   const ar=allAtt.length?Math.round((allAtt.filter(a=>a==='P').length/allAtt.length)*100):0;
   document.getElementById('d-total').textContent=total;
   document.getElementById('d-active').textContent=active;
@@ -1588,12 +1769,11 @@ function renderDashboard(){
   lucide.createIcons();
 }
 
-// ── GRADE STATS ──
 function renderGradeStats(g){
   const gs=students.filter(s=>s.grade===g);const cnt=gs.length;
   const active=gs.filter(s=>s.status==='Active').length;
   const ga=cnt?Math.round(gs.map(s=>avg(s.scores)).reduce((a,b)=>a+b,0)/cnt):0;
-  const gAtt=gs.flatMap(s=>Object.values(s.attendance));
+  const gAtt=gs.flatMap(s=>Object.values(s.attendance||{}));
   const ar=gAtt.length?Math.round((gAtt.filter(a=>a==='P').length/gAtt.length)*100):0;
   const c=gradeC(g);
   document.getElementById('gp-sub').textContent=`${cnt} student${cnt!==1?'s':''} enrolled in ${GL[g]}`;
@@ -1605,7 +1785,7 @@ function renderGradeStats(g){
   lucide.createIcons();
 }
 
-// ── TABLE ──
+// ============= TABLE RENDERING =============
 function renderTable(mode){
   let list,tbody;
   if(mode==='all'){
@@ -1636,7 +1816,7 @@ function renderTable(mode){
     const photoEl=photos[s.id]?`<img src="${photos[s.id]}" alt=""/>`:s.first[0]+s.last[0];
     const canEdit = canEditStudent(s);
     const isAdmin = currentUser && currentUser.role==='admin';
-    return `<tr onclick="viewProfile('${s.id}','${mode==='all'?'all':'grade'}')" title="View profile" class="${canEdit?'':'grade-locked-row'}">
+    return `<tr onclick="viewProfile('${s.id}','${mode==='all'?'all':'grade'}')" title="View profile">
       <td><div class="s-cell">
         <div class="av" style="background:${p.bg};color:${p.c}">${photoEl}</div>
         <div><div class="s-name">${s.first} ${s.last}</div><div class="s-id">${s.id}</div></div>
@@ -1649,17 +1829,14 @@ function renderTable(mode){
       <td><span class="badge ${s.status==='Active'?'b-green':'b-red'}"><i data-lucide="${s.status==='Active'?'check-circle':'x-circle'}" style="width:8px;height:8px"></i>${s.status}</span></td>
       <td onclick="event.stopPropagation()"><div class="act-cell">
         ${canEdit?`<button class="btn btn-edit btn-sm" onclick="openEdit('${s.id}')"><i data-lucide="pencil" style="width:11px;height:11px"></i>Edit</button>`:`<span style="font-size:0.7rem;color:var(--t3);padding:0 6px">🔒 Locked</span>`}
-        ${(isAdmin)?`<button class="btn btn-danger btn-sm" onclick="deleteStudent('${s.id}')"><i data-lucide="trash-2" style="width:11px;height:11px"></i></button>`:''}
+        ${isAdmin?`<button class="btn btn-danger btn-sm" onclick="deleteStudent('${s.id}')"><i data-lucide="trash-2" style="width:11px;height:11px"></i></button>`:''}
       </div></td>
-    </tr>`;
+     </tr>`;
   }).join('');
   updBadges();lucide.createIcons();
 }
 
-// ── ATTENDANCE ──
-const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
-const DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
+// ============= ATTENDANCE =============
 function initAttFilters(){
   const now=new Date();
   const yr=document.getElementById('att-year');
@@ -1690,7 +1867,6 @@ function renderAttendance(){
   const head=document.getElementById('att-head');
   const body=document.getElementById('att-body');
 
-  // build day array: [{day, dayOfWeek, isWeekend}]
   const days=[];
   for(let d=1;d<=daysInMonth;d++){
     const dow=new Date(year,month,d).getDay();
@@ -1717,15 +1893,14 @@ function renderAttendance(){
   body.innerHTML=list.map((s,si)=>{
     const p=pal(si);
     const photoEl=photos[s.id]?`<img src="${photos[s.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:7px" alt=""/>`:s.first[0]+s.last[0];
-    // ensure monthly attendance store
-    if(!s.monthlyAtt)s.monthlyAtt={};
+    if(!s.attendance)s.attendance={};
     let countP=0,countA=0,countL=0,totalWD=0;
     const cells=days.map(({day,dow,isWeekend})=>{
       if(isWeekend){
         return `<td style="text-align:center;padding:4px 2px;border-bottom:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.015)"><span style="display:inline-flex;width:24px;height:24px;border-radius:5px;align-items:center;justify-content:center;font-size:0.55rem;color:var(--t3)">—</span></td>`;
       }
       const key=getAttKey(year,month,day);
-      const st=s.monthlyAtt[key]||'P';
+      const st=s.attendance[key]||'P';
       totalWD++;
       if(st==='P')countP++;else if(st==='A')countA++;else if(st==='L')countL++;
       const cc=st==='P'?'var(--emerald)':st==='A'?'var(--rose)':'var(--amber)';
@@ -1753,15 +1928,12 @@ function renderAttendance(){
 function toggleMonthAtt(studentId, dateKey){
   const s=students.find(x=>x.id===studentId);
   if(!s)return;
-  if(!s.monthlyAtt)s.monthlyAtt={};
-  s.monthlyAtt[dateKey]={P:'A',A:'L',L:'P'}[s.monthlyAtt[dateKey]||'P']||'P';
-  saveDB();
+  if(!s.attendance)s.attendance={};
+  s.attendance[dateKey]={P:'A',A:'L',L:'P'}[s.attendance[dateKey]||'P']||'P';
   renderAttendance();
 }
 
-function toggleAtt(id,day){const s=students.find(x=>x.id===id);s.attendance[day]={P:'A',A:'L',L:'P'}[s.attendance[day]]||'P';saveDB();renderAttendance();}
-
-// ── MODAL ──
+// ============= MODAL FUNCTIONS =============
 function previewPhoto(inp){
   const f=inp.files[0];if(!f)return;
   const r=new FileReader();
@@ -1818,67 +1990,69 @@ function openEdit(id){
   openModal(false);
 }
 
-function saveStudent(){
+async function saveStudent(){
   const first=document.getElementById('f-first').value.trim();
   const last=document.getElementById('f-last').value.trim();
   if(!first||!last){showToast('Please enter student name.');return;}
-  const data={first,last,
-    email:document.getElementById('f-email').value.trim()||`${first.toLowerCase()}@mg.edu.kh`,
-    phone:document.getElementById('f-phone').value.trim(),
-    dob:document.getElementById('f-dob').value,
-    gender:document.getElementById('f-gender').value,
-    address:document.getElementById('f-address').value.trim(),
-    parent:document.getElementById('f-parent').value.trim(),
-    grade:parseInt(document.getElementById('f-grade').value),
-    major:document.getElementById('f-major').value,
-    status:document.getElementById('f-status').value,
-    scores:{
-      Math:parseInt(document.getElementById('f-math').value)||0,
-      Science:parseInt(document.getElementById('f-sci').value)||0,
-      English:parseInt(document.getElementById('f-eng').value)||0,
-      History:parseInt(document.getElementById('f-his').value)||0,
-      Arts:parseInt(document.getElementById('f-art').value)||0,
-      PE:parseInt(document.getElementById('f-pe').value)||0,
-    }
+  const data={
+    id: editId || `S${Date.now()}`,
+    first_name: first,
+    last_name: last,
+    email: document.getElementById('f-email').value.trim()||`${first.toLowerCase()}@mg.edu.kh`,
+    phone: document.getElementById('f-phone').value.trim(),
+    dob: document.getElementById('f-dob').value,
+    gender: document.getElementById('f-gender').value,
+    address: document.getElementById('f-address').value.trim(),
+    parent_name: document.getElementById('f-parent').value.trim(),
+    grade: parseInt(document.getElementById('f-grade').value),
+    major: document.getElementById('f-major').value,
+    status: document.getElementById('f-status').value,
+    math_score: parseInt(document.getElementById('f-math').value)||0,
+    science_score: parseInt(document.getElementById('f-sci').value)||0,
+    english_score: parseInt(document.getElementById('f-eng').value)||0,
+    history_score: parseInt(document.getElementById('f-his').value)||0,
+    arts_score: parseInt(document.getElementById('f-art').value)||0,
+    pe_score: parseInt(document.getElementById('f-pe').value)||0,
+    photo_base64: tempPhoto || null
   };
-  if(editId){
-    const idx=students.findIndex(s=>s.id===editId);students[idx]={...students[idx],...data};
-    if(tempPhoto)photos[editId]=tempPhoto;showToast('Student updated!');
-  } else {
-    const att={};DAYS.forEach((_,i)=>att[i]='P');
-    const nid=uid();students.push({id:nid,...data,attendance:att});
-    if(tempPhoto)photos[nid]=tempPhoto;showToast('Student added!');
+  try {
+    await saveStudentToAPI(data);
+    if(tempPhoto && !editId) photos[data.id]=tempPhoto;
+    if(editId && tempPhoto) photos[editId]=tempPhoto;
+    showToast(editId?'Student updated!':'Student added!');
+    await loadStudents();
+    closeModal();
+    const active=document.querySelector('.page.active');
+    if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
+    else if(active?.id==='page-all'){renderTable('all');}
+    else renderDashboard();
+    updBadges();
+  } catch(error){
+    console.error(error);
+    showToast('Error saving student');
   }
-  saveDB();
-  closeModal();
-  const active=document.querySelector('.page.active');
-  if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
-  else if(active?.id==='page-all'){renderTable('all');}
-  else renderDashboard();
-  updBadges();
 }
 
-function deleteStudent(id){
+async function deleteStudent(id){
   if(!confirm('Delete this student?'))return;
-  students=students.filter(s=>s.id!==id);delete photos[id];
-  saveDB();
-  showToast('Student removed.');
-  const active=document.querySelector('.page.active');
-  if(active?.id==='page-profile'){goBack();return;}
-  if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
-  else if(active?.id==='page-all'){renderTable('all');}
-  else renderDashboard();
-  updBadges();
+  try {
+    await deleteStudentFromAPI(id);
+    delete photos[id];
+    showToast('Student removed.');
+    await loadStudents();
+    const active=document.querySelector('.page.active');
+    if(active?.id==='page-profile'){goBack();return;}
+    if(active?.id==='page-grade'){renderGradeStats(curGrade);renderTable('grade');}
+    else if(active?.id==='page-all'){renderTable('all');}
+    else renderDashboard();
+    updBadges();
+  } catch(error){
+    console.error(error);
+    showToast('Error deleting student');
+  }
 }
 
-function showToast(msg){
-  document.getElementById('toast-msg').textContent=msg;
-  const t=document.getElementById('toast');t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
-
-let tempUserPhoto = null;
-
+// ============= USER MANAGEMENT =============
 function previewUserPhoto(inp){
   const f=inp.files[0];if(!f)return;
   const r=new FileReader();
@@ -1890,190 +2064,8 @@ function previewUserPhoto(inp){
   r.readAsDataURL(f);
 }
 
-function saveUserPhotos(photosObj){
-  try{localStorage.setItem('mg_user_photos',JSON.stringify(photosObj));}catch(e){}
-}
-function loadUserPhotos(){
-  try{const p=localStorage.getItem('mg_user_photos');return p?JSON.parse(p):{};}catch(e){return {};}
-}
-
-// ── AUTH & USER MANAGEMENT ──
-let currentUser = null;
-let loginRole = 'admin';
-let editUserId = null;
-
-function loadUsers(){
-  try{
-    const u = localStorage.getItem('mg_users');
-    if(u) return JSON.parse(u);
-  }catch(e){}
-  // default admin account
-  return [{id:'u001',name:'Administrator',username:'admin',password:'admin1234',role:'admin',status:'active',assignedGrade:''}];
-}
-
-function saveUsers(users){
-  try{ localStorage.setItem('mg_users', JSON.stringify(users)); }catch(e){}
-}
-
-function setLoginRole(role, el){
-  loginRole = role;
-  document.querySelectorAll('.lrtab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('l-err').textContent='';
-}
-
-function doLogin(){
-  const uname = document.getElementById('l-user').value.trim();
-  const pass  = document.getElementById('l-pass').value;
-  const err   = document.getElementById('l-err');
-  if(!uname||!pass){err.textContent='Please enter username and password.';return;}
-  const users = loadUsers();
-  const found = users.find(u => u.username===uname && u.password===pass && u.role===loginRole);
-  if(!found){err.textContent='Invalid username or password.';return;}
-  if(found.status==='inactive'){err.textContent='This account is inactive. Contact admin.';return;}
-  currentUser = found;
-  document.getElementById('login-overlay').classList.add('hidden');
-  const backBtn = document.getElementById('back-to-home-btn');
-  if(backBtn) backBtn.style.display = 'none';
-  updateSidebarUser();
-  // show/hide admin-only nav
-  document.getElementById('nav-users').style.display = found.role==='admin' ? 'flex' : 'none';
-  const mnUsers = document.getElementById('mn-users');
-  if(mnUsers) mnUsers.style.display = found.role==='admin' ? 'flex' : 'none';
-  // apply grade restriction for teachers
-  applyRoleUI();
-  applyGradeRestriction();
-  lucide.createIcons();
-  showToast('Welcome, ' + found.name + '!');
-  // auto-navigate teacher to their assigned grade
-  if(found.role==='teacher' && found.assignedGrade){
-    const g=parseInt(found.assignedGrade);
-    const navEl=document.getElementById('gnav-'+g);
-    if(navEl) showGrade(g,navEl);
-  }
-}
-
-function doLogout(){
-  if(!confirm('Sign out?')) return;
-  currentUser = null;
-  document.getElementById('l-user').value='';
-  document.getElementById('l-pass').value='';
-  document.getElementById('l-err').textContent='';
-  document.getElementById('login-overlay').classList.remove('hidden');
-  // Restore back button
-  const backBtn = document.getElementById('back-to-home-btn');
-  if(backBtn) backBtn.style.display='';
-  // Reset grade nav restrictions
-  document.querySelectorAll('.gnav').forEach(el=>{el.style.opacity='';el.style.pointerEvents='';});
-  const navAll=document.getElementById('nav-all');
-  if(navAll) navAll.style.display='';
-  const mnAll=document.getElementById('mn-all');
-  if(mnAll) mnAll.style.display='';
-  lucide.createIcons();
-}
-
-function updateSidebarUser(){
-  if(!currentUser) return;
-  const av = document.getElementById('sb-av');
-  const nm = document.getElementById('sb-name');
-  const rp = document.getElementById('sb-role-pill');
-  const uPhotos = loadUserPhotos();
-  if(uPhotos[currentUser.id]){
-    av.innerHTML=`<img src="${uPhotos[currentUser.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:8px" alt=""/>`;
-    av.style.overflow='hidden';av.style.padding='0';
-  } else {
-    av.innerHTML=currentUser.name[0].toUpperCase();
-    av.style.overflow='';av.style.padding='';
-  }
-  nm.textContent = currentUser.name;
-  if(currentUser.role==='admin'){
-    rp.textContent='Administrator';
-    rp.style.background='rgba(232,184,75,0.12)';
-    rp.style.color='var(--gold)';
-  } else {
-    const g = currentUser.assignedGrade;
-    rp.innerHTML = g
-      ? `Teacher &nbsp;<span class="teacher-grade-badge"><i data-lucide="book-open" style="width:8px;height:8px"></i>Grade ${g}</span>`
-      : 'Teacher';
-    rp.style.background='rgba(59,130,246,0.12)';
-    rp.style.color='var(--blue)';
-  }
-  lucide.createIcons();
-}
-
-function applyRoleUI(){
-  const isAdmin = currentUser && currentUser.role==='admin';
-  document.querySelectorAll('.btn-gold[onclick="openModal()"]').forEach(b=>{
-    b.style.display = isAdmin ? '' : 'none';
-  });
-  const btnGrade = document.getElementById('btn-add-grade');
-  if(btnGrade) btnGrade.style.display = isAdmin ? '' : 'none';
-}
-
-function applyGradeRestriction(){
-  if(!currentUser || currentUser.role==='admin') return;
-  const assignedGrade = currentUser.assignedGrade ? parseInt(currentUser.assignedGrade) : null;
-  if(!assignedGrade) return; // teacher with no restriction = sees all
-
-  // Dim/disable sidebar grade nav items not in their grade
-  document.querySelectorAll('.gnav').forEach(el=>{
-    const gid = el.id ? parseInt(el.id.replace('gnav-','')) : null;
-    if(gid && gid !== assignedGrade){
-      el.style.opacity='0.35';
-      el.style.pointerEvents='none';
-    } else {
-      el.style.opacity='';
-      el.style.pointerEvents='';
-    }
-  });
-  // Also hide "All Students" nav (teacher only sees their grade)
-  const navAll = document.getElementById('nav-all');
-  if(navAll) navAll.style.display='none';
-  const mnAll = document.getElementById('mn-all');
-  if(mnAll) mnAll.style.display='none';
-}
-
-function canEditStudent(student){
-  if(!currentUser) return false;
-  if(currentUser.role==='admin') return true;
-  const ag = currentUser.assignedGrade ? parseInt(currentUser.assignedGrade) : null;
-  if(!ag) return true; // teacher with no assigned grade = all grades
-  return student.grade === ag;
-}
-
-// ── DARK / LIGHT MODE TOGGLE ──
-function toggleTheme(){
-  const isLight = document.body.classList.toggle('light-mode');
-  localStorage.setItem('mg_theme', isLight ? 'light' : 'dark');
-  updateThemeBtn(isLight);
-}
-function updateThemeBtn(isLight){
-  const icon = document.getElementById('theme-icon');
-  const label = document.getElementById('theme-label');
-  if(!icon||!label) return;
-  if(isLight){
-    icon.setAttribute('data-lucide','moon');
-    label.textContent='Dark Mode';
-  } else {
-    icon.setAttribute('data-lucide','sun');
-    label.textContent='Light Mode';
-  }
-  lucide.createIcons();
-}
-// Apply saved theme on load
-(function(){
-  const saved = localStorage.getItem('mg_theme');
-  if(saved==='light'){
-    document.body.classList.add('light-mode');
-    // will be updated after lucide loads
-    window.addEventListener('load',()=>updateThemeBtn(true));
-  }
-})();
-
-// ── USER MANAGEMENT ──
-function renderUsers(){
-  const users = loadUsers();
-  const uPhotos = loadUserPhotos();
+async function renderUsers(){
+  const users = await loadUsersFromAPI();
   const el = document.getElementById('users-list');
   if(!users.length){el.innerHTML='<div style="padding:40px;text-align:center;color:var(--t3)">No users found</div>';return;}
   el.innerHTML = users.map((u,i)=>{
@@ -2081,14 +2073,14 @@ function renderUsers(){
     const bgCol = u.role==='admin' ? 'rgba(232,184,75,0.14)' : 'rgba(59,130,246,0.14)';
     const statusCol = u.status==='active' ? 'var(--emerald)' : 'var(--rose)';
     const canDel = u.role!=='admin';
-    const photoHTML = uPhotos[u.id]
-      ? `<img src="${uPhotos[u.id]}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" alt=""/>`
+    const photoHTML = u.photo_base64
+      ? `<img src="${u.photo_base64}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" alt=""/>`
       : u.name[0].toUpperCase();
     return `<div class="user-row">
       <div class="ur-av" style="background:${bgCol};color:${col};overflow:hidden">${photoHTML}</div>
       <div class="ur-info">
         <div class="ur-name">${u.name}</div>
-        <div class="ur-meta">@${u.username} &nbsp;·&nbsp; <span style="color:${statusCol}">${u.status==='active'?'Active':'Inactive'}</span>${u.role==='teacher'&&u.assignedGrade?` &nbsp;·&nbsp; <span style="color:var(--blue);font-weight:600">Grade ${u.assignedGrade} only</span>`:u.role==='teacher'?' &nbsp;·&nbsp; <span style="color:var(--t3)">All grades</span>':''}</div>
+        <div class="ur-meta">@${u.username} &nbsp;·&nbsp; <span style="color:${statusCol}">${u.status==='active'?'Active':'Inactive'}</span>${u.role==='teacher'&&u.assigned_grade?` &nbsp;·&nbsp; <span style="color:var(--blue);font-weight:600">Grade ${u.assigned_grade} only</span>`:u.role==='teacher'?' &nbsp;·&nbsp; <span style="color:var(--t3)">All grades</span>':''}</div>
       </div>
       <span class="badge" style="background:${bgCol};color:${col};border:1px solid ${col}30;flex-shrink:0">${u.role==='admin'?'Admin':'Teacher'}</span>
       <div class="ur-actions">
@@ -2119,30 +2111,27 @@ function openUserModal(){
   lucide.createIcons();
 }
 
-function openEditUser(id){
-  const users = loadUsers();
+async function openEditUser(id){
+  const users = await loadUsersFromAPI();
   const u = users.find(x=>x.id===id);
   if(!u) return;
   editUserId = id;
-  tempUserPhoto = null;
-  const uPhotos = loadUserPhotos();
+  tempUserPhoto = u.photo_base64 || null;
   document.getElementById('um-title').textContent = 'Edit Account';
   document.getElementById('um-name').value = u.name;
   document.getElementById('um-username').value = u.username;
   document.getElementById('um-password').value = '';
   document.getElementById('um-password2').value = '';
   document.getElementById('um-status').value = u.status;
-  document.getElementById('um-grade').value = u.assignedGrade||'';
+  document.getElementById('um-grade').value = u.assigned_grade||'';
   document.getElementById('um-err').textContent='';
   const pr = document.getElementById('um-photo-prev');
   document.getElementById('um-photo-inp').value='';
-  if(uPhotos[id]){
-    pr.innerHTML=`<img src="${uPhotos[id]}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`;
-    tempUserPhoto = uPhotos[id];
+  if(u.photo_base64){
+    pr.innerHTML=`<img src="${u.photo_base64}" style="width:100%;height:100%;object-fit:cover;border-radius:11px"/>`;
   } else {
     pr.innerHTML='👤';
   }
-  // password fields optional on edit
   document.getElementById('um-pw-field').querySelector('label').innerHTML='<i data-lucide="lock" style="width:10px;height:10px"></i>New Password <span style="color:var(--t3);font-weight:400">(leave blank to keep)</span>';
   document.getElementById('user-modal').classList.add('open');
   lucide.createIcons();
@@ -2152,110 +2141,236 @@ function closeUserModal(){
   document.getElementById('user-modal').classList.remove('open');
 }
 
-function saveUser(){
-  const name     = document.getElementById('um-name').value.trim();
+async function saveUser(){
+  const name = document.getElementById('um-name').value.trim();
   const username = document.getElementById('um-username').value.trim().toLowerCase();
-  const pw       = document.getElementById('um-password').value;
-  const pw2      = document.getElementById('um-password2').value;
-  const status   = document.getElementById('um-status').value;
-  const errEl    = document.getElementById('um-err');
+  const pw = document.getElementById('um-password').value;
+  const pw2 = document.getElementById('um-password2').value;
+  const status = document.getElementById('um-status').value;
+  const assignedGrade = document.getElementById('um-grade').value;
+  const errEl = document.getElementById('um-err');
   errEl.textContent='';
 
   if(!name||!username){errEl.textContent='Name and username are required.';return;}
   if(!/^[a-z0-9._]+$/.test(username)){errEl.textContent='Username: letters, numbers, . _ only.';return;}
 
-  const users = loadUsers();
-  const uPhotos = loadUserPhotos();
+  const users = await loadUsersFromAPI();
 
   if(!editUserId){
-    // new user
     if(!pw){errEl.textContent='Password is required.';return;}
     if(pw.length<4){errEl.textContent='Password must be at least 4 characters.';return;}
     if(pw!==pw2){errEl.textContent='Passwords do not match.';return;}
     if(users.find(u=>u.username===username)){errEl.textContent='Username already taken.';return;}
-    const nid='u'+Date.now();
-    const newU = {id:nid,name,username,password:pw,role:'teacher',status,assignedGrade:document.getElementById('um-grade').value};
-    users.push(newU);
-    saveUsers(users);
-    if(tempUserPhoto){uPhotos[nid]=tempUserPhoto;saveUserPhotos(uPhotos);}
+    const newU = {name,username,password:pw,role:'teacher',status,assigned_grade:assignedGrade,photo_base64:tempUserPhoto||null};
+    await saveUserToAPI(newU);
     showToast('Teacher account created!');
   } else {
-    const idx = users.findIndex(u=>u.id===editUserId);
-    if(idx===-1) return;
-    // check duplicate username (excluding self)
-    if(users.find(u=>u.username===username&&u.id!==editUserId)){errEl.textContent='Username already taken.';return;}
+    const userData = {id:editUserId,name,username,status,assigned_grade:assignedGrade,photo_base64:tempUserPhoto||null};
     if(pw){
       if(pw.length<4){errEl.textContent='Password must be at least 4 characters.';return;}
       if(pw!==pw2){errEl.textContent='Passwords do not match.';return;}
-      users[idx].password=pw;
+      userData.password = pw;
     }
-    users[idx].name=name;
-    users[idx].username=username;
-    users[idx].status=status;
-    users[idx].assignedGrade=document.getElementById('um-grade').value;
-    saveUsers(users);
-    if(tempUserPhoto){uPhotos[editUserId]=tempUserPhoto;saveUserPhotos(uPhotos);}
+    await saveUserToAPI(userData);
     showToast('Account updated!');
-    // if editing self, update sidebar
     if(currentUser && currentUser.id===editUserId){
       currentUser.name=name;currentUser.username=username;currentUser.status=status;
       updateSidebarUser();
     }
   }
   closeUserModal();
-  renderUsers();
+  await renderUsers();
 }
 
-function deleteUser(id){
+async function deleteUser(id){
   if(!confirm('Delete this teacher account?')) return;
-  let users = loadUsers();
-  users = users.filter(u=>u.id!==id);
-  saveUsers(users);
-  const uPhotos=loadUserPhotos();delete uPhotos[id];saveUserPhotos(uPhotos);
+  await deleteUserFromAPI(id);
   showToast('Account removed.');
-  renderUsers();
+  await renderUsers();
 }
 
-// ── MOBILE RESPONSIVE ──
-function isMobile(){return window.innerWidth<=768;}
+// ============= AUTHENTICATION =============
+function setLoginRole(role, el){
+  loginRole = role;
+  document.querySelectorAll('.lrtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('l-err').textContent='';
+}
 
+async function doLogin(){
+  const uname = document.getElementById('l-user').value.trim();
+  const pass  = document.getElementById('l-pass').value;
+  const err   = document.getElementById('l-err');
+  if(!uname||!pass){err.textContent='Please enter username and password.';return;}
+  try {
+    const user = await loginToAPI(uname, pass, loginRole);
+    currentUser = user;
+    document.getElementById('login-overlay').classList.add('hidden');
+    const backBtn = document.getElementById('back-to-home-btn');
+    if(backBtn) backBtn.style.display = 'none';
+    updateSidebarUser();
+    document.getElementById('nav-users').style.display = user.role==='admin' ? 'flex' : 'none';
+    const mnUsers = document.getElementById('mn-users');
+    if(mnUsers) mnUsers.style.display = user.role==='admin' ? 'flex' : 'none';
+    const navSalary = document.getElementById('nav-salary');
+    if(navSalary) navSalary.style.display = user.role==='admin' ? 'flex' : 'none';
+    const mnSalary = document.getElementById('mn-salary');
+    if(mnSalary) mnSalary.style.display = user.role==='admin' ? 'flex' : 'none';
+    applyRoleUI();
+    applyGradeRestriction();
+    await loadStudents();
+    lucide.createIcons();
+    showToast('Welcome, ' + user.name + '!');
+    if(user.role==='teacher' && user.assigned_grade){
+      const g=parseInt(user.assigned_grade);
+      const navEl=document.getElementById('gnav-'+g);
+      if(navEl) showGrade(g,navEl);
+    }
+  } catch(error){
+    err.textContent='Invalid username or password.';
+  }
+}
+
+function doLogout(){
+  if(!confirm('Sign out?')) return;
+  currentUser = null;
+  document.getElementById('l-user').value='';
+  document.getElementById('l-pass').value='';
+  document.getElementById('l-err').textContent='';
+  document.getElementById('login-overlay').classList.remove('hidden');
+  const backBtn = document.getElementById('back-to-home-btn');
+  if(backBtn) backBtn.style.display='';
+  document.querySelectorAll('.gnav').forEach(el=>{el.style.opacity='';el.style.pointerEvents='';});
+  const navAll=document.getElementById('nav-all');
+  if(navAll) navAll.style.display='';
+  const mnAll=document.getElementById('mn-all');
+  if(mnAll) mnAll.style.display='';
+  lucide.createIcons();
+}
+
+function updateSidebarUser(){
+  if(!currentUser) return;
+  const av = document.getElementById('sb-av');
+  const nm = document.getElementById('sb-name');
+  const rp = document.getElementById('sb-role-pill');
+  if(currentUser.photo_base64){
+    av.innerHTML=`<img src="${currentUser.photo_base64}" style="width:100%;height:100%;object-fit:cover;border-radius:8px" alt=""/>`;
+    av.style.overflow='hidden';av.style.padding='0';
+  } else {
+    av.innerHTML=currentUser.name[0].toUpperCase();
+    av.style.overflow='';av.style.padding='';
+  }
+  nm.textContent = currentUser.name;
+  if(currentUser.role==='admin'){
+    rp.textContent='Administrator';
+    rp.style.background='rgba(232,184,75,0.12)';
+    rp.style.color='var(--gold)';
+  } else {
+    const g = currentUser.assigned_grade;
+    rp.innerHTML = g
+      ? `Teacher &nbsp;<span class="teacher-grade-badge"><i data-lucide="book-open" style="width:8px;height:8px"></i>Grade ${g}</span>`
+      : 'Teacher';
+    rp.style.background='rgba(59,130,246,0.12)';
+    rp.style.color='var(--blue)';
+  }
+  lucide.createIcons();
+}
+
+function applyRoleUI(){
+  const isAdmin = currentUser && currentUser.role==='admin';
+  document.querySelectorAll('.btn-gold[onclick="openModal()"]').forEach(b=>{
+    b.style.display = isAdmin ? '' : 'none';
+  });
+  const btnGrade = document.getElementById('btn-add-grade');
+  if(btnGrade) btnGrade.style.display = isAdmin ? '' : 'none';
+}
+
+function applyGradeRestriction(){
+  if(!currentUser || currentUser.role==='admin') return;
+  const assignedGrade = currentUser.assigned_grade ? parseInt(currentUser.assigned_grade) : null;
+  if(!assignedGrade) return;
+  document.querySelectorAll('.gnav').forEach(el=>{
+    const gid = el.id ? parseInt(el.id.replace('gnav-','')) : null;
+    if(gid && gid !== assignedGrade){
+      el.style.opacity='0.35';
+      el.style.pointerEvents='none';
+    } else {
+      el.style.opacity='';
+      el.style.pointerEvents='';
+    }
+  });
+  const navAll = document.getElementById('nav-all');
+  if(navAll) navAll.style.display='none';
+  const mnAll = document.getElementById('mn-all');
+  if(mnAll) mnAll.style.display='none';
+}
+
+function canEditStudent(student){
+  if(!currentUser) return false;
+  if(currentUser.role==='admin') return true;
+  const ag = currentUser.assigned_grade ? parseInt(currentUser.assigned_grade) : null;
+  if(!ag) return true;
+  return student.grade === ag;
+}
+
+// ============= THEME TOGGLE =============
+function toggleTheme(){
+  const isLight = document.body.classList.toggle('light-mode');
+  localStorage.setItem('mg_theme', isLight ? 'light' : 'dark');
+  updateThemeBtn(isLight);
+}
+function updateThemeBtn(isLight){
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if(!icon||!label) return;
+  if(isLight){
+    icon.setAttribute('data-lucide','moon');
+    label.textContent='Dark Mode';
+  } else {
+    icon.setAttribute('data-lucide','sun');
+    label.textContent='Light Mode';
+  }
+  lucide.createIcons();
+}
+(function(){
+  const saved = localStorage.getItem('mg_theme');
+  if(saved==='light'){
+    document.body.classList.add('light-mode');
+    window.addEventListener('load',()=>updateThemeBtn(true));
+  }
+})();
+
+// ============= MOBILE RESPONSIVE =============
+function isMobile(){return window.innerWidth<=768;}
 function applyMobileLayout(){
   const mob = isMobile();
-  document.getElementById('mob-header').style.display = mob ? 'flex' : 'none';
-  document.getElementById('mob-nav').style.display    = mob ? 'flex' : 'none';
+  const mobHeader = document.getElementById('mob-header');
+  const mobNav = document.getElementById('mob-nav');
+  if(mobHeader) mobHeader.style.display = mob ? 'flex' : 'none';
+  if(mobNav) mobNav.style.display = mob ? 'flex' : 'none';
   if(!mob){
-    // ensure sidebar always visible on desktop
     document.querySelector('.sidebar').classList.remove('mob-open');
     document.getElementById('sb-backdrop').classList.remove('show');
   }
 }
-
 function toggleSidebar(){
   const sb = document.querySelector('.sidebar');
   const bd = document.getElementById('sb-backdrop');
   const open = sb.classList.toggle('mob-open');
   bd.classList.toggle('show', open);
 }
-
 function closeSidebar(){
   document.querySelector('.sidebar').classList.remove('mob-open');
   document.getElementById('sb-backdrop').classList.remove('show');
 }
-
 function mobNav(page, activeId){
-  // update bottom nav highlight
   document.querySelectorAll('.mob-nav-item').forEach(el=>el.classList.remove('active'));
   const el = document.getElementById(activeId);
   if(el) el.classList.add('active');
-  // find matching sidebar nav item and call showPage
   const sidebarNav = document.getElementById('nav-'+page);
   showPage(page, sidebarNav);
   closeSidebar();
 }
-
-// Sync bottom nav active state when sidebar nav is clicked
-const _origSidebarNav = showPage;
-// Intercept nav-item clicks to also update bottom nav
 document.addEventListener('click', e=>{
   const ni = e.target.closest('.nav-item[id^="nav-"], .gnav');
   if(!ni) return;
@@ -2266,16 +2381,211 @@ document.addEventListener('click', e=>{
   if(mn) mn.classList.add('active');
   if(isMobile()) closeSidebar();
 });
-
 window.addEventListener('resize', applyMobileLayout);
 applyMobileLayout();
 
-// ── INIT ──
-buildSidebarNav();
-initAttFilters();
-lucide.createIcons();
-renderDashboard();
-lucide.createIcons();
+// ============= INITIALIZATION =============
+(function init(){
+  applyMobileLayout();
+  initAttFilters();
+  // init salary year dropdown
+  const now = new Date();
+  const ySel = document.getElementById('sal-year-sel');
+  if(ySel){ for(let y=now.getFullYear()+1;y>=2020;y--){ const o=document.createElement('option'); o.value=y; o.textContent=y; if(y===now.getFullYear()) o.selected=true; ySel.appendChild(o); } }
+  const mSel = document.getElementById('sal-month-sel');
+  if(mSel) mSel.value = now.getMonth();
+  lucide.createIcons();
+})();
+
+// ============= SALARY MANAGEMENT =============
+const KH_MONTHS=['មករា','កុម្ភៈ','មីនា','មេសា','ឧសភា','មិថុនា','កក្កដា','សីហា','កញ្ញា','តុលា','វិច្ឆិកា','ធ្នូ'];
+
+function renderSalaryPage(){
+  const now = new Date();
+  const mSel = document.getElementById('sal-month-sel');
+  const ySel = document.getElementById('sal-year-sel');
+  if(!mSel.value && mSel.value!=='0') mSel.value = now.getMonth();
+  renderSalaryTable();
+}
+
+function renderSalaryTable(){
+  const mSelEl = document.getElementById('sal-month-sel');
+  const ySelEl = document.getElementById('sal-year-sel');
+  if(!mSelEl || !ySelEl || !ySelEl.value) return; // not ready yet
+  const month = parseInt(mSelEl.value);
+  const year  = parseInt(ySelEl.value || new Date().getFullYear());
+  const q     = (document.getElementById('sal-search').value||'').toLowerCase();
+  const sf    = document.getElementById('sal-status-filter').value;
+
+  const users    = dbGetUsers().filter(u=>u.role==='teacher' && u.status==='active');
+  const salaries = dbGetSalaries().filter(s=> s.month===month && s.year===year);
+
+  // Build rows per teacher
+  const rows = users.map(u=>{
+    const sal = salaries.find(s=>s.teacherId===u.id)||null;
+    return {user:u, sal};
+  }).filter(r=>{
+    if(q && !r.user.name.toLowerCase().includes(q)) return false;
+    if(sf==='paid' && (!r.sal || r.sal.status!=='paid')) return false;
+    if(sf==='pending' && r.sal && r.sal.status==='paid') return false;
+    return true;
+  });
+
+  // Summary
+  document.getElementById('sal-total-teachers').textContent = users.length;
+  const paid    = salaries.filter(s=>s.status==='paid').length;
+  const pending = users.length - paid;
+  document.getElementById('sal-paid-count').textContent    = paid;
+  document.getElementById('sal-pending-count').textContent  = Math.max(0,pending);
+  const totalAmt = salaries.reduce((a,s)=> a + (s.total||0), 0);
+  document.getElementById('sal-total-amount').textContent  = '$' + totalAmt.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  const tbody = document.getElementById('sal-tbody');
+  const empty = document.getElementById('sal-empty');
+  if(!rows.length){ tbody.innerHTML=''; empty.style.display='block'; lucide.createIcons(); return; }
+  empty.style.display='none';
+
+  tbody.innerHTML = rows.map(({user:u, sal})=>{
+    const isPaid = sal && sal.status==='paid';
+    const base   = sal ? sal.base   : 0;
+    const bonus  = sal ? sal.bonus  : 0;
+    const deduct = sal ? sal.deduct : 0;
+    const total  = sal ? sal.total  : 0;
+    const g      = u.assigned_grade ? `Grade ${u.assigned_grade}` : 'All';
+    const c      = u.assigned_grade ? gradeC(parseInt(u.assigned_grade)) : 'var(--t3)';
+    const av     = u.photo_base64
+      ? `<img src="${u.photo_base64}" style="width:100%;height:100%;object-fit:cover;border-radius:9px" alt=""/>`
+      : `<span style="font-family:'DM Serif Display',serif">${u.name[0]}</span>`;
+    return `<tr>
+      <td><div class="s-cell">
+        <div class="av" style="background:rgba(59,130,246,0.12);color:var(--blue)">${av}</div>
+        <div><div class="s-name">${u.name}</div><div class="s-id">${u.username}</div></div>
+      </div></td>
+      <td><span style="color:${c};font-weight:700;font-size:0.8rem">${g}</span></td>
+      <td style="font-size:0.85rem">${sal ? '$'+base.toFixed(2) : '<span style="color:var(--t3)">—</span>'}</td>
+      <td style="color:var(--emerald);font-size:0.85rem">${sal && bonus>0 ? '+$'+bonus.toFixed(2) : '<span style="color:var(--t3)">—</span>'}</td>
+      <td style="color:var(--rose);font-size:0.85rem">${sal && deduct>0 ? '-$'+deduct.toFixed(2) : '<span style="color:var(--t3)">—</span>'}</td>
+      <td><strong style="font-size:0.92rem;color:${sal?'var(--text)':'var(--t3)'}">${sal ? '$'+total.toFixed(2) : '—'}</strong></td>
+      <td>
+        ${isPaid
+          ? `<span class="badge b-green"><i data-lucide="check-circle" style="width:8px;height:8px"></i>បង់ហើយ</span>`
+          : `<span class="badge b-amber"><i data-lucide="clock" style="width:8px;height:8px"></i>មិនទាន់</span>`}
+      </td>
+      <td><div class="act-cell">
+        <button class="btn btn-edit btn-sm" onclick="openSalaryModal('${u.id}','${sal?sal.id:''}')">
+          <i data-lucide="${sal?'edit':'plus'}" style="width:11px;height:11px"></i>${sal?'កែ':'បន្ថែម'}
+        </button>
+        ${isPaid
+          ? `<button class="btn btn-ghost btn-sm" onclick="toggleSalaryPaid('${sal.id}',false)"><i data-lucide="x" style="width:11px;height:11px"></i>មិនទាន់</button>`
+          : sal ? `<button class="btn btn-sm" style="background:rgba(16,185,129,0.1);color:var(--emerald);border:1px solid rgba(16,185,129,0.25)" onclick="toggleSalaryPaid('${sal.id}',true)"><i data-lucide="check" style="width:11px;height:11px"></i>បង់ហើយ</button>` : ''}
+        ${sal ? `<button class="btn btn-danger btn-sm" onclick="deleteSalary('${sal.id}')"><i data-lucide="trash-2" style="width:11px;height:11px"></i></button>` : ''}
+      </div></td>
+    </tr>`;
+  }).join('');
+  lucide.createIcons();
+}
+
+function openSalaryModal(teacherId, salaryId){
+  editSalaryId = salaryId || null;
+  const users = dbGetUsers().filter(u=>u.role==='teacher' && u.status==='active');
+  const sel = document.getElementById('sm-teacher');
+  sel.innerHTML = '<option value="">— ជ្រើសគ្រូ —</option>' +
+    users.map(u=>`<option value="${u.id}">${u.name} ${u.assigned_grade?'(Grade '+u.assigned_grade+')':''}</option>`).join('');
+
+  const now = new Date();
+  const month = parseInt(document.getElementById('sal-month-sel').value)||0;
+  const year  = parseInt(document.getElementById('sal-year-sel').value||now.getFullYear());
+  const padM  = String(month+1).padStart(2,'0');
+  document.getElementById('sm-period').value = `${year}-${padM}`;
+
+  if(salaryId){
+    const sal = dbGetSalaries().find(s=>s.id===salaryId);
+    if(sal){
+      sel.value = sal.teacherId;
+      document.getElementById('sm-base').value   = sal.base;
+      document.getElementById('sm-bonus').value  = sal.bonus;
+      document.getElementById('sm-deduct').value = sal.deduct;
+      document.getElementById('sm-note').value   = sal.note||'';
+      document.getElementById('sm-status').value = sal.status;
+      document.getElementById('sm-period').value = `${sal.year}-${String(sal.month+1).padStart(2,'0')}`;
+      calcSalaryTotal();
+    }
+    document.getElementById('sm-title').textContent = 'កែប្រាក់ខែ';
+  } else {
+    if(teacherId) sel.value = teacherId;
+    document.getElementById('sm-base').value='';
+    document.getElementById('sm-bonus').value='';
+    document.getElementById('sm-deduct').value='';
+    document.getElementById('sm-note').value='';
+    document.getElementById('sm-status').value='pending';
+    document.getElementById('sm-total-display').textContent='$0.00';
+    document.getElementById('sm-title').textContent = 'កំណត់ប្រាក់ខែ';
+  }
+  document.getElementById('sm-err').textContent='';
+  document.getElementById('salary-modal').classList.add('open');
+  lucide.createIcons();
+}
+
+function closeSalaryModal(){
+  document.getElementById('salary-modal').classList.remove('open');
+  editSalaryId=null;
+}
+
+function calcSalaryTotal(){
+  const b = parseFloat(document.getElementById('sm-base').value)||0;
+  const bn= parseFloat(document.getElementById('sm-bonus').value)||0;
+  const d = parseFloat(document.getElementById('sm-deduct').value)||0;
+  const t = b + bn - d;
+  document.getElementById('sm-total-display').textContent = '$'+Math.max(0,t).toFixed(2);
+}
+
+function saveSalary(){
+  const teacherId = document.getElementById('sm-teacher').value;
+  const base      = parseFloat(document.getElementById('sm-base').value)||0;
+  const bonus     = parseFloat(document.getElementById('sm-bonus').value)||0;
+  const deduct    = parseFloat(document.getElementById('sm-deduct').value)||0;
+  const note      = document.getElementById('sm-note').value.trim();
+  const status    = document.getElementById('sm-status').value;
+  const period    = document.getElementById('sm-period').value;
+  const err       = document.getElementById('sm-err');
+
+  if(!teacherId){ err.textContent='សូមជ្រើសគ្រូបង្រៀន'; return; }
+  if(!period){ err.textContent='សូមជ្រើសខែ/ឆ្នាំ'; return; }
+  if(base<=0){ err.textContent='ប្រាក់ខែមូលដ្ឋានត្រូវតែធំជាង 0'; return; }
+
+  const [yr,mn] = period.split('-');
+  const year  = parseInt(yr);
+  const month = parseInt(mn)-1;
+  const total = Math.max(0, base+bonus-deduct);
+
+  const arr = dbGetSalaries();
+  if(editSalaryId){
+    const idx = arr.findIndex(s=>s.id===editSalaryId);
+    if(idx>=0) arr[idx]={...arr[idx], teacherId,base,bonus,deduct,total,note,status,month,year,updatedAt:new Date().toISOString()};
+  } else {
+    // check duplicate
+    const dup = arr.find(s=>s.teacherId===teacherId && s.month===month && s.year===year);
+    if(dup){ err.textContent='គ្រូនេះមានប្រាក់ខែខែនេះរួចហើយ'; return; }
+    arr.push({id:'sal'+Date.now(),teacherId,base,bonus,deduct,total,note,status,month,year,createdAt:new Date().toISOString()});
+  }
+  dbSaveSalaries(arr);
+  closeSalaryModal();
+  renderSalaryTable();
+  showToast('រក្សាទុកប្រាក់ខែបានសម្រេច!');
+}
+
+function toggleSalaryPaid(salId, paid){
+  const arr = dbGetSalaries();
+  const idx = arr.findIndex(s=>s.id===salId);
+  if(idx>=0){ arr[idx].status = paid?'paid':'pending'; dbSaveSalaries(arr); renderSalaryTable(); showToast(paid?'ធ្វើបច្ចុប្បន្នភាព: បង់ហើយ!':'ធ្វើបច្ចុប្បន្នភាព: មិនទាន់!'); }
+}
+
+function deleteSalary(salId){
+  if(!confirm('លុបទិន្នន័យប្រាក់ខែនេះ?')) return;
+  dbSaveSalaries(dbGetSalaries().filter(s=>s.id!==salId));
+  renderSalaryTable();
+  showToast('លុបបានសម្រេច');
+}
 </script>
 </body>
 </html>
