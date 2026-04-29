@@ -495,6 +495,168 @@ section { padding: 100px 36px; }
   .stat-row { grid-template-columns: 1fr; }
   .hero-card { padding: 24px; }
 }
+
+/* ── LIGHT MODE VARIABLES ── */
+body.light-mode {
+  --navy: #f0f4ff;
+  --navy2: #e8edf8;
+  --navy3: #dde4f4;
+  --surf: #cdd6ee;
+  --bdr: rgba(0,0,0,0.08);
+  --bdr2: rgba(0,0,0,0.14);
+  --text: #0f172a;
+  --t2: #3d5280;
+  --t3: #8898b8;
+  --white: #ffffff;
+}
+body.light-mode .navbar {
+  background: rgba(232,237,248,0.9) !important;
+}
+body.light-mode .navbar.scrolled {
+  background: rgba(220,228,244,0.98) !important;
+}
+body.light-mode .hero {
+  background: linear-gradient(160deg, #dce6fa 0%, #e8edf8 50%, #f0f4ff 100%) !important;
+}
+body.light-mode .hero::before { opacity: 0.15; }
+body.light-mode .hero-card {
+  background: rgba(255,255,255,0.8) !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12) !important;
+}
+body.light-mode .mini-stat {
+  background: rgba(0,0,0,0.04) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body.light-mode .hp-track { background: rgba(0,0,0,0.06) !important; }
+body.light-mode .stats-section {
+  background: rgba(255,255,255,0.5) !important;
+  border-color: rgba(0,0,0,0.07) !important;
+}
+body.light-mode .stat-card {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+body.light-mode .stat-card::before {
+  background: linear-gradient(135deg, rgba(232,184,75,0.06), transparent) !important;
+}
+body.light-mode #programs { background: #f0f4ff !important; }
+body.light-mode .program-card {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+body.light-mode .program-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important; }
+body.light-mode #about { background: rgba(255,255,255,0.6) !important; border-color: rgba(0,0,0,0.07) !important; }
+body.light-mode .feature-item {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body.light-mode .about-visual {
+  background: linear-gradient(145deg, rgba(232,184,75,0.1), rgba(232,184,75,0.04)) !important;
+  border-color: rgba(232,184,75,0.2) !important;
+}
+body.light-mode .av-badge {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body.light-mode .testimonials { background: #e8edf8 !important; }
+body.light-mode .test-card {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+body.light-mode .cta-section {
+  background: linear-gradient(135deg, #dce6fa 0%, #e8edf8 100%) !important;
+  border-color: rgba(0,0,0,0.07) !important;
+}
+body.light-mode .footer {
+  background: #dde4f4 !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body.light-mode .footer-bottom { border-color: rgba(0,0,0,0.07) !important; }
+body.light-mode .social-btn {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  color: var(--t2) !important;
+}
+body.light-mode .nav-links a { color: var(--t2) !important; }
+body.light-mode .nav-links a:hover { color: var(--text) !important; }
+body.light-mode .btn-outline {
+  border-color: rgba(0,0,0,0.15) !important;
+  color: var(--text) !important;
+}
+body.light-mode .btn-outline:hover { background: rgba(0,0,0,0.05) !important; }
+body.light-mode .glow-orb { opacity: 0.06 !important; }
+body.light-mode .login-box {
+  background: #fff !important;
+  border-color: rgba(0,0,0,0.1) !important;
+}
+body.light-mode .lb-field input {
+  background: rgba(0,0,0,0.04) !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  color: var(--text) !important;
+}
+body.light-mode .lb-field input::placeholder { color: var(--t3) !important; }
+body.light-mode .lb-close {
+  background: rgba(0,0,0,0.05) !important;
+  border-color: rgba(0,0,0,0.1) !important;
+}
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  position: relative;
+  width: 52px; height: 28px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--bdr2);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.theme-toggle:hover { border-color: var(--gold); background: rgba(232,184,75,0.1); }
+.theme-toggle .toggle-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  box-shadow: 0 2px 8px rgba(232,184,75,0.4);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  color: #1a1200;
+  transform: translateX(0);
+}
+body.light-mode .theme-toggle .toggle-thumb {
+  transform: translateX(24px);
+}
+body.light-mode .theme-toggle {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.14);
+}
+.toggle-icon-sun, .toggle-icon-moon { position: absolute; font-size: 0.6rem; line-height: 1; }
+.toggle-icon-moon { left: 6px; opacity: 1; transition: opacity 0.3s; }
+.toggle-icon-sun  { right: 6px; opacity: 0.4; transition: opacity 0.3s; }
+body.light-mode .toggle-icon-moon { opacity: 0.3; }
+body.light-mode .toggle-icon-sun  { opacity: 1; }
+
+/* ── MOBILE: theme toggle in menu ── */
+@media(max-width:768px) {
+  .nav-links { padding-top: 80px !important; }
+  .mobile-theme-row {
+    display: flex !important;
+    align-items: center; gap: 12px;
+    padding: 10px 0; border-top: 1px solid var(--bdr);
+    margin-top: 8px; padding-top: 20px;
+  }
+  .mobile-theme-lbl { font-size: 0.9rem; color: var(--t2); font-weight: 500; }
+}
+.mobile-theme-row { display: none; }
+
 </style>
 </head>
 <body>
@@ -526,7 +688,15 @@ section { padding: 100px 36px; }
       <a href="#programs">កម្មវិធីសិក្សា</a>
       <a href="#about">អំពីយើង</a>
       <a href="#contact">ទំនាក់ទំនង</a>
-      <a href="second.html" class="login-btn" onclick="openLogin(event)">ចូលប្រព័ន្ធ</a>
+      <a href="dashboard.php" class="login-btn" onclick="openLogin(event)">ចូលប្រព័ន្ធ</a>
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span class="toggle-icon-moon">🌙</span>
+        <span class="toggle-icon-sun">☀️</span>
+        <div class="toggle-thumb" id="toggleThumb">
+          <span id="toggleEmoji">🌙</span>
+        </div>
+      </button>
     </div>
   </div>
 </nav>
@@ -540,10 +710,10 @@ section { padding: 100px 36px; }
       <h1>កសាងអនាគត<br><em>បណ្តុះភាព</em><br>ជាអ្នកដឹកនាំ</h1>
       <p>សាលារៀនអន្តរជាតិ MG ផ្តល់នូវការអប់រំប្រកបដោយគុណភាពខ្ពស់ ដើម្បីបណ្តុះបណ្តាលសិស្សានុសិស្សឱ្យក្លាយជាពលរដ្ឋសកលលោក ប្រកបដោយភាពច្នៃប្រឌិត និងសុជីវធម៌។</p>
       <div class="hero-buttons">
-        <button class="btn-primary" onclick="openLogin(event)">
+        <a href="dashboard.php"><button class="btn-primary" onclick="openLogin(event)">
           <i data-lucide="log-in" style="width:17px;height:17px"></i>ចូលប្រព័ន្ធ
-        </button>
-        <a href="#programs" class="btn-outline">
+        </button></a>
+        <a href="dashboard.html" class="btn-outline">
           <i data-lucide="book-open" style="width:17px;height:17px"></i>កម្មវិធីសិក្សា
         </a>
       </div>
@@ -888,6 +1058,29 @@ document.getElementById('loginOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeLogin();
 });
 */
+// ── DARK / LIGHT MODE ──
+function toggleTheme() {
+  const body = document.body;
+  const isLight = body.classList.toggle('light-mode');
+  localStorage.setItem('mgTheme', isLight ? 'light' : 'dark');
+  updateToggleUI(isLight);
+}
+
+function updateToggleUI(isLight) {
+  const emoji = document.getElementById('toggleEmoji');
+  if (emoji) emoji.textContent = isLight ? '☀️' : '🌙';
+}
+
+// Load saved theme on page load
+(function() {
+  const saved = localStorage.getItem('mgTheme');
+  if (saved === 'light') {
+    document.body.classList.add('light-mode');
+    // Update emoji after lucide loads
+    window.addEventListener('load', () => updateToggleUI(true));
+  }
+})();
+
 function doLogin() {
   const user = document.getElementById('l-user').value.trim();
   const pass = document.getElementById('l-pass').value;
